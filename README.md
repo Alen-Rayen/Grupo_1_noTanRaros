@@ -7,3 +7,6 @@
 
 ## **Link de Trello:**
 [Grupo 1 Trello](https://trello.com/b/65K7EnRa/grupo1-c12)
+
+## **Logo:**
+![](https://ibb.co/0Dzhtx6)
