@@ -10,3 +10,5 @@
 
 ## **Logo:**
 ![](https://i.ibb.co/GxrcTq8/69911097-127618675249331-5814683113673981952-n.png)
+## **Paleta de Colores:**
+![](https://i.ibb.co/DDBrt48/palette.png)
