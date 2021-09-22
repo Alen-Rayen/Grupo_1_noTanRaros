@@ -9,4 +9,4 @@
 [Grupo 1 Trello](https://trello.com/b/65K7EnRa/grupo1-c12)
 
 ## **Logo:**
-![](https://ibb.co/0Dzhtx6)
+![](https://i.ibb.co/GxrcTq8/69911097-127618675249331-5814683113673981952-n.png)
