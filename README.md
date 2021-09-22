@@ -1,7 +1,7 @@
 # NoTanRaros
 ## **Temática del Marketplace:**
 
-* Los productos que brindaremos serán indumentarias y accesorios de diversas franquicias conocidas de la cultura pop(Series, Peliculas, Videojuegos, etc).
+* Los productos que nos encargaremos de brindar serán indumentarias y accesoriosrelacionados con diversas franquicias conocidas de la cultura pop(Tanto Series, Peliculas, Videojuegos, etc.) Y ayudar a expandir la culura geek en el pais.
 
 * Nuestra audiencia objetivo será el publico seguidor de series, animes , videojuegos, etc. Estadisticamente el grueso del publico serán jovenes asi que intentaremos llegar a dicho publico mediante precios accesibles para los jovenes.
 
