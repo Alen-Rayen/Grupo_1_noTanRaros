@@ -2,6 +2,7 @@
 
 ## Temática del Marketplace:
 * La temática del eCommerce, así como los productos que esta brindará a los clientes, se centrará en indumentaria y accesorios de diversas franquicias destacadas en la cultura pop como pueden ser animes, películas, videojuegos o series, etc. y asi poder brindar productos de calidad a consumidores de un mercado que se expande en el país.
+## Público Objetivo:
 * Nuestra audiencia o público objetivo sera el propio público de estas franquicias. Como estadisticamente el grueso de este público son jóvenes intentaremos llegar a dicho publico mediante precios accesibles y productos de calidad.
 
 ## **Link de Trello:**
