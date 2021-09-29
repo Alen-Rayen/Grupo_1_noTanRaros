@@ -6,7 +6,8 @@
 * Nuestra audiencia o público objetivo sera el propio público de estas franquicias. Como estadisticamente el grueso de este público son jóvenes intentaremos llegar a dicho publico mediante precios accesibles y productos de calidad.
 
 ## Presentacion del Equipo:
-*
+* Jose Diaz:
+    Me llamo Jose Diaz tengo 20 años, las cosas que me gustan son el anime, dormir y la programación.
 
 *
 
