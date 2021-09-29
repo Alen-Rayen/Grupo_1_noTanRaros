@@ -5,6 +5,23 @@
 ## Público Objetivo:
 * Nuestra audiencia o público objetivo sera el propio público de estas franquicias. Como estadisticamente el grueso de este público son jóvenes intentaremos llegar a dicho publico mediante precios accesibles y productos de calidad.
 
+## Presentacion del Equipo:
+*
+
+*
+
+*
+
+*
+
+## Sitios de Referencia:
+*
+
+*
+
+*
+
+*
 ## **Link de Trello:**
 [Grupo 1 Trello](https://trello.com/b/65K7EnRa/grupo1-c12)
 
