@@ -7,7 +7,8 @@
 
 ## Presentacion del Equipo:
 * Jose Diaz:
-    Me llamo Jose Diaz tengo 20 años, las cosas que me gustan son el anime, dormir y la programación.
+
+Me llamo Jose Diaz tengo 20 años, las cosas que me gustan son el anime, dormir y la programación.
 
 *
 
