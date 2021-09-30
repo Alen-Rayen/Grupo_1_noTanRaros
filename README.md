@@ -12,7 +12,7 @@ https://www.mercadolibre.com.ar: (El diseño del carrito esta en parte inspirado
 
 https://www.grafizona.com.ar: (El diseño del home, la manera en que dividen los tipos de productos)
 
-https://gearanime.com: (El diseño simple del header y el footer)
+https://gearanime.com: (El diseño simple del header y el footer. La seccion de animes con mas favoritos.)
 
 https://www.kaomoji.co: (El banner animado del inicio nos parece una buena idea)
 
