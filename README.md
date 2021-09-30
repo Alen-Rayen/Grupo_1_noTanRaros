@@ -5,6 +5,18 @@
 ## Público Objetivo:
 * Nuestra audiencia o público objetivo sera el propio público de estas franquicias. Como estadisticamente el grueso de este público son jóvenes intentaremos llegar a dicho publico mediante precios accesibles y productos de calidad.
 
+## Sitios de Referencia:
+https://www.nike.com/ar/: (El diseño simple del sitio, User friendly)
+
+https://www.mercadolibre.com.ar: (El diseño del carrito esta en parte inspirado por el de MercadoLibre por su simpleza y facilidad de usar)
+
+https://www.grafizona.com.ar: (El diseño del home, la manera en que dividen los tipos de productos)
+
+https://gearanime.com: (El diseño simple del header y el footer)
+
+https://www.kaomoji.co: (El banner animado del inicio nos parece una buena idea)
+
+
 ## Presentacion del Equipo:
 * Jose Diaz:
 	Me llamo Jose Diaz tengo 20 años, las cosas que me gustan son el anime, dormir y la programación.
@@ -18,13 +30,6 @@ Soy Paillalef Alen tengo 20 años, me gusta dibujar, tocar música, el anime y p
 * Franco Formigo:
 Me llamo Franco Formigo, tengo 21 años, actualmente estudio programacion web full stack, ademas de programar me gusta leer y tocar instrumentos.
 
-*
-
-*
-
-*
-
-*
 ## **Link de Trello:**
 [Grupo 1 Trello](https://trello.com/b/65K7EnRa/grupo1-c12)
 
