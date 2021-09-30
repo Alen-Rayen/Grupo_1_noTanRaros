@@ -7,14 +7,17 @@
 
 ## Presentacion del Equipo:
 * Jose Diaz:
-Me llamo Jose Diaz tengo 20 años, las cosas que me gustan son el anime, dormir y la programación.
+	Me llamo Jose Diaz tengo 20 años, las cosas que me gustan son el anime, dormir y la programación.
+	
 * Dayhana Benitez:
 Me llamo Dayhana Benitez tengo 21 años, las cosas que me gustan son la programación y la repostería
+
 * Alen Paillalef:
 Soy Paillalef Alen tengo 20 años, me gusta dibujar, tocar música, el anime y programar.
+
 * Franco Formigo:
 Me llamo Franco Formigo, tengo 21 años, actualmente estudio programacion web full stack, ademas de programar me gusta leer y tocar instrumentos.
-## Sitios de Referencia:
+
 *
 
 *
