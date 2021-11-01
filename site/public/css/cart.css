@@ -42,7 +42,7 @@ top: 0px;
 
  /* IMAGENES */
 
- article img {
+ .cart-product img {
     width: 100px;
     padding-left: 10px;
     padding-top: 30px;
