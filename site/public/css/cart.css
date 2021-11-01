@@ -47,13 +47,13 @@ top: 0px;
 
  /* IMAGENES */
 
- article img {
+ .product-container img {
     width: 110px;
     padding-left: 10px;
     padding-top: 25px;
  }
 
- article h2 {
+ .product-container h2 {
     padding-left: 7%;
     font-size: 14px;
     padding-top: 20px;
@@ -80,7 +80,7 @@ section div input {
      background-color: #e2e2e2;
  }
 
- article h3 {
+ .product-container h3 {
    
     position: absolute;
     margin-left: 82%;

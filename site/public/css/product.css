@@ -99,7 +99,7 @@ small {
     font-size: 14wpx;
 }
 
-.precio {
+.precio-producto {
     margin: 20px auto;
 }
 
@@ -224,7 +224,7 @@ button:active {
         font-size: 20px;
     }
 
-    .precio h2 {
+    .precio-producto h2 {
         font-size: 30px;
     }
 
@@ -289,7 +289,7 @@ button:active {
         font-size: 20px;
     }
     
-    .precio {
+    .precio-producto {
         font-size: 30px;
     }
 
