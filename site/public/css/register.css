@@ -139,16 +139,22 @@ label {
     padding: 6px;
 }
 
-@media screen and (min-width: 768px ){
+@media screen and (min-width: 360px ){
     .input {
         width: 90%;
     }
     .form {
        width: 75%;
     }
+    label {
+        margin-left: 0;
+    }
+    input.input {
+        margin-left: 0;
+    }
 }
 
-@media screen and (min-width: 1024px ){
+/* @media screen and (min-width: 1024px ){
     .input {
         width: 85%;
     }
@@ -156,4 +162,4 @@ label {
         width: 70%;
     }
 
-}
+} */
