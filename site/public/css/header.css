@@ -62,7 +62,7 @@ header nav ul li input {
     border-radius: 20px;
     border: solid 1px black;
     margin: 10px auto;
-    color: lightgray;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     letter-spacing: 0.05em;
 }
