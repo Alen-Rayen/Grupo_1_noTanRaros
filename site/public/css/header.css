@@ -1,5 +1,9 @@
 /* Header */
 
+main {
+    padding-top: 71px;
+}
+
 header.menu {
     height: 70px;
     background-color: #222222;
