@@ -1,8 +1,13 @@
 /* Carrito de compras */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    font-family: 'Font Awesome 5 Free';
 }
 
 
@@ -27,12 +32,12 @@ top: 0px;
 .search-bar{
     display: inline-block;
     position: absolute;
-    margin-left: 50px;
+    margin-left: 35px;
     top: 15px;
     left: 40px;
 }
 .boton-buscar {
-    margin-left: 280px;
+    margin-left: 277px;
     position: absolute;
     display: inline-block;
     top: 15px;
@@ -43,9 +48,9 @@ top: 0px;
  /* IMAGENES */
 
  article img {
-    width: 100px;
+    width: 110px;
     padding-left: 10px;
-    padding-top: 30px;
+    padding-top: 25px;
  }
 
  article h2 {
@@ -64,18 +69,66 @@ top: 0px;
  }
 
  .contador {
-   padding-left: 10rem;
+   padding-left: 50%;
    position: absolute;
     margin-top: -3rem;
  }
  
-div input {
+section div input {
      text-align: center;
+     border-radius: 7px;
+     background-color: #e2e2e2;
  }
 
  article h3 {
    
     position: absolute;
-    margin-left: 21rem;
+    margin-left: 82%;
     margin-top: -65px;
  }
+
+ .boton-compra {
+     width: 110px;
+     height: 35px;
+     background-color: #720d0dee;
+     border-radius: 20px;
+     margin-left: 15px;
+     margin-top: 30px;
+     text-align: center;
+ }
+
+ body div.boton-compra p {
+   /*  position: absolute; */
+    top: 200%;
+    margin-left: 2px;
+    font-size: larger;
+    font-family: sans-serif;
+    color: #ffff;
+    line-height: 34px;
+ }
+
+body div.total {
+    position: absolute;
+    margin-left: 83%;
+    margin-top: -34px;
+}
+
+
+body div.total p{
+    text-align: center;
+}
+
+
+hr {
+    width: 100%;
+    color: #e2e2e2e2;
+    opacity: 30%;
+}
+
+nav hr.linea-sup {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(
+    58deg, black, transparent);
+    margin-top: -25px;
+}
