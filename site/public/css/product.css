@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 71px;
+}
+
+.main-photo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ruta {
+    width: 100%;
+    padding: 20px;
+    background-color: rgb(138, 138, 138);
+}
+
+.ruta ul {
+    display: inline-block;
+}
+
+.ruta ul li {
+display: inline-block;
+}
+
+.ruta ul li a {
+    color: black;
+    text-decoration: underline;
+}
+
+.card {
+    width: 90%;
+    
+    background-color: #fff;
+    margin: 20px auto;
+}
+
+.card hr {
+    color: grey;
+    margin: 10px auto;
+}
+
+.photo-1 {
+    width: 100%;
+    box-shadow: 5px 5px 10px rgb(100, 100, 100);
+}
+
+.photos {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.photos img {
+    width: 22%;
+    box-shadow: 5px 5px 10px rgb(100, 100, 100);
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    margin: 20px auto;
+}
+
+.product-name {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.stock {
+    color: green;
+    flex-grow: 0.3;
+}
+
+.stars {
+    
+    color: rgba(245, 163, 10, 0.8);
+}
+
+small {
+    font-size: 14px;
+}
+
+.fa-star {
+    font-size: 14wpx;
+}
+
+.precio {
+    margin: 20px auto;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin: 15px auto;
+    width: 100%;
+}
+
+
+
+.input-select{
+    margin: 10px auto;
+    width: 100%;
+    padding: 10px;
+    border: solid 2px black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cantidad {
+    margin: 10px auto;
+}
+
+.opciones-compra {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+
+.opciones-compra button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 6px;
+    width: 120px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.opciones-compra button:nth-child(1) {
+    margin-right: 15px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(216, 64, 64);
+    border: solid 2px black;
+}
+
+
+.opciones-compra button:nth-child(2) {
+    margin-left: 15px;
+    background-color: black;
+    border: solid 2px rgb(129, 129, 129);
+    color: white;
+}
+
+.descripcion {
+    border: solid 2px gray;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+
+.titulo-descripcion {
+    margin: 15px auto;
+    font-size: 20px;
+}
+
+.texto-descripcion {
+    margin: 15px auto;
+    line-height: 22px;
+}
+
+
+
+
+
+@media (min-width: 768px) {
+
+    body {
+        background-color: rgb(173, 173, 173);
+    }
+
+    .card {
+        padding: 20px;
+        width: 70%;
+        border: solid black 1px;
+        border-radius: 5px;
+    }
+
+    .titulo-descripcion {
+        margin: 15px auto;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    .texto-descripcion {
+        margin: 15px auto;
+        line-height: 22px;
+    }
+
+    
+}
+
+@media (min-width: 1024px) {
+
+    .card {
+        width: 70%;
+    }
+    .stock {
+        font-size: 20px;
+    }
+
+    .stars {
+        font-size: 20px;
+    }
+
+    .precio h2 {
+        font-size: 30px;
+    }
+
+    label.talle {
+        font-size: 20px;
+    }
+
+    label.cantidad {
+        font-size: 20px;
+    }
+
+    .input-select {
+        font-size: 20px;
+    }
+
+    .titulo-descripcion {
+        margin: 15px auto;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    
+    .texto-descripcion {
+        margin: 15px auto;
+        line-height: 38px;
+        font-size: 20px;
+    }
+
+    .opciones-compra button {
+        width: 200px;
+        padding: 20px;
+    }
+
+}
+
+@media (min-width: 1440px) {
+
+    
+    
+    .ruta {
+        font-size: 22px;
+    }
+    
+    .card {
+        width: 40%;
+    }
+    
+    .photo-1 {
+        width: 80%;
+        
+    }
+    
+    
+    .product-name {
+        font-size: 38px;
+    }
+    
+    .product-info {
+        font-size: 20px;
+    }
+    
+    .product-info small {
+        font-size: 20px;
+    }
+    
+    .precio {
+        font-size: 30px;
+    }
+
+    .input-select {
+        padding: 15px 0;
+        font-size: 20px;
+    }
+
+    .opciones-compra button {
+        padding: 15px 0;
+        font-size: 20px;
+    }
+
+    
+    
+    
+    .input-container label {
+        font-size: 20px;
+    }
+    
+    .texto-descripcion {
+        font-size: 20px;
+        line-height: 36px;
+    }
+    
+}
