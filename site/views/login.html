@@ -5,38 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>login</title>
     <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
-    <div class="form">
-        <h2>Iniciar sesión</h2>
+    <div class="container">
+        <div class="form">
+            <h2>Iniciar sesión</h2>
 
-        <form action="">
-            <div class="form-container">
-                <div class="containers">
-                    <label for="">Correo electrónico</label>
-                    <input class="input" type="email" name="email" id="email"
-                        placeholder="Ingrese su correo electrónico">
-                    <span class="error-message">Debe ingresar tu correo</span>
-                    <label for="">Contraseña</label>
-                    <input class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
-                    <span class="error-message">Ingrese la contraseña</span>
-                    <div class="check">
-                        <label for="terns">Mantener la sesión</label>
-                        <input type="checkbox" name="terms" id="terms">
+            <form action="">
+                <div class="form-container">
+                    <div class="containers">
+                        <label for="">Correo electrónico</label>
+                        <input class="input" type="email" name="email" id="email"
+                            placeholder="Ingrese su correo electrónico">
+                        <span class="error-message">Debe ingresar tu correo</span>
+                        <label for="">Contraseña</label>
+                        <input class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
+                        <span class="error-message">Ingrese la contraseña</span>
+                        <div class="check">
+                            <label for="terns">Mantener la sesión</label>
+                            <input type="checkbox" name="terms" id="terms">
+                        </div>
+                        <div class="button">
+                            <span class="error-message">Hubo errores en el envio</span>
+                            <button type="submit" class="button button-submit">Iniciar sesión</button>
+                        </div>
                     </div>
-                    <div class="button">
-                        <span class="error-message">Hubo errores en el envio</span>
-                        <button type="submit" class="button button-submit">Iniciar sesión</button>
-                    </div>
+                    <span><a href="">¿Olvidaste tu contraseña?</a></span>
+                    <label for="">Aún no te has registrado</label>
+                    <span><a href="/register">Registrate</a></span>
                 </div>
-                <span><a href="">¿Olvidaste tu contraseña?</a></span>
-                <label for="">Aún no te has registrado</label>
-                <span><a href="register.html">Registrate</a></span>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </body>
 
