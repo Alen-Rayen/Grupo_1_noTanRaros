@@ -185,7 +185,7 @@ button:active {
 
 @media (min-width: 768px) {
 
-    body {
+    .body {
         background-color: rgb(173, 173, 173);
     }
 
