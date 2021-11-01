@@ -1,0 +1,161 @@
+/* Header */
+
+header.menu {
+    height: 70px;
+    background-color: #222222;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+}
+
+.menu-wrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.logo-img {
+    height: 56px;
+}
+
+.menu-icon {
+    font-size: 2.4em;
+    color: white;
+    line-height: 50px;
+}
+
+header nav {
+    position: absolute;
+    background-color: #3d3d3d;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+header nav ul {
+    list-style-type: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header nav ul li {
+    padding: 0 15px;
+    text-transform: uppercase;
+}
+
+header nav ul li a {
+    display: inline-block;
+    padding: 12px;
+    color: lightgray;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+}
+
+header nav ul li input {
+    display: inline-block;
+    padding: 8px;
+    border-radius: 20px;
+    border: solid 1px black;
+    margin: 10px auto;
+    color: lightgray;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+}
+
+header nav ul li p {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+nav ul li a:hover, nav ul li a:focus {
+    color: #ececec;
+}
+
+#checkbox {
+    display: none;
+}
+
+#checkbox:checked ~ nav ul {
+    max-height: 375px;
+    padding: 15px;
+    transition: all 0.5s;
+}
+
+@media (min-width: 1024px) {
+    .menu-icon {
+        display: none;
+    }
+
+    header nav {
+        position: relative;
+        top: -10px;
+        background-color: transparent;
+        border: none;
+    }
+
+    .menu {
+        border-bottom: 2px solid black;
+    }
+
+    header nav ul {
+        max-height: 70px;
+        padding: 15px 0;
+        text-align: right;
+        flex-direction: row;
+        font-size: 15px;
+        justify-content: flex-end;
+    }
+
+    header nav ul li {
+        display: inline-flex;
+        padding-left: 20px;
+    }
+
+    header nav ul li i {
+        color: lightgray;
+        font-size: 20px;
+    }
+
+    header nav ul li input {
+        width: 150px;
+    }
+
+    header nav ul li p {
+        display: none;
+    }
+
+}
+
+
+@media (min-width: 1440px) { 
+
+    header nav ul {
+        max-height: 70px;
+        padding: 15px 0;
+        text-align: right;
+        flex-direction: row;
+        font-size: 22px;
+        justify-content: flex-end;
+    }
+
+    header nav ul li {
+        display: inline-flex;
+        padding-left: 20px;
+    }
+
+    header nav ul li i {
+        color: lightgray;
+        font-size: 24px;
+    }
+
+    header nav ul li input {
+        width: 250px;
+        font-size: 20px;
+    }
+
+}
