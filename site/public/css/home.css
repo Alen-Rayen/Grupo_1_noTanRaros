@@ -220,7 +220,12 @@ hr {
     
 
     .destacada {
-        width: 20%;
+        width: 22%;
+    }
+
+    .foto-destacada {
+        width: 100%;
+        padding: 10px;
     }
 
     .main-home {
