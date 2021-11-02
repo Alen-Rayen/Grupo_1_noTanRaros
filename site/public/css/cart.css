@@ -7,45 +7,26 @@
 }
 
 body {
-    font-family: 'Font Awesome 5 Free';
+    font-family: 'Roboto';
+    background: #bdc3c7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 
-header {
-    background-color: #E80308;
-    height: 50px;
-}
 
-header .logo img{
-    width: 50px;
-    height: 10%;
-    margin: 0px;
-    margin-left: 11px;
-}
-
-
-.logo {  
-position: relative;
-top: 0px;
-}
-
-.search-bar{
-    display: inline-block;
-    position: absolute;
-    margin-left: 35px;
-    top: 15px;
-    left: 40px;
-}
-.boton-buscar {
-    margin-left: 277px;
-    position: absolute;
-    display: inline-block;
-    top: 15px;
-}
 
 
 
  /* IMAGENES */
+
+ .cart-main {
+     padding-bottom: 1200px;
+ }
+
+ .product-container {
+     background-color: gray;
+ }
 
  .product-container img {
     width: 110px;

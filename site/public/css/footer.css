@@ -1,13 +1,17 @@
+
+
+
 .main-footer {
     width: 100%;
     background-color: #2E2E2E;
     border-radius: 15px 15px 0px 0px;
     border-top: rgb(146, 146, 146) solid 4px;
+    margin-top: 60px;
 }
 
 
 
-footer .container {
+footer .footer-container {
     display: flex;
     flex-direction: column;
     
@@ -69,7 +73,7 @@ footer .container {
 }
 
 @media (min-width: 768px) {
-    footer .container {
+    footer .footer-container {
         flex-direction: row;
     }
 
@@ -91,7 +95,7 @@ footer .container {
 /*
 
 <footer class="main-footer">
-        <div class="container">
+        <div class="footer-container">
             <div class="footer-1">
                 <h2>©2021 NoTanRaros</h2>
                 <div>

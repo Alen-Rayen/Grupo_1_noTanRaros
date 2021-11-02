@@ -3,15 +3,30 @@
     padding: 0;
     margin: 0;
 }
-.container {
+
+.register-main {
+    padding-bottom: 1200px;
+    padding-top: 150px;
+}
+
+.register-body{ 
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.register-container {
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
     /* width: 100%; */
-    padding: 6rem 1rem;
+    
     background: #bdc3c7;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .form  {
@@ -27,7 +42,7 @@
 
 }
 
-h2 {    
+.register-body h2 {    
     text-align: center;
     margin-bottom: 1rem;
 
@@ -41,7 +56,7 @@ h2 {
     width: 100%;
 }
 
-a {
+.form-container a {
     color: cornflowerblue;
     font-size: .8rem;
     text-decoration: none;
@@ -56,6 +71,8 @@ a {
     flex-direction: column;
     margin: 2rem;
     width: 50%;
+    align-items: center;
+    justify-content: center;
 }
 
 .containers {
@@ -84,7 +101,7 @@ input.input {
     border-radius: 1rem;
     height: 2.5rem;
     padding: .5rem;
-    margin-left: 1.5rem;
+    
 }
 
 input.input:focus {
@@ -95,9 +112,9 @@ input.input::placeholder {
     color: lightgray;
 }
 
-label {
+.register-body label {
     font-size: 15px;
-    margin-left: 1.5rem;
+    
 }
 
 .check {

@@ -5,41 +5,101 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <title>Product | NoTanRaros</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="form">
-            <h2>Iniciar sesión</h2>
+<body class="login-body">
 
-            <form action="">
-                <div class="form-container">
-                    <div class="containers">
-                        <label for="">Correo electrónico</label>
-                        <input class="input" type="email" name="email" id="email"
-                            placeholder="Ingrese su correo electrónico">
-                        <span class="error-message">Debe ingresar tu correo</span>
-                        <label for="">Contraseña</label>
-                        <input class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
-                        <span class="error-message">Ingrese la contraseña</span>
-                        <div class="check">
-                            <label for="terns">Mantener la sesión</label>
-                            <input type="checkbox" name="terms" id="terms">
-                        </div>
-                        <div class="button">
-                            <span class="error-message">Hubo errores en el envio</span>
-                            <button type="submit" class="button button-submit">Iniciar sesión</button>
-                        </div>
+    <header class="menu">
+        <div class="menu-wrap">
+            <a href="/">
+            <img src="images/logo.png" alt="logo" class="logo-img">
+            </a>
+            <input type="checkbox" id="checkbox">
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Series</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#"><i class="fas fa-sign-in-alt"></i><p>Iniciar Sesion</p></a></li>
+                    <li><a href="#"><i class="far fa-user-circle"></i><p>Mi Perfil</p></a></li>
+                    <li><a href="#"><i class="fas fa-shopping-basket"></i><p>Mis Compras</p></a></li>
+                    <li><input type="search" class="search" id="search" placeholder="Buscar..."></li>
+                </ul>
+            </nav>
+            <label for="checkbox">
+                <i class="fa fa-bars menu-icon"></i>
+            </label>
+        </div>
+    </header>
+
+<main class="login-main">
+
+    <div class="form">
+        <h2>Iniciar sesión</h2>
+
+        <form action="">
+            <div class="form-container">
+                <div class="containers">
+                    <label for="">Correo electrónico</label>
+                    <input class="input" type="email" name="email" id="email"
+                        placeholder="Ingrese su correo electrónico">
+                    <span class="error-message">Debe ingresar tu correo</span>
+                    <label for="">Contraseña</label>
+                    <input class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
+                    <span class="error-message">Ingrese la contraseña</span>
+                    <div class="check">
+                        <label for="terns">Mantener la sesión</label>
+                        <input type="checkbox" name="terms" id="terms">
                     </div>
-                    <span><a href="">¿Olvidaste tu contraseña?</a></span>
-                    <label for="">Aún no te has registrado</label>
-                    <span><a href="/register">Registrate</a></span>
+                    <div class="button">
+                        <span class="error-message">Hubo errores en el envio</span>
+                        <button type="submit" class="button button-submit">Iniciar sesión</button>
+                    </div>
                 </div>
-            </form>
+                <span><a href="">¿Olvidaste tu contraseña?</a></span>
+                <label for="">Aún no te has registrado</label>
+                <span><a href="register.html">Registrate</a></span>
+            </div>
+        </form>
+    </div>
+
+</main>
+
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-1">
+            <h2>©2021 NoTanRaros</h2>
+            <div>
+                <a href="">Home | </a>
+                <a href="">Productos | </a>
+                <a href="">Series | </a>
+                <a href="">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-2">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-amex"></i>
+        </div>
+        <div class="footer-3">
+            <a href="#"><i class="fab fa-facebook-square"></i></a>
+            <a href="#"><i class="fab fa-instagram-square"></i></a>
+            <a href="#"><i class="fab fa-reddit-square"></i></a>
+            <a href="#"><i class="fab fa-whatsapp-square"></i></a>
         </div>
     </div>
+</footer>
+
+
 </body>
 
 </html>

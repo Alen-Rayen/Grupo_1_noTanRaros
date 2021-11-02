@@ -4,6 +4,10 @@ main {
     padding-top: 71px;
 }
 
+header {
+    z-index: 1;
+}
+
 header.menu {
     height: 70px;
     background-color: #222222;
@@ -76,7 +80,7 @@ header nav ul li p {
     margin-left: 5px;
 }
 
-nav ul li a:hover, nav ul li a:focus {
+header nav ul li a:hover, nav ul li a:focus {
     color: #ececec;
 }
 
