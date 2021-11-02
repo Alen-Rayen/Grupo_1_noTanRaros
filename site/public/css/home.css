@@ -29,6 +29,11 @@ hr {
     margin: 10px auto;
 }
 
+.ofertas-home a {
+    text-decoration: none;
+    color: black;
+}
+
 .oferta {
     margin: 20px auto;
     display: flex;
