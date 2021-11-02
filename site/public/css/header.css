@@ -147,7 +147,7 @@ header nav ul li a:hover, nav ul li a:focus {
         padding: 15px 0;
         text-align: right;
         flex-direction: row;
-        font-size: 22px;
+        font-size: 16px;
         justify-content: flex-end;
     }
 

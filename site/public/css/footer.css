@@ -1,4 +1,8 @@
-
+footer {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
 
 
 .main-footer {
@@ -88,6 +92,7 @@ footer .footer-container {
         padding: 10px;
     }
 }
+
 
 
 /* HTML FOOTER */
