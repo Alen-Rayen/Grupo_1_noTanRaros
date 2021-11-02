@@ -43,6 +43,7 @@ display: inline-block;
     background-color: #fff;
     margin: 20px auto;
     padding: 10px;
+    border-radius: 5px;
 }
 
 .card hr {
@@ -254,7 +255,7 @@ button:active {
     
     .texto-descripcion {
         margin: 15px auto;
-        line-height: 38px;
+        line-height: 34px;
         font-size: 20px;
     }
 
