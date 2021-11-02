@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-home {
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    
+}
+
+.main-home .banner-container {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.main-home .banner-container img {
+    width: 100%;
+}
+
+hr {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.oferta {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    border: solid 1px lightgray;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.titulo-ofertas {
+    margin: 10px auto;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.ofertas-home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.foto-oferta {
+    width: 260px;
+    height: 260px;
+    margin: 10px auto;
+    margin-top: 20px;
+}
+
+.datos-oferta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.titulo-oferta {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 22px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.precio-oferta {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 26px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.datos-oferta span {
+    margin: 10px auto;
+    color: #F7B53B;
+}
+
+.series-destacadas a {
+    text-decoration: none;
+    color: black;
+}
+
+.series-destacadas {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titulo-destacadas {
+    margin: 10px auto;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.destacada {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    border: solid 1px lightgray;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.foto-destacada {
+    width: 260px;
+    height: 260px;
+    margin: 10px auto;
+    margin-top: 20px;
+}
+
+.titulo-serie {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 22px;
+    text-align: center;
+    margin: 10px auto;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    
+    .ofertas-home {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .oferta {
+        width: 40%;
+        -webkit-transition:all .9s ease; 
+        -moz-transition:all .9s ease; 
+        -o-transition:all .9s ease; 
+        -ms-transition:all .9s ease;
+    }
+
+    .oferta:hover {
+        -webkit-transform:scale(1.25);
+        -moz-transform:scale(1.25);
+        -ms-transform:scale(1.25);
+        -o-transform:scale(1.25);
+        transform:scale(1.25);
+    }
+
+    .series-destacadas {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .destacada {
+        width: 40%;
+        -webkit-transition:all .9s ease; 
+        -moz-transition:all .9s ease; 
+        -o-transition:all .9s ease; 
+        -ms-transition:all .9s ease;
+    }
+
+    .destacada:hover {
+        -webkit-transform:scale(1.25);
+        -moz-transform:scale(1.25);
+        -ms-transform:scale(1.25);
+        -o-transform:scale(1.25);
+        transform:scale(1.25);
+    }
+}
+
+@media (min-width: 1440px) {
+
+    .ofertas-home {
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 10px;
+        
+    }
+
+    .foto-oferta {
+        width: 100%;
+    }
+
+    .oferta {
+        width: 21%;
+       
+    }
+
+    
+
+    .destacada {
+        width: 20%;
+    }
+
+    .main-home {
+        width: 80%;
+    }
+}
