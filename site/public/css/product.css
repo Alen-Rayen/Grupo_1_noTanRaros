@@ -256,7 +256,7 @@ button:active {
     .texto-descripcion {
         margin: 15px auto;
         line-height: 34px;
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .opciones-compra button {
@@ -318,8 +318,9 @@ button:active {
     }
     
     .texto-descripcion {
-        font-size: 20px;
-        line-height: 36px;
+        font-size: 22px;
+        line-height: 32px;
+        padding: 20px;
     }
     
 }
