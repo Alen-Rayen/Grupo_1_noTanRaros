@@ -16,6 +16,10 @@ header.menu {
     width: 100%;
 }
 
+.fa-shopping-cart {
+    font-weight: 400;
+}
+
 .menu-wrap {
     display: flex;
     justify-content: space-between;

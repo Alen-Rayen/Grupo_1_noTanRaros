@@ -168,7 +168,9 @@ hr {
         -ms-transition:all .9s ease;
     }
 
-    
+    .titulo-oferta {
+        font-size: 16px;
+    }
 
     .series-destacadas {
         flex-direction: row;
