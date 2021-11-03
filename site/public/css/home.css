@@ -15,14 +15,17 @@
     
 }
 
+
 .main-home .banner-container {
     width: 100%;
     margin: 20px auto;
 }
 
-.main-home .banner-container img {
+.main-home .banner {
     width: 100%;
+    cursor: pointer;
 }
+
 
 hr {
     width: 90%;
@@ -150,6 +153,16 @@ hr {
     text-align: center;
     margin: 10px auto;
     margin-bottom: 20px;
+}
+
+.banner-container3 {
+    width: 100%;
+    margin: 0px auto;
+}
+
+.banner3 {
+    width: 100%;
+    cursor: pointer;
 }
 
 @media (min-width: 768px) {

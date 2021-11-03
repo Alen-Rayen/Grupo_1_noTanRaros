@@ -54,6 +54,7 @@ display: inline-block;
 .photo-1 {
     width: 100%;
     box-shadow: 5px 5px 10px rgb(100, 100, 100);
+    border-radius: 10px;
 }
 
 .photos {
@@ -67,6 +68,7 @@ display: inline-block;
 .photos img {
     width: 22%;
     box-shadow: 5px 5px 10px rgb(100, 100, 100);
+    border-radius: 10px;
 }
 
 .product-info {
@@ -169,10 +171,11 @@ button:active {
 }
 
 .descripcion {
-    border: solid 2px gray;
     padding: 10px;
-    border-radius: 5px;
     margin: 10px auto;
+    background-color: rgb(173, 173, 173);
+    border-radius: 10px;
+    
 }
 
 .titulo-descripcion {
@@ -252,6 +255,8 @@ button:active {
         font-size: 30px;
         font-weight: bold;
     }
+
+    
     
     .texto-descripcion {
         margin: 15px auto;
@@ -262,6 +267,39 @@ button:active {
     .opciones-compra button {
         width: 200px;
         padding: 20px;
+    }
+
+    img.photo-1 {
+        -webkit-transition:all .9s ease; 
+        -moz-transition:all .9s ease; 
+        -o-transition:all .9s ease; 
+        -ms-transition:all .9s ease;
+        cursor: pointer;
+        
+    }
+
+    img.photo-1:hover {
+        -webkit-transform:scale(1.25);
+        -moz-transform:scale(1.25);
+        -ms-transform:scale(1.25);
+        -o-transform:scale(1.25);
+        transform:scale(1.25);
+    }
+
+    .photos img {
+        -webkit-transition:all .9s ease; 
+        -moz-transition:all .9s ease; 
+        -o-transition:all .9s ease; 
+        -ms-transition:all .9s ease;
+        cursor: pointer;
+    }
+
+    .photos img:hover {
+        -webkit-transform:scale(2.25);
+        -moz-transform:scale(2.25);
+        -ms-transform:scale(2.25);
+        -o-transform:scale(2.25);
+        transform:scale(2.25);
     }
 
 }
