@@ -26,34 +26,53 @@ body {
  }
 
  .product-container {
-     background-color: gray;
+     background-color:#efefef52;
  }
 
  .product-container img {
     width: 110px;
     padding-left: 10px;
-    padding-top: 25px;
+    padding-top: 20px;
+    padding-bottom: 15px;
  }
 
  .product-container h2 {
-    padding-left: 7%;
+    padding-left: 3%;
     font-size: 14px;
     padding-top: 20px;
     display: inline-block;
     vertical-align: top
  }
+article.total-container {
+    background-color: lightgrey;
+}
 
- section nav h1{
-    display: inline-flex;
-    padding: 25px;
+ section nav a{
+    display: block;
+    padding-top: 40px;
     font-size: 18px;
-    padding-left: 15%;
+    padding-left: 5px;
+    text-decoration: none;
+    color: #fffdfdbf;
+    border-bottom: 3px solid transparent;
+    float: left;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    border-radius: 9px;
+    width: 155px;
+    text-align: center;
+    transition: 0.5s;
  }
+
+ section nav a:hover {
+     border-bottom: 3px solid #af8ee3ad;
+ }
+
 
  .contador {
    padding-left: 50%;
    position: absolute;
-    margin-top: -3rem;
+    margin-top: -40px;
  }
  
 section div input {
@@ -65,18 +84,19 @@ section div input {
  .product-container h3 {
    
     position: absolute;
-    margin-left: 82%;
-    margin-top: -65px;
+    margin-left: 75%;
+    margin-top: -40px;
  }
 
  .boton-compra {
-     width: 110px;
-     height: 35px;
-     background-color: #720d0dee;
-     border-radius: 20px;
-     margin-left: 15px;
-     margin-top: 30px;
-     text-align: center;
+    width: 110px;
+    height: 35px;
+    background-color: #96809796;
+    border-radius: 20px;
+    margin-left: 25px;
+    margin-top: 8px;
+    text-align: center;
+    margin-bottom: 7px;
  }
 
  body div.boton-compra p {
@@ -89,14 +109,14 @@ section div input {
     line-height: 34px;
  }
 
-body div.total {
+div.total {
     position: absolute;
-    margin-left: 83%;
-    margin-top: -34px;
+    margin-left: 76%;
+    font-size: 21px;
 }
 
 
-body div.total p{
+div.total {
     text-align: center;
 }
 
@@ -108,9 +128,154 @@ body div.total p{
 }
 
 nav hr.linea-sup {
-    height: 2px;
+    height: 74px;
     width: 100%;
     background: linear-gradient(
     58deg, black, transparent);
     margin-top: -25px;
+}
+
+@media (min-width: 375px){
+    section nav a{
+        display: block;
+        padding-top: 40px;
+        font-size: 18px;
+        padding-left: 5px;
+        text-decoration: none;
+        color: #fffdfdbf;
+        border-bottom: 3px solid transparent;
+        float: left;
+        text-transform: uppercase;
+        padding-bottom: 5px;
+        border-radius: 9px;
+        width: 175px;
+        text-align: center;
+        transition: 0.5s;
+     }
+}
+
+@media (min-width: 425px) {
+    section nav a{
+        display: block;
+        padding-top: 40px;
+        font-size: 18px;
+        padding-left: 5px;
+        text-decoration: none;
+        color: #fffdfdbf;
+        border-bottom: 3px solid transparent;
+        float: left;
+        text-transform: uppercase;
+        padding-bottom: 5px;
+        border-radius: 9px;
+        width: 198px;
+        text-align: center;
+        transition: 0.5s;
+     }
+
+}
+
+
+@media (min-width: 768px) {
+
+    .contador {
+        padding-left: 63%;
+        position: absolute;
+        margin-top: -80px;
+      }
+    .product-container h3 {
+        position: absolute;
+        margin-left: 80%;
+        margin-top: -80px;
+        font-size: large;
+     }
+    
+     section div input {
+        text-align: center;
+        border-radius: 7px;
+        background-color: #e2e2e2;
+    }
+
+      .boton-compra {
+        width: 120px;
+        height: 55px;
+        background-color: #96809796;
+        border-radius: 20px;
+        margin-left: 80px;
+        margin-top: 8px;
+        text-align: center;
+        font-size: larger;
+    }
+     
+     div.total {
+         position: absolute;
+         margin-left: 80%;
+         font-size: 25px;
+     }
+     
+     
+     div.total {
+         text-align: center;
+     }
+     section nav a{
+        display: block;
+        padding-top: 40px;
+        font-size: 18px;
+        padding-left: 5px;
+        text-decoration: none;
+        color: #fffdfdbf;
+        border-bottom: 3px solid transparent;
+        float: left;
+        text-transform: uppercase;
+        padding-bottom: 5px;
+        border-radius: 9px;
+        width: 260px;
+        text-align: center;
+        transition: 0.5s;
+     }
+}
+
+
+@media (min-width: 1440px) {
+    .contador {
+        padding-left: 63%;
+        position: absolute;
+        margin-top: -77px;
+      }
+      section div input {
+        text-align: center;
+        border-radius: 10px;
+        background-color: #e2e2e2;
+        width: 60px;
+        height: 35px
+    }
+
+    .product-container h3 {
+        position: absolute;
+        margin-left: 75%;
+        margin-top: -77px;
+        font-size: 27px;
+     }
+     .product-container {
+        background-color:#efefef52;
+    }
+    div.total {
+        position: absolute;
+        margin-left: 75%;
+        font-size: 35px;
+    }
+    
+    div.total {
+        text-align: center;
+    }
+    .boton-compra {
+        width: 160px;
+        height: 70px;
+        background-color: #96809796;
+        border-radius: 20px;
+        margin-left: 80px;
+        margin-top: 8px;
+        text-align: center;
+        font-size: 30px;
+    }
+     
 }
