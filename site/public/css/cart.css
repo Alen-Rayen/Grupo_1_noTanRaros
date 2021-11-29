@@ -43,6 +43,14 @@ body {
     display: inline-block;
     vertical-align: top
  }
+ .product-container p {
+    margin-left: 70%;
+    position: absolute;
+    margin-top: -16px;
+    font-size: 11px;
+ }
+
+
 article.total-container {
     background-color: lightgrey;
 }
@@ -135,6 +143,8 @@ nav hr.linea-sup {
     margin-top: -25px;
 }
 
+
+/* Mobile M */
 @media (min-width: 375px){
     section nav a{
         display: block;
@@ -152,7 +162,16 @@ nav hr.linea-sup {
         text-align: center;
         transition: 0.5s;
      }
+
+     .product-container p {
+        margin-left: 72%;
+        position: absolute;
+        margin-top: -16px;
+        font-size: 11px;
+     }
 }
+
+/* Mobile L */
 
 @media (min-width: 425px) {
     section nav a{
@@ -174,6 +193,7 @@ nav hr.linea-sup {
 
 }
 
+/* Tablet */
 
 @media (min-width: 768px) {
 
@@ -188,6 +208,14 @@ nav hr.linea-sup {
         margin-top: -80px;
         font-size: large;
      }
+
+     .product-container p {
+        margin-left: 75%;
+        font-size: 18px;
+        position: absolute;
+        margin-top: -33px;
+     }
+    
     
      section div input {
         text-align: center;
@@ -234,6 +262,7 @@ nav hr.linea-sup {
      }
 }
 
+/* Laptop */
 
 @media (min-width: 1440px) {
     .contador {
@@ -258,6 +287,12 @@ nav hr.linea-sup {
      .product-container {
         background-color:#efefef52;
     }
+
+    .product-container p {
+        margin-left: 74%;
+        font-size: 20px;
+    }
+
     div.total {
         position: absolute;
         margin-left: 75%;
