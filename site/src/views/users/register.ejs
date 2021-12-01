@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('../partials/head.ejs') %> 
+
+<body class="register-body">
+
+    <%- include('../partials/header.ejs')  %>
+
+    <main class="register-main">
+
+    <div class="register-container">
+
+        <div class="form">
+            <h2>Registrarme</h2>
+
+            <form action="">
+                <div class="form-container">
+                    <div class="containers">
+                        <label for="">Nombre</label>
+                        <input class="input" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre">
+                        <span class="error-message">Debes ingresar un nombre</span>
+                        <label for="">Apellido</label>
+                        <input class="input" type="text" name="apellido" id="apellido"
+                            placeholder="Ingrese su apellido">
+                        <span class="error-message">Debes ingresar un apellido</span>
+                        <label for="">Correo electrónico</label>
+                        <input class="input" type="email" name="email" id="email"
+                            placeholder="Ingrese su correo electrónico">
+                        <span class="error-message">Debes ingresar tu correo electrónico</span>
+                        <label for="">Contraseña</label>
+                        <input class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
+                        <span class="error-message">Debes ingresar una contraseña</span>
+                        <label for="">Ingrese la contraseña nuevamente</label>
+                        <input class="input" type="password" name="pass" id="pass2"
+                            placeholder="Ingrese la contraseña nuevamente">
+                        <span class="error-message">Las contraseñas deben coincidir</span>
+                    </div>
+                    <div class="check">
+                        <label for="terns">Acepto los <a href="">Términos y Condiciones</a></label>
+                        <input type="checkbox" name="terms" id="terms">
+                    </div>
+                    <span class="error-message">Debes aceptar los términos</span>
+                    <div class="check">
+                        <label for="terns">Desea recibir notificaciones al correo?</label>
+                        <input type="checkbox" name="terms" id="terms">
+                    </div>
+                    <div class="button">
+                        <span class="error-message">Hubo errores en el envio</span>
+                        <button type="submit" class="button button-submit">Crear mi cuenta</button>
+                    </div>
+                    <span><a href="/users/login">Ya tengo cuenta</a></span>
+                </div>
+            </form>
+        </div>
+
+        </div>
+
+    </main>
+
+    <%- include('../partials/footer.ejs')  %> 
+
+</body>
+
+
+</html>
