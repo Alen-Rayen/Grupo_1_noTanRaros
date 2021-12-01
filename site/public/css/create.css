@@ -5,6 +5,8 @@
 .edit-main {
     padding-top: 125px;
     padding-bottom: 71px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .edit-main .form {
@@ -12,10 +14,16 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    width: 90%;
+    max-width: 700px;
 }
 
 .editButtons {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+#admin-description {
+    width: 95%;
 }

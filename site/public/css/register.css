@@ -91,7 +91,7 @@ span.error-message {
     display: flex;
     flex-direction: column;
     margin: .5rem;
-    width: 100%;
+    width: 80%;
 }
 
 input.input {
