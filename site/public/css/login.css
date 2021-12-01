@@ -79,7 +79,7 @@ span.error-message {
     font-size: 12px;
     margin: 5px auto;
     color: rgba(255, 0, 0, 0.781);
-    display: none;
+    display: inline-block;
 }
 
 .login-main .input {
