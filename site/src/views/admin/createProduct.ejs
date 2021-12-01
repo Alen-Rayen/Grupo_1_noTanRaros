@@ -4,34 +4,74 @@
 <body>
     <%- include('../partials/header') %> 
     <main class="edit-main">
-        <h3>Agregar Producto</h3>
-        <div class="form-edit">
-            <form action="">
-            <div>
-                <label for="name-admin">Nombre del producto</label>
-                <input class="input" type="text" name="name" id="name-admin">
-                <label for="admin-category">Categorias</label>
-                <select id="admin-category" class="select">
-                    <option value="------">Categoria</option>
-                    <option value="------">Categoria</option>
-                    <option value="------">Categoria</option>
-                    <option value="------">Categoria</option>
-                    <option value="------">Categoria</option>
-                    <option value="------">Categoria</option>
-                    <option value="------">Categoria</option>
-                </select>
-                <label for="color-admin">Color del producto</label>
-                <input class="input" type="text" name="color" id="color-admin">
-                <label for="product-image">Agregar Imagen</label>
-                <input class="input" type="file" name="product-image" accept="jpg">
-                <label for="admin-description">Descripcion</label>
-                <textarea name="description" id="admin-description" cols="30" rows="10"></textarea>
+        <div class="form-container">
+            <div class="form">
+                <h1 class="createProductTitle">Añadir Producto</h1>
+                <form action="" method="">
+                    <div class="form-container">
+                        <div class="containers">
+                        <label for="name-admin">Nombre del producto</label>
+                        <input class="input" type="text" name="name" id="name-admin">
+                        <label for="admin-category">Categorias</label>
+                        <select id="admin-category" class="select input">
+                            <option value="------">Seleccionar Categoria</option>
+                            <option value="------">Remeras</option>
+                            <option value="------">Buzos</option>
+                            <option value="------">Zapatillas</option>
+                            <option value="------">Pantalones</option>
+                            <option value="------">Camperas</option>
+                            <option value="------">Medias</option>
+                            <option value="------">Accesorios</option>
+                        </select>
+                        <label for="serie-category">Serie</label>
+                        <select id="serie-category" class="select input">
+                            <option value="------">Seleccionar Serie</option>
+                            <option value="------">Naruto</option>
+                            <option value="------">DragonBall</option>
+                            <option value="------">Hunter X Hunter</option>
+                            <option value="------">Attack on Titan</option>
+                            <option value="------">Yu-Gi-Oh</option>
+                            <option value="------">Jojo's</option>
+                            <option value="------">Boku no Hero</option>
+                            <option value="------">One Punch Man</option>
+                        </select>
+                        <label for="color-admin">Color del producto</label>
+                        
+                        <select id="color-admin" class="select input">
+                            <option value="------">Seleccionar Color</option>
+                            <option value="------">Rojo</option>
+                            <option value="------">Azul</option>
+                            <option value="------">Negro</option>
+                            <option value="------">Verde</option>
+                            <option value="------">Violeta</option>
+                            <option value="------">Blanco</option>
+                            <option value="------">Amarillo</option>
+                        </select>
+                        <label for="talle">Talle</label>
+                        <select id="talle" class="select input">
+                            <option value="------">Seleccionar Talle</option>
+                            <option value="------">XS</option>
+                            <option value="------">S</option>
+                            <option value="------">M</option>
+                            <option value="------">L</option>
+                            <option value="------">XL</option>                            
+                        </select>
+                        <label for="product-image">Agregar Imagen</label>
+                        <input class="input" type="file" name="product-image" accept="jpg">
+                        <label for="admin-description">Descripcion</label>
+                        <textarea name="description" id="admin-description" cols="30" rows="10"></textarea>
+                        <label for="precio">Precio</label>
+                        <input type="number" id="precio" placeholder="Precio" class="input">
+                        </div>
+                        
+                            <button type="submit" class="button button-submit">Agregar producto</button>
+                        
+                    </div>
+                </form>
+                
             </div>
-            </form> 
         </div>
-        <div class="box-button">
-            <button type="submit">Agregar producto</button>
-        </div>
+        
     </main>
     
     <%- include('../partials/footer.ejs')  %> 

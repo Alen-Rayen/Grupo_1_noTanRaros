@@ -1,0 +1,21 @@
+.box-button {
+    margin:  0 auto;
+}
+
+.edit-main {
+    padding-top: 125px;
+    padding-bottom: 71px;
+}
+
+.edit-main .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
