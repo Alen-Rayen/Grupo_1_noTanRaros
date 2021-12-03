@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
+    min-height: 100vh;
     
 }
 

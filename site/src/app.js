@@ -14,6 +14,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const adminRouter = require('./routes/admin');
+const seriesRouter = require('./routes/series');
 
 
 /* View Engine Setup */
@@ -25,7 +26,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 
 /* Middlewares de rutas */
@@ -36,12 +37,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/admin', adminRouter);
-
-
-
-
-
-
+app.use('/series', seriesRouter);
 
 
 
