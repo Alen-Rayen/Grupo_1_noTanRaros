@@ -9,8 +9,6 @@ router.get('/', indexController.home);
 /* GET Contact */
 router.get('/contact', indexController.contact);
 
-/* GET Cart */
-router.get('/cart', indexController.cart);
 
 
 

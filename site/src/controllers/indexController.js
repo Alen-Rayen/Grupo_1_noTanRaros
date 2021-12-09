@@ -4,10 +4,7 @@ let controller = {
     },
     contact: (req, res) => {
         res.render('users/contact', { title: 'Contacto | NoTanRaros' });
-    },
-    cart: (req, res) => {
-        res.render('users/cart', { title: 'Carrito | NoTanRaros' })
-    }
+    }  
 }
 
 module.exports = controller;

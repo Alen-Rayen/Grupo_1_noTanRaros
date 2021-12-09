@@ -6,7 +6,7 @@ const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
-app.use(express.static('../public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 /* Enrutadores */
 
