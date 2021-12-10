@@ -18,7 +18,7 @@ router.get('/cart', productsController.cart);
 
 /* EDIT ONE PRODUCT */
 router.get('/:id/edit', productsController.edit);
-
+router.put('/:id', upload.single('image'), productsController.update);
 
 
 module.exports = router;

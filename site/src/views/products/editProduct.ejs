@@ -6,51 +6,51 @@
     <main class="edit-main">
         <div class="form-container">
             <div class="form">
-                <h1 class="createProductTitle">Editar Producto</h1>
+                <h1 class="createProductTitle">Editar Producto: <i><%= product.name %></i></h1>
                 <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                     <div class="form-container">
                         <div class="containers">
                         <label for="name">Nombre del producto</label>
-                        <input class="input" type="text" name="name" id="name">
+                        <input class="input" type="text" name="name" id="name" value="<%= product.name %>">
                         <label for="category">Categorias</label>
                         <select id="category" class="select input" name="category">
-                            <option value="------">Seleccionar Categoria</option>
-                            <option value="Remeras">Remeras</option>
-                            <option value="Buzos">Buzos</option>
-                            <option value="Zapatillas">Zapatillas</option>
-                            <option value="Pantalones">Pantalones</option>
-                            <option value="Medias">Medias</option>
-                            <option value="Accesorios">Accesorios</option>
+                            <option value="" <%- product.category === '' && `selected`%>Hidden>Elegí</option>
+                            <option value="Remeras" <%- product.category === 'Remeras' && `selected`%> >Remeras</option>
+                            <option value="Buzos" <%- product.category === 'Buzos' && `selected`%> >Buzos</option>
+                            <option value="Calzado" <%- product.category === 'Calzado' && `selected`%> >Calzado</option>
+                            <option value="Pantalones" <%- product.category === 'Pantalones' && `selected`%> >Pantalones</option>
+                            <option value="Medias" <%- product.category === 'Medias' && `selected`%> >Medias</option>
+                            <option value="Accesorios" <%- product.category === 'Accesorios' && `selected`%> >Accesorios</option>
                         </select>
                         
                         <label for="admin">Color del producto</label>
                         <select id="admin" class="select input" name="color">
-                            <option value="------">Seleccionar Color</option>
-                            <option value="Rojo">Rojo</option>
-                            <option value="Azul">Azul</option>
-                            <option value="Negro">Negro</option>
-                            <option value="Verde">Verde</option>
-                            <option value="Violeta">Violeta</option>
-                            <option value="Blanco">Blanco</option>
-                            <option value="Amarillo">Amarillo</option>
+                            <option value="" <%- product.color === '' && `selected`%>Hidden>Elegí</option>
+                            <option value="Rojo" <%- product.color === 'Rojo' && `selected`%> >Rojo</option>
+                            <option value="Azul" <%- product.color === 'Azul' && `selected`%> >Azul</option>
+                            <option value="Negro" <%- product.color === 'Negro' && `selected`%> >Negro</option>
+                            <option value="Verde" <%- product.color === 'Verde' && `selected`%> >Verde</option>
+                            <option value="Violeta" <%- product.color === 'Violeta' && `selected`%> >Violeta</option>
+                            <option value="Blanco" <%- product.color === 'Blanco' && `selected`%> >Blanco</option>
+                            <option value="Amarillo" <%- product.color === 'Amarillo' && `selected`%> >Amarillo</option>
                         </select>
                         <label for="talle">Talle</label>
                         <select id="talle" class="select input">
-                            <option value="------">Seleccionar Talle</option>
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>                            
+                            <option value="" <%- product.talle === '' && `selected`%>Hidden>Elegí</option>
+                            <option value="XS" <%- product.talle === 'XS' && `selected`%> >XS</option>
+                            <option value="S" <%- product.talle === 'S' && `selected`%> >S</option>
+                            <option value="M" <%- product.talle === 'M' && `selected`%> >M</option>
+                            <option value="L" <%- product.talle === 'L' && `selected`%> >L</option>
+                            <option value="XL" <%- product.talle === 'XL' && `selected`%> >XL</option>                           
                         </select>
                         <label for="image">Agregar Imagen</label>
                         <input class="input" type="file" name="image" accept="jpg">
                         <label for="description">Descripcion</label>
-                        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                        <textarea name="description" id="description" cols="30" rows="10"><%= product.description %></textarea>
                         <label for="precio">Precio</label>
-                        <input type="number" id="precio" placeholder="Precio" class="input" name="precio">
+                        <input type="number" id="precio" placeholder="Precio" class="input" name="precio" value="<%= product.price %>">
                         <label for="discount">Descuento</label>
-                        <input type="number" class="input" id="dicount" name="discount">
+                        <input type="number" class="input" id="dicount" name="discount" value="<%= product.discount %>">
                         </div>
                         <div class="editButtons">
                             <button type="submit" class="button button-submit">Hecho</button>

@@ -5,6 +5,8 @@ let path = require('path');
 const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const writeJson = dataBase => fs.writeFileSync(productsFilePath, JSON.stringify(dataBase), 'utf-8')
+const imagesPath = path.join(__dirname, '../../public/images/')
+
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -75,6 +77,40 @@ const controller = {
             product: productToEdit,
             title: 'Editar|NoTanRaros'
         })
+    },
+    update: (req, res) => {
+        let productId = +req.params.id;
+
+        
+
+        const {name, precio, discount, description, category, color, talle} = req.body;
+    
+        products.forEach(product => {
+            if(product.id === productId) {
+                product.id = +product.id,
+                product.name = name,
+                product.description = description,
+                product.price = +precio,
+                product.discount = +discount,
+                product.category = category,
+                product.color = color,
+                product.talle = talle
+                if(req.file){
+                    if(fs.existsSync('../../public/images/', product.image)){
+                        fs.unlinkSync(`../../public/images/${product.image}`)
+                    } else {
+                        console.log('No encontré el archivo')
+                    }
+                    product.image = req.file.filename
+                } else {
+                    product.image = product.image
+                }
+            }
+        })
+
+        writeJson(products)
+
+        res.redirect(`/products/detail/${productId}`)
     }
 
 }
