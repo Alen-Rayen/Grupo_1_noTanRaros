@@ -189,6 +189,7 @@ button:active {
     margin: 10px auto;
     background-color: rgb(173, 173, 173);
     border-radius: 10px;
+    width: 100%;
     
 }
 
@@ -202,6 +203,35 @@ button:active {
     line-height: 22px;
 }
 
+.product-manage {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.product-manage button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 6px;
+    width: 120px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.product-manage button:nth-child(1) {
+    margin-right: 15px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(9, 119, 14);
+    border: solid 2px black;
+}
+
+
+.product-manage button:nth-child(2) {
+    margin-left: 15px;
+    background-color: rgb(209, 105, 8);
+    border: solid 2px rgb(129, 129, 129);
+    color: white;
+}
 
 
 
@@ -346,6 +376,11 @@ button:active {
     }
 
     .opciones-compra button {
+        padding: 15px 0;
+        font-size: 20px;
+    }
+
+    .product-manage button {
         padding: 15px 0;
         font-size: 20px;
     }

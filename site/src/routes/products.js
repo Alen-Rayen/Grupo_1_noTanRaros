@@ -16,6 +16,11 @@ router.get('/detail/:id', productsController.detail);
 /* GET CART VIEW */
 router.get('/cart', productsController.cart);
 
+/* EDIT ONE PRODUCT */
+router.get('/:id/edit', productsController.edit);
+
+
+
 module.exports = router;
 
 

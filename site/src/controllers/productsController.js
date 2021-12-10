@@ -35,6 +35,7 @@ const controller = {
             title: "Crear | NoTanRaros"
         })
     },
+    /* Method to store created product */
     store: (req, res) => {
         let lastId = 1;
 
@@ -62,9 +63,20 @@ const controller = {
 
         res.redirect('/products');
     },
+    /* Gets cart view */
     cart: (req, res) => {
         res.render('users/cart', { title: 'Carrito | NoTanRaros' })
+    },
+    edit: (req, res) => {
+        let productId = +req.params.id;
+        let productToEdit = products.find(product => product.id === productId);
+
+        res.render('products/editProduct', {
+            product: productToEdit,
+            title: 'Editar|NoTanRaros'
+        })
     }
+
 }
 
 module.exports = controller;
