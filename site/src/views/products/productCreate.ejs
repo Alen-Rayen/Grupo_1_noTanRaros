@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('../partials/head') %> 
+<body>
+    <%- include('../partials/header') %> 
+    <main class="edit-main">
+        <div class="form-container">
+            <div class="form">
+                <h1 class="createProductTitle">Añadir Producto</h1>
+                <form action="/products" method="POST" enctype="multipart/form-data">
+                    <div class="form-container">
+                        <div class="containers">
+                        <label for="name">Nombre del producto</label>
+                        <input class="text" type="text" name="name" id="name">
+                        <label for="category">Categorias</label>
+                        <select id="category" class="select input" name="category">
+                            <option value="------">Seleccionar Categoria</option>
+                            <option value="Remeras">Remeras</option>
+                            <option value="Buzos">Buzos</option>
+                            <option value="Calzado">Calzado</option>
+                            <option value="Pantalones">Pantalones</option>
+                            <option value="Medias">Medias</option>
+                            <option value="Accesorios">Accesorios</option>
+                        </select>
+                        <label for="color">Color del producto</label>
+                        <select id="color" class="select input" name="color">
+                            <option value="------">Seleccionar Color</option>
+                            <option value="Rojo">Rojo</option>
+                            <option value="Azul">Azul</option>
+                            <option value="Negro">Negro</option>
+                            <option value="Verde">Verde</option>
+                            <option value="Violeta">Violeta</option>
+                            <option value="Blanco">Blanco</option>
+                            <option value="Amarillo">Amarillo</option>
+                        </select>
+                        <label for="talle">Talle</label>
+                        <select id="talle" class="select input" name="talle">
+                            <option value="------">Seleccionar Talle</option>
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>                            
+                        </select>
+                        <label for="image">Agregar Imagen</label>
+                        <input class="input" type="file" name="image" accept="jpg">
+                        <label for="description">Descripcion</label>
+                        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                        <label for="precio">Precio</label>
+                        <input type="number" id="precio" name="precio" placeholder="Precio" class="input">
+                        <label for="discount">Descuento</label>
+                        <input type="number" id="discount" name="discount" placeholder="Ej: 15">
+                        </div>
+                        
+                            <button type="submit" class="button button-submit">Agregar producto</button>
+                        
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+        
+    </main>
+    
+    <%- include('../partials/footer.ejs')  %> 
+
+</body>
+</html>

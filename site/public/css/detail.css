@@ -18,6 +18,15 @@
     justify-content: center;
 }
 
+.product-price-detail {
+    font-size: 24px;
+}
+
+.product-discount-detail {
+    font-size: 24px;
+    color: green;
+}
+
 .ruta {
     width: 100%;
     padding: 20px;
@@ -106,6 +115,9 @@ small {
 
 .precio-producto {
     margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .input-container {
@@ -280,13 +292,7 @@ button:active {
         
     }
 
-    img.photo-1:hover {
-        -webkit-transform:scale(1.25);
-        -moz-transform:scale(1.25);
-        -ms-transform:scale(1.25);
-        -o-transform:scale(1.25);
-        transform:scale(1.25);
-    }
+    
 
     .photos img {
         -webkit-transition:all .9s ease; 
