@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!-- HTML Head -->
+    <%- include('../partials/head.ejs') %>
+<body class="body">
+    <!-- Header -->
+    <%- include('../partials/header.ejs')  %>
+
+    <main class="main-home">
+        <div class="banner-container">
+            <img src="images\bannerpropio1.png" alt="banner" class="banner">
+        </div>
+        <hr>
+        <h1 class="titulo-ofertas">Todos los productos</h1>
+        <hr>
+        <div class="ofertas-home">
+
+        <% products.forEach(product => { %>
+            <article class="oferta">
+                <div class="container-foto-oferta">
+                    <img src="images/<%- product.image  %>" alt="" class="foto-oferta">
+                    <hr>
+                </div>
+                <div class="datos-oferta">
+                    <a href="#" class="products-article-link"><h2 class="titulo-oferta"><%- product.first_name %></h2></a>
+                    <h2 class="precio-oferta">$<%- toThousand(product.price - (product.price * product.discount / 100)) %></h2>
+                    <span>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </span>
+                </div>
+            </article>    
+        <% }) %>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs')  %>
+</body>
+</html>
