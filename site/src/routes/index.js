@@ -9,6 +9,7 @@ router.get('/', indexController.home);
 /* GET Contact */
 router.get('/contact', indexController.contact);
 
+router.get('/error', indexController.error);
 
 
 

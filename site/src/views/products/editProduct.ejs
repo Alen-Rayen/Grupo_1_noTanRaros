@@ -12,17 +12,15 @@
                         <div class="containers">
                         <label for="name">Nombre del producto</label>
                         <input class="input" type="text" name="name" id="name" value="<%= product.name %>">
+                        <span class="error-message"></span>
                         <label for="category">Categorias</label>
                         <select id="category" class="select input" name="category">
-                            <option value="" <%- product.category === '' && `selected`%>Hidden>Elegí</option>
-                            <option value="Remeras" <%- product.category === 'Remeras' && `selected`%> >Remeras</option>
-                            <option value="Buzos" <%- product.category === 'Buzos' && `selected`%> >Buzos</option>
-                            <option value="Calzado" <%- product.category === 'Calzado' && `selected`%> >Calzado</option>
-                            <option value="Pantalones" <%- product.category === 'Pantalones' && `selected`%> >Pantalones</option>
-                            <option value="Medias" <%- product.category === 'Medias' && `selected`%> >Medias</option>
-                            <option value="Accesorios" <%- product.category === 'Accesorios' && `selected`%> >Accesorios</option>
+                            <option hidden selected value="" <%- product.category === '' && `selected`%>Hidden>Elegí</option>
+                            <% categories.forEach(category => { %>
+                                <option value="<%- category.id %>"><%- category.name %></option>
+                            <% }) %>
                         </select>
-                        
+                        <span class="error-message"></span>
                         <label for="admin">Color del producto</label>
                         <select id="admin" class="select input" name="color">
                             <option value="" <%- product.color === '' && `selected`%>Hidden>Elegí</option>
@@ -34,6 +32,7 @@
                             <option value="Blanco" <%- product.color === 'Blanco' && `selected`%> >Blanco</option>
                             <option value="Amarillo" <%- product.color === 'Amarillo' && `selected`%> >Amarillo</option>
                         </select>
+                        <span class="error-message"></span>
                         <label for="talle">Talle</label>
                         <select id="talle" class="select input">
                             <option value="" <%- product.talle === '' && `selected`%>Hidden>Elegí</option>
@@ -43,15 +42,20 @@
                             <option value="L" <%- product.talle === 'L' && `selected`%> >L</option>
                             <option value="XL" <%- product.talle === 'XL' && `selected`%> >XL</option>                           
                         </select>
+                        <span class="error-message"></span>
                         <label for="image">Agregar Imagen</label>
                         <input class="input" type="file" name="image" accept="jpg">
+                        <span class="error-message"></span>
                         <label for="description">Descripcion</label>
                         <textarea name="description" id="description" cols="30" rows="10"><%= product.description %></textarea>
-                        <label for="precio">Precio</label>
-                        <input type="number" id="precio" placeholder="Precio" class="input" name="precio" value="<%= product.price %>">
+                        <span class="error-message"></span>
+                        <label for="price">Precio</label>
+                        <input type="number" id="price" placeholder="Precio" class="input" name="price" value="<%= product.price %>">
+                        <span class="error-message"></span>
                         <label for="discount">Descuento</label>
                         <input type="number" class="input" id="dicount" name="discount" value="<%= product.discount %>">
-                        </div>
+                        <span class="error-message"></span>
+                    </div>
                         <div class="editButtons">
                             <button type="submit" class="button button-submit">Hecho</button>
                         </div>

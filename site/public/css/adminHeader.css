@@ -1,0 +1,41 @@
+.adminHeader {
+    width: 100%;
+    background-color: rgb(7, 7, 7);
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: fixed;
+}
+
+a.adminHeader-title {
+    font-size: 20px;
+    justify-self: center;
+    text-decoration: none;
+    color: white;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.adminHeader-form {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.adminHeader-input {
+    padding: 5px;
+    margin: 5px auto;
+    border-radius: 12px;
+    width: 100%;
+    display: block;
+    max-width: 500px;
+}
+
+.adminHeader-logout {
+    font-size: 20px;
+    justify-self: center;
+    text-decoration: underline;
+    color: white;
+    margin: 0 auto;
+    padding: 10px;
+}

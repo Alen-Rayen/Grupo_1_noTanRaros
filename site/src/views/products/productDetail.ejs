@@ -92,7 +92,9 @@
                 </div>
                 <div class="product-manage">
                     <a href="/products/<%- product.id %>/edit"><button class="edit-product">Editar</button></a>
-                    <button class="delete-product">Eliminar</button>
+                    <form action="/products/<%- product.id %>?_method=DELETE" method="POST">
+                        <button class="delete-product">Eliminar</button>
+                    </form>
                 </div>
 
                 <div class="descripcion">

@@ -218,6 +218,10 @@ button:active {
     border-radius: 10px;
 }
 
+.product-manage form button.delete-product {
+    background-color: #666;
+}
+
 .product-manage button:nth-child(1) {
     margin-right: 15px;
     color: rgb(255, 255, 255);

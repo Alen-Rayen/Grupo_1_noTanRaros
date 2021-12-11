@@ -1,0 +1,26 @@
+main.productsListMain {
+    min-height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 86px;
+}
+
+.productsListContainer {
+    width: 95%;
+    border: solid 1px black;
+    height: 200px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productListCard {
+    width: 100%;
+    height: 90px;
+    border: solid 2px grey;
+    border-radius: 3px;
+    display: flex;
+}

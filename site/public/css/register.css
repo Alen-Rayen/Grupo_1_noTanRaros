@@ -91,7 +91,7 @@ span.error-message {
     display: flex;
     flex-direction: column;
     margin: .5rem;
-    width: 80%;
+    width: 90%;
 }
 
 input.input {
@@ -160,7 +160,7 @@ input.input::placeholder {
         width: 90%;
     }
     .form {
-       width: 75%;
+       width: 90%;
     }
     label {
         margin-left: 0;

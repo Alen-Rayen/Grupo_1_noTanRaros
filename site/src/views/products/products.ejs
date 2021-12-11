@@ -24,6 +24,10 @@
                 <div class="datos-oferta">
                     <a href="/products/detail/<%- product.id %>" class="products-article-link"><h2 class="titulo-oferta"><%- product.name %></h2></a>
                     <h2 class="precio-oferta">$<%- toThousand(product.price - (product.price * product.discount / 100)) %></h2>
+                    <% if (product.discount > 0) { %>
+                        <span class="card-product-discount"><%- product.discount %>% OFF </span>
+                        <span class="original-price">$<%- product.price %> </span>
+                    <% } %>
                     <span>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -35,6 +39,11 @@
             </article>    
         <% }) %>
         </div>
+        <hr>
+        <div class="banner-container">
+            <img src="images/bannerenvios1.png" alt="banner" class="banner">
+        </div>
+        <hr>
     </main>
     
     <!-- Footer -->

@@ -2,3 +2,18 @@
     text-decoration: none;
     color: black;
 }
+
+
+
+.datos-oferta span.card-product-discount {
+    color: green;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.datos-oferta span.original-price {
+    color: green;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: line-through;
+}

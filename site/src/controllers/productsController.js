@@ -2,10 +2,13 @@ let fs = require('fs');
 
 let path = require('path');
 
+
 const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const writeJson = dataBase => fs.writeFileSync(productsFilePath, JSON.stringify(dataBase), 'utf-8')
 const imagesPath = path.join(__dirname, '../../public/images/')
+
+let categories = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/categories.json'), "utf-8"))
 
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -13,7 +16,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
     /* Show all products */
     index: (req, res) => {
-        
+        console.log(categories)
         res.render('products/products', {
             title: 'Productos | NoTanRaros',
             products,
@@ -33,8 +36,10 @@ const controller = {
     },
     /* Creates one product form */
     create: (req, res) => {
+        
         res.render('products/productCreate', {
-            title: "Crear | NoTanRaros"
+            title: "Crear | NoTanRaros",
+            categories
         })
     },
     /* Method to store created product */
@@ -47,15 +52,17 @@ const controller = {
             }
         });
 
+        const {name, price, category, talle, description, discount, color} = req.body
+
         let newProduct = {
             id: lastId + 1,
-            name: req.body.name,
-            description: req.body.description,
-            price: +req.body.precio,
-            discount: +req.body.discount,
-            category: req.body.category,
-            color: req.body.color,
-            talle: req.body.talle,
+            name: name.trim(),
+            description: description.trim(),
+            price: +price.trim(),
+            discount: +discount,
+            category: +category,
+            color: color,
+            talle: talle,
             image: req.file ? req.file.filename : "404.jpg"
         }
 
@@ -75,7 +82,8 @@ const controller = {
 
         res.render('products/editProduct', {
             product: productToEdit,
-            title: 'Editar|NoTanRaros'
+            title: 'Editar|NoTanRaros',
+            categories
         })
     },
     update: (req, res) => {
@@ -92,7 +100,7 @@ const controller = {
                 product.description = description,
                 product.price = +precio,
                 product.discount = +discount,
-                product.category = category,
+                product.category = +category,
                 product.color = color,
                 product.talle = talle
                 if(req.file){
@@ -111,6 +119,30 @@ const controller = {
         writeJson(products)
 
         res.redirect(`/products/detail/${productId}`)
+    },
+    destroy: (req, res) => {
+        let productId = +req.params.id;
+
+        products.forEach(product => {
+            if(product.id === productId){
+
+                if(fs.existsSync('../../public/images/', product.image)){
+                    fs.unlinkSync(`../../public/images/${product.image}`)
+                }else {
+                    console.log('No encontré el archivo')
+                }
+
+                let productToDestroyIndex = products.indexOf(product)
+                if(productToDestroyIndex !== -1){
+                    products.splice(productToDestroyIndex, 1)
+                } else {
+                    console.log('No encontré el producto')
+                }
+            }
+        })
+
+        writeJson(products);
+        res.redirect('/products')
     }
 
 }
