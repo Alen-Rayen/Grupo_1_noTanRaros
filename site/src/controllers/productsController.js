@@ -91,14 +91,14 @@ const controller = {
 
         
 
-        const {name, precio, discount, description, category, color, talle} = req.body;
+        const {name, price, discount, description, category, color, talle} = req.body;
     
         products.forEach(product => {
             if(product.id === productId) {
                 product.id = +product.id,
                 product.name = name,
                 product.description = description,
-                product.price = +precio,
+                product.price = +price,
                 product.discount = +discount,
                 product.category = +category,
                 product.color = color,

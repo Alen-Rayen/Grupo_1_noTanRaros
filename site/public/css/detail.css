@@ -93,6 +93,7 @@ display: inline-block;
 .product-name {
     font-size: 26px;
     font-weight: 600;
+    text-transform: uppercase;
 }
 
 .stock {
