@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head')  %> 
+<body>
+    <%- include('../partials/header')  %>
+    
+    <main class="main-home">
+        <% if (result.length > 0) { %>
+            <hr>
+                <h1 class="titulo-ofertas">Resultados de la búsqueda de "<%- search %>"</h1>
+            <hr>
+            <div class="ofertas-home">
+                <% result.forEach(product => { %>
+                    <article class="oferta">
+                        <div class="container-foto-oferta">
+                            <img src="/images/<%- product.image  %>" alt="" class="foto-oferta">
+                            <hr>
+                        </div>
+                        <div class="datos-oferta">
+                            <a href="/products/detail/<%- product.id %>" class="products-article-link"><h2 class="titulo-oferta"><%- product.name %></h2></a>
+                            <h2 class="precio-oferta">$<%- toThousand(product.price - (product.price * product.discount / 100)) %></h2>
+                            <% if (product.discount > 0) { %>
+                                <span class="card-product-discount"><%- product.discount %>% OFF </span>
+                                <span class="original-price">$<%- product.price %> </span>
+                            <% } %>
+                            <span>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                    </article>   
+                <% }) %>
+            </div>
+        <% } else {%>
+            <hr>
+            <h1 class="titulo-ofertas">No hay resultados de la búsqueda de "<%- search %>"</h1>
+            <hr>
+            <div class="noresult-container">
+                <img src="/images/noresults.png" class="noresults" alt="noresults" style="width: 300px;">
+            </div>
+        <% } %>
+    </main>
+
+    <%- include('../partials/footer')  %> 
+</body>
+</html>

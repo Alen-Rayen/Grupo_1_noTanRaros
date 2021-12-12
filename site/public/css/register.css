@@ -81,7 +81,7 @@
 }
 
 span.error-message {
-    font-size: 12px;
+    font-size: 14px;
     margin: 5px auto;
     color: rgba(255, 0, 0, 0.781);
     display: inline-block;
@@ -170,12 +170,15 @@ input.input::placeholder {
     }
 }
 
-/* @media screen and (min-width: 1024px ){
-    .input {
-        width: 85%;
+@media screen and (min-width: 768px) {
+    span.error-message {
+        font-size: 16px;
     }
-    .form {
-        width: 70%;
+}
+
+ @media screen and (min-width: 1440px ){
+    span.error-message {
+        font-size: 18px;
     }
 
-} */
+} 

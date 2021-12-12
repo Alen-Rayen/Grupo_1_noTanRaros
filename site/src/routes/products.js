@@ -23,6 +23,9 @@ router.put('/:id', upload.single('image'), productsController.update);
 /* Delete */
 router.delete('/:id', productsController.destroy)
 
+/* GET - Gets search view */
+router.get('/search', productsController.search);
+
 module.exports = router;
 
 

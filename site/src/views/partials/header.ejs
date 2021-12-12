@@ -15,7 +15,10 @@
                 <li><a href="/users/profile"><i class="far fa-user-circle"></i><p>Mi Perfil</p></a></li>
                 <li><a href="/products/create"><i class="fas fa-hand-holding-usd"></i><p>Vender</p></a></li>
                 <li><a href="products/cart"><i class="fas fa-shopping-cart"></i><p>Mis Compras</p></a></li>
-                <li><input type="search" class="search" id="search" placeholder="Buscar..."></li>
+                <li><form action="/products/search" method="GET" class="header-search-form">
+                    <input type="search" class="search" id="search" name="keywords" placeholder="Buscar...">
+                    <button type="submit" class="header-search-button"><i class="far fa-search"></i></button>
+                </form></li>
             </ul>
         </nav>
         <label for="checkbox">

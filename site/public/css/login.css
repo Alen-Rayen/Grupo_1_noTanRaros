@@ -75,13 +75,6 @@
     align-items: center;
 }
 
-span.error-message {
-    font-size: 12px;
-    margin: 5px auto;
-    color: rgba(255, 0, 0, 0.781);
-    display: inline-block;
-}
-
 .login-main .input {
     display: flex;
     flex-direction: column;
@@ -171,5 +164,7 @@ input.input::placeholder {
     .button-submit {
         padding: 50px;
     }
+
+    
 
 }

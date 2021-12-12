@@ -10,43 +10,51 @@
                 <form action="/products" method="POST" enctype="multipart/form-data">
                     <div class="form-container">
                         <div class="containers">
-                        <label for="name">Nombre del producto</label>
-                        <input class="input" type="text" name="name" id="name">
-                        <label for="category">Categorias</label>
-                        <select id="category" class="select input" name="category">
-                            <option selected hidden value="------">Seleccionar Categoria</option>
-                            <% categories.forEach(category => { %>
-                                <option value="<%- category.id %>"><%- category.name %></option>
-                            <% }) %>
-                        </select>
-                        <label for="color">Color del producto</label>
-                        <select id="color" class="select input" name="color">
-                            <option selected hidden value="------">Seleccionar Color</option>
-                            <option value="Rojo">Rojo</option>
-                            <option value="Azul">Azul</option>
-                            <option value="Negro">Negro</option>
-                            <option value="Verde">Verde</option>
-                            <option value="Violeta">Violeta</option>
-                            <option value="Blanco">Blanco</option>
-                            <option value="Amarillo">Amarillo</option>
-                        </select>
-                        <label for="talle">Talle</label>
-                        <select id="talle" class="select input" name="talle">
-                            <option value="------">Seleccionar Talle</option>
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>                            
-                        </select>
-                        <label for="image">Agregar Imagen</label>
-                        <input class="input" type="file" name="image" accept="jpg">
-                        <label for="description">Descripcion</label>
-                        <textarea name="description" id="description" cols="30" rows="10"></textarea>
-                        <label for="price">Precio</label>
-                        <input type="number" id="price" name="price" placeholder="Precio" class="input">
-                        <label for="discount">Descuento</label>
-                        <input type="number" id="discount" class="input" name="discount" placeholder="Ej: 15">
+                            <label for="name">Nombre del producto</label>
+                            <input class="input" type="text" name="name" id="name">
+                            <span class="error-message">Introduce un nombre</span>
+                            <label for="category">Categorias</label>
+                            <select id="category" class="select input" name="category">
+                                <option selected hidden value="------">Seleccionar Categoria</option>
+                                <% categories.forEach(category => { %>
+                                    <option value="<%- category.id %>"><%- category.name %></option>
+                                <% }) %>
+                            </select>
+                            <span class="error-message">Selecciona una categoría</span>
+                            <label for="color">Color del producto</label>
+                            <select id="color" class="select input" name="color">
+                                <option selected hidden value="------">Seleccionar Color</option>
+                                <option value="Rojo">Rojo</option>
+                                <option value="Azul">Azul</option>
+                                <option value="Negro">Negro</option>
+                                <option value="Verde">Verde</option>
+                                <option value="Violeta">Violeta</option>
+                                <option value="Blanco">Blanco</option>
+                                <option value="Amarillo">Amarillo</option>
+                            </select>
+                            <span class="error-message">Selecciona un color</span>
+                            <label for="talle">Talle</label>
+                            <select id="talle" class="select input" name="talle">
+                                <option value="------">Seleccionar Talle</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>                            
+                            </select>
+                            <span class="error-message">Selecciona un talle</span>
+                            <label for="image">Agregar Imagen</label>
+                            <input class="input" type="file" name="image" accept="jpg">
+                            <span class="error-message">Debes subir una imagen</span>
+                            <label for="description">Descripcion</label>
+                            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                            <span class="error-message">Introduce una descripción</span>
+                            <label for="price">Precio</label>
+                            <input type="number" id="price" name="price" placeholder="Precio" class="input">
+                            <span class="error-message">Introduce un precio</span>
+                            <label for="discount">Descuento</label>
+                            <input type="number" id="discount" class="input" name="discount" placeholder="Ej: 15">
+                            <span class="error-message">Introduce un descuento(0-100)</span>    
                         </div>
                         
                             <button type="submit" class="button button-submit">Agregar producto</button>

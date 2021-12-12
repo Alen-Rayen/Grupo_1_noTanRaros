@@ -143,6 +143,18 @@ const controller = {
 
         writeJson(products);
         res.redirect('/products')
+    },
+    search: (req, res) => {
+        let keywords = req.query.keywords.trim().toLowerCase();
+
+        let result = products.filter(product => product.name.toLowerCase().includes(keywords));
+    
+        res.render('products/searchResult', {
+            title: "Resultados | NoTanRaros",
+            result,
+            search: keywords,
+            toThousand
+        })
     }
 
 }

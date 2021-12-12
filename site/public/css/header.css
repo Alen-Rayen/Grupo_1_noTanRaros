@@ -16,6 +16,31 @@ header.menu {
     width: 100%;
 }
 
+.header-search-form {
+    display: flex;
+    align-items: center;
+}
+
+.header-search-button {
+    margin-left: -30px;
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: black;
+    opacity: 100%;
+    cursor: pointer;
+}
+
+.header-search-button i {
+    background-color: none;
+    color: white;
+}
+
+.header-search-button:active {
+    box-shadow: 0 2px #666;
+  transform: translateY(1px);
+}
+
 .fa-shopping-cart {
     font-weight: 400;
 }
@@ -79,6 +104,10 @@ header nav ul li input {
     letter-spacing: 0.05em;
 }
 
+header nav ul li input:focus {
+    outline: none;
+}
+
 header nav ul li p {
     display: inline-block;
     margin-left: 5px;
@@ -114,14 +143,31 @@ header nav ul li a:hover, nav ul li a:focus {
         border-bottom: 2px solid black;
     }
 
+    .header-search-button {
+        margin-left: -35px;
+        margin-top: -30px;
+
+    }
+
     header nav ul {
         max-height: 70px;
         padding: 15px 0;
         text-align: right;
         flex-direction: row;
-        font-size: 12px;
+        font-size: 11px;
         justify-content: flex-end;
     }
+
+    .search {
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    .header-search-button {
+        margin-top: -2px;
+    }
+
+    
 
     header nav ul li {
         display: inline-flex;
@@ -167,7 +213,16 @@ header nav ul li a:hover, nav ul li a:focus {
 
     header nav ul li input {
         width: 250px;
-        font-size: 20px;
+        
+    }
+
+    .search {
+        font-size: 16px;
+    }
+
+    .header-search-button {
+        padding: 4px;
+        font-size: 12px;
     }
 
 }
