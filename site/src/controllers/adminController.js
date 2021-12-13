@@ -29,6 +29,12 @@ let controller = {
             title: 'Administrador de Productos',
             products
         })
+    },
+    usersList: (req, res) => {
+        res.render('admin/usersPanel', {
+            title: 'Lista de Usuarios',
+            users
+        })
     }
 }
 

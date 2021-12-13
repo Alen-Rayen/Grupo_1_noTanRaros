@@ -87,6 +87,7 @@ main.productsListMain {
     opacity: 1;
     margin-top: 5px;
     margin-bottom: 5px; 
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {

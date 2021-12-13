@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %> 
+<body>
+    <%- include('../partials/adminHeader') %>
+    <main class="productsListMain">
+        <div class="table-container">
+            <h1 class="heading">Lista de Usuarios</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>APELLIDO</th>
+                        <th>EMAIL</th>
+                        <th>CATEGORY</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                        <tr>
+                            <td data-label="ID"><%- user.id %></td>
+                            <td data-label="Nombre"><%- user.first_name %></td>
+                            <td data-label="Categoria"><%- user.last_name %></td>
+                            <td data-label="Precio"><%- user.email %></td>
+                            <td data-label="Descuento"><%- user.category %></td>
+                            <td data-label="#"><a href="#" class="table-btn">Editar</a>
+                                <form action="#" method="">
+                                    <button class="table-delete-btn">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <%- include('../partials/footer')  %> 
+</body>
+</html>
