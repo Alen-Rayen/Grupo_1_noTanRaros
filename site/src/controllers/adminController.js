@@ -7,6 +7,7 @@ const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const writeJson = dataBase => fs.writeFileSync(productsFilePath, JSON.stringify(dataBase), 'utf-8')
 const imagesPath = path.join(__dirname, '../../public/images/')
+const users = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/users.json'), 'utf-8'));
 
 let categories = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/categories.json'), "utf-8"))
 
