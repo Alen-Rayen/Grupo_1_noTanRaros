@@ -4,13 +4,36 @@
 <body>
     <%- include('../partials/adminHeader') %>
     <main class="productsListMain">
-        <hr>
-        <h2 class="productsListTtitle">Productos</h2>
-        <hr>
-        <div class="productsListContainer">
-            <section class="productListCard">
-                
-            </section>
+        <div class="table-container">
+            <h1 class="heading">Lista de Productos</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Categoria</th>
+                        <th>Precio</th>
+                        <th>Descuento</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(product => { %>
+                        <tr>
+                            <td data-label="ID"><%- product.id %></td>
+                            <td data-label="Nombre"><%- product.name %></td>
+                            <td data-label="Categoria"><%- product.category %></td>
+                            <td data-label="Precio"><%- product.price %></td>
+                            <td data-label="Descuento"><%- product.discount %></td>
+                            <td data-label="#"><a href="/products/<%- product.id %>/edit" class="table-btn">Editar</a>
+                                <form action="/products/<%- product.id %>?_method=DELETE" method="POST">
+                                    <button class="table-delete-btn">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
         </div>
     </main>
     <%- include('../partials/footer')  %> 

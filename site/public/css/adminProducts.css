@@ -1,26 +1,125 @@
 main.productsListMain {
     min-height: 100vh;
-    background-color: #fff;
+    background-color: rgb(145, 143, 143);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 86px;
 }
 
-.productsListContainer {
-    width: 95%;
-    border: solid 1px black;
-    height: 200px;
+.table-container {
+    padding: 0 10%;
     margin: 10px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-.productListCard {
-    width: 100%;
-    height: 90px;
-    border: solid 2px grey;
-    border-radius: 3px;
-    display: flex;
+.heading {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 40px;
 }
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead {
+    background-color: rgb(204, 65, 65);
+}
+
+.table thead tr th {
+    font-size: 14px;
+    letter-spacing: 0.35px;
+    color: #ffffff;
+    opacity: 1;
+    font-weight: 600;
+    padding: 12px;
+    vertical-align: top;
+    border: 1px solid #deede685;
+}
+
+.table tbody tr td {
+    font-size: 14px;
+    letter-spacing: 0.35px;
+    font-weight: normal;
+    color: #f1f1f1;
+    background-color: rgb(24, 24, 24);
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #dee2e685;
+}
+
+.table tbody tr td .table-btn {
+    width: 100px;
+    text-decoration: none;
+    line-height: 35px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    background-color: rgb(204, 65, 65);
+    font-weight: medium;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    font-size: 14px;
+    opacity: 1;
+    margin-top: 5px;
+    margin-bottom: 5px; 
+}
+
+.table tbody tr td form button {
+    width: 100px;
+    text-decoration: none;
+    line-height: 35px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    background-color: rgb(204, 65, 65);
+    font-weight: medium;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    font-size: 14px;
+    opacity: 1;
+    margin-top: 5px;
+    margin-bottom: 5px; 
+}
+
+@media (max-width: 768px) {
+    .table thead {
+        display: none;
+    }
+
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr {
+        margin-bottom: 15px;
+    }
+
+    .table tbody tr td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: 600;
+        font-size: 14px;
+        text-align: left;
+    }
+
+
+}
+
