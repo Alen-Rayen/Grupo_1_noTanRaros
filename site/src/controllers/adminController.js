@@ -9,8 +9,6 @@ const writeJson = dataBase => fs.writeFileSync(productsFilePath, JSON.stringify(
 const imagesPath = path.join(__dirname, '../../public/images/')
 const users = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/users.json'), 'utf-8'));
 
-const capitalizeStrings = string => string.replace(/\b(\w)/g, s => s.toUpperCase());
-
 let categories = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/categories.json'), "utf-8"))
 
 
@@ -29,15 +27,13 @@ let controller = {
     list: (req, res) => {
         res.render('admin/productsPanel', {
             title: 'Administrador de Productos',
-            products,
-            capitalizeStrings
+            products
         })
     },
     usersList: (req, res) => {
         res.render('admin/usersPanel', {
             title: 'Lista de Usuarios',
-            users,
-            capitalizeStrings
+            users
         })
     }
 }
