@@ -52,7 +52,8 @@ header.menu {
 }
 
 .logo-img {
-    height: 56px;
+    width: 70px;
+    margin-top: -8px;
 }
 
 .menu-icon {
@@ -125,6 +126,17 @@ header nav ul li a:hover, nav ul li a:focus {
     max-height: 473px;
     padding: 15px;
     transition: all 0.5s;
+}
+
+@media (min-width: 768px) {
+    .logo-img {
+        width: 100px;
+        margin-top: -22px;
+    }
+
+    .menu-icon {
+        font-size: 50px;
+    }
 }
 
 @media (min-width: 1024px) {
