@@ -6,8 +6,20 @@
 <body>
     
     <%- include('../partials/header.ejs')  %>
-    <main class="main-home">
-
+    <main class="main-profile">
+        <div class="profileBox">
+            <div class="userPhoto">
+                <img src="\images\avatars\<%- session.user.avatar %>" alt="" class="profilePhoto">
+                <h2 class="profileName"><%= session.user.first_name %> <%= session.user.last_name %></h2>
+            </div>
+            <div class="profileInfoBox">
+                <h2 class="userDataTitle">Datos del Usuario:</h2>
+                <hr>
+                <p class="userDataItem">Nombre: <%= session.user.first_name %></p>
+                <p class="userDataItem">Apellido: <%= session.user.last_name %></p>
+                <p class="userDataItem">Email: <%= session.user.email %></p>
+            </div>
+        </div>
     </main>
 
     <%- include('../partials/footer.ejs')  %> 

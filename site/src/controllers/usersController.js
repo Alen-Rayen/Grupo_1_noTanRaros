@@ -77,7 +77,7 @@ let controller = {
                 last_name: apellido,
                 email, 
                 password: bcrypt.hashSync(pass, 12),
-                avatar: req.file ? [req.file.filename] : "default-image.png",
+                avatar: req.file ? req.file.filename : "default-image.jpg",
                 rol: "ROL_USER",
             }
 

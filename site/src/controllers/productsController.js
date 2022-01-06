@@ -16,7 +16,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
     /* Show all products */
     index: (req, res) => {
-        console.log(categories)
+        
         res.render('products/products', {
             title: 'Productos | NoTanRaros',
             products,
