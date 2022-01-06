@@ -13,7 +13,7 @@
                         <th>NOMBRE</th>
                         <th>APELLIDO</th>
                         <th>EMAIL</th>
-                        <th>CATEGORY</th>
+                        <th>ROL</th>
                         <th>#</th>
                     </tr>
                 </thead>
@@ -22,9 +22,9 @@
                         <tr>
                             <td data-label="ID"><%- user.id %></td>
                             <td data-label="Nombre"><%- user.first_name.toUpperCase() %></td>
-                            <td data-label="Categoria"><%- user.last_name.toUpperCase() %></td>
-                            <td data-label="Precio"><%- user.email %></td>
-                            <td data-label="Descuento"><%- user.category %></td>
+                            <td data-label="Apellido"><%- user.last_name.toUpperCase() %></td>
+                            <td data-label="Email"><%- user.email %></td>
+                            <td data-label="Rol"><%- user.rol %></td>
                             <td data-label="#"><a href="#" class="table-btn">Editar</a>
                                 <form action="#" method="">
                                     <button class="table-delete-btn">Eliminar</button>

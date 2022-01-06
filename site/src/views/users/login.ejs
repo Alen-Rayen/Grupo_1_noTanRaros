@@ -16,15 +16,18 @@
             <div class="form-container">
                 <div class="containers">
                     <label for="">Correo electrónico</label>
-                    <input class="input" type="email" name="email" id="email"
-                        placeholder="Ingrese su correo electrónico">
-                    <span class="error-message">Debe ingresar tu correo</span>
+                    <input class="input" type="email" name="email" id="email" placeholder="Ingrese su correo electrónico" value="<%= locals.old ? old.email : null %>">
+                    <% if (locals.errors && errors.email) { %>
+                        <span class="error-message"> <%= errors.email.msg %></span>
+                    <% } %>
                     <label for="">Contraseña</label>
                     <input class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
-                    <span class="error-message">Ingrese la contraseña</span>
+                    <% if (locals.errors && errors.custom) { %>
+                        <span class="error-message"> <%= errors.custom.msg %></span>
+                    <% } %>
                     <div class="check">
-                        <label for="terns">Mantener la sesión</label>
-                        <input type="checkbox" name="terms" id="terms">
+                        <label for="remember">Recordarme</label>
+                        <input type="checkbox" name="remember" id="remember">
                     </div>
                     <div class="button">
                         <button type="submit" class="button button-submit">Iniciar sesión</button>

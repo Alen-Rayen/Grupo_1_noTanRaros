@@ -16,24 +16,35 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 let controller = {
     create: (req, res) => {
-        res.render('admin/createProduct', { title: 'Crear Producto' })
+        res.render('admin/createProduct', { 
+            title: 'Crear Producto',
+            session: req.session
+        })
     },
     edit: (req, res) => {
-        res.render('admin/editProduct', { title: 'Editar Producto' })
+        res.render('admin/editProduct', { 
+            title: 'Editar Producto',
+            session: req.session
+        })
     },
     index: (req, res) => {
-        res.render('admin/index', { title: 'Main Admin Panel | NoTanRaros'})
+        res.render('admin/index', { 
+            title: 'Main Admin Panel | NoTanRaros',
+            session: req.session
+        })
     },
     list: (req, res) => {
         res.render('admin/productsPanel', {
             title: 'Administrador de Productos',
-            products
+            products,
+            session: req.session
         })
     },
     usersList: (req, res) => {
         res.render('admin/usersPanel', {
             title: 'Lista de Usuarios',
-            users
+            users,
+            session: req.session
         })
     }
 }

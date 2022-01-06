@@ -14,36 +14,47 @@
         <div class="form">
             <h2>Registrarme</h2>
 
-            <form method="POST" action="/users/register">
+            <form method="POST" action="/users/register" enctype="multipart/form-data">
                 <div class="form-container">
                     <div class="containers">
                         <label for="">Nombre</label>
-                        <input class="input" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre">
-                        <span class="error-message">Debes ingresar un nombre</span>
+                        <input class="input" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" value="<%= locals.old ? old.nombre : null %>">
+                        <% if (locals.errors && errors.nombre) { %>
+                            <span class="error-message"><%= errors.nombre.msg %></span>
+                        <% } %>
                         <label for="">Apellido</label>
-                        <input class="input" type="text" name="apellido" id="apellido"
-                            placeholder="Ingrese su apellido">
-                        <span class="error-message">Debes ingresar un apellido</span>
+                        <input class="input" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" value="<%= locals.old ? old.apellido : null %>">
+                        <% if (locals.errors && errors.apellido) { %>
+                            <span class="error-message"><%= errors.apellido.msg %></span>
+                        <% } %>
                         <label for="">Correo electrónico</label>
-                        <input class="input" type="email" name="email" id="email"
-                            placeholder="Ingrese su correo electrónico">
-                        <span class="error-message">Debes ingresar tu correo electrónico</span>
+                        <input class="input" type="email" name="email" id="email" placeholder="Ingrese su correo electrónico" value="<%= locals.old ? old.email : null %>">
+                        <% if (locals.errors && errors.email) { %>
+                            <span class="error-message"><%= errors.email.msg %></span>
+                        <% } %>
                         <label for="">Contraseña</label>
                         <input class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
-                        <span class="error-message">Debes ingresar una contraseña</span>
+                        <% if (locals.errors && errors.pass) { %>
+                            <span class="error-message"><%= errors.pass.msg %></span>
+                        <% } %>
                         <label for="">Ingrese la contraseña nuevamente</label>
-                        <input class="input" type="password" name="pass" id="pass2"
-                            placeholder="Ingrese la contraseña nuevamente">
-                        <span class="error-message">Las contraseñas deben coincidir</span>
+                        <input class="input" type="password" name="pass2" id="pass2" placeholder="Ingrese la contraseña nuevamente">
+                        <% if (locals.errors && errors.pass2) { %>
+                            <span class="error-message"><%= errors.pass2.msg %></span>
+                        <% } %>
+                        <label for="avatar">Agregar Avatar</label>
+                        <input class="input" type="file" name="avatar" accept="jpg">
                     </div>
                     <div class="check">
-                        <label for="terns">Acepto los <a href="">Términos y Condiciones</a></label>
+                        <label for="terms" class="terms">Acepto los <a href="">Términos y Condiciones</a></label>
                         <input type="checkbox" name="terms" id="terms">
                     </div>
-                    <span class="error-message">Debes aceptar los términos</span>
+                    <% if (locals.errors && errors.terms) { %>
+                        <span class="error-message"><%= errors.terms.msg %></span>
+                    <% } %>
                     <div class="check">
                         <label for="terns">Desea recibir notificaciones al correo?</label>
-                        <input type="checkbox" name="terms" id="terms">
+                        <input type="checkbox" name="emailNotifications" id="emailNotifications">
                     </div>
                     <div class="button">
                         <button type="submit" class="button button-submit">Crear mi cuenta</button>

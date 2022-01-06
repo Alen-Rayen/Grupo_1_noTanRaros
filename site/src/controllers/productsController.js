@@ -2,12 +2,12 @@ let fs = require('fs');
 
 let path = require('path');
 
-
+const { writeProductsJSON } = require('../database/dataBase')
 const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const writeJson = dataBase => fs.writeFileSync(productsFilePath, JSON.stringify(dataBase), 'utf-8')
 const imagesPath = path.join(__dirname, '../../public/images/')
-
+let { validationResult } = require('express-validator');
 let categories = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/categories.json'), "utf-8"))
 
 
@@ -20,7 +20,8 @@ const controller = {
         res.render('products/products', {
             title: 'Productos | NoTanRaros',
             products,
-            toThousand
+            toThousand,
+            session: req.session
         })
     },
     /* Get product detail */
@@ -31,7 +32,8 @@ const controller = {
         res.render('products/productDetail', {
             product,
             toThousand,
-            title: `${product.name}`
+            title: `${product.name}`,
+            session: req.session
         })
     },
     /* Creates one product form */
@@ -39,42 +41,64 @@ const controller = {
         
         res.render('products/productCreate', {
             title: "Crear | NoTanRaros",
-            categories
+            categories,
+            session: req.session
         })
     },
     /* Method to store created product */
     store: (req, res) => {
-        let lastId = 1;
+        let errors = validationResult(req)
 
-        products.forEach(product => {
-            if(product.id > lastId) {
-                lastId = product.id
+        if (errors.isEmpty()) {
+            let lastId = 1;
+
+            products.forEach(product => {
+                if(product.id > lastId){
+                    lastId = product.id
+                }
+            });
+    
+            const {name, price, category, description, discount, color, talle} = req.body
+    
+            let newProduct = {
+                id: lastId + 1,
+                name: name.trim(),
+                price: +price.trim(),
+                category: +category,
+                description: description.trim(),
+                discount: +discount,
+                color: color,
+                talle: +talle,
+                image: req.file ? [req.file.filename] : ["default-image.png"]
             }
-        });
-
-        const {name, price, category, talle, description, discount, color} = req.body
-
-        let newProduct = {
-            id: lastId + 1,
-            name: name.trim(),
-            description: description.trim(),
-            price: +price.trim(),
-            discount: +discount,
-            category: +category,
-            color: color,
-            talle: talle,
-            image: req.file ? req.file.filename : "404.jpg"
+    
+            /* let newProduct = {
+                ...req.body,
+                id: lastId + 1,
+                image: req.file ? req.file.filename : "default-image.png"
+            } */
+    
+            products.push(newProduct)
+    
+            writeProductsJSON(products)
+    
+            res.redirect('/products')
+        } else {
+            res.render('products/productCreate.ejs', {
+                categories,
+                errors: errors.mapped(),
+                old: req.body,
+                session: req.session,
+                title: 'Crear | NoTanRaros'
+            })
         }
-
-        products.push(newProduct);
-
-        writeJson(products);
-
-        res.redirect('/products');
     },
     /* Gets cart view */
     cart: (req, res) => {
-        res.render('users/cart', { title: 'Carrito | NoTanRaros' })
+        res.render('users/cart', { 
+            title: 'Carrito | NoTanRaros',
+            session: req.session
+        })
     },
     edit: (req, res) => {
         let productId = +req.params.id;
@@ -83,7 +107,8 @@ const controller = {
         res.render('products/editProduct', {
             product: productToEdit,
             title: 'Editar|NoTanRaros',
-            categories
+            categories,
+            session: req.session
         })
     },
     update: (req, res) => {
@@ -153,7 +178,8 @@ const controller = {
             title: "Resultados | NoTanRaros",
             result,
             search: keywords,
-            toThousand
+            toThousand,
+            session: req.session
         })
     }
 

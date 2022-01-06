@@ -17,15 +17,20 @@ let controller = {
         res.render('users/home', {
              title: 'Home | NoTanRaros',
              products,
-             toThousand
+             toThousand,
+             session: req.session
         });
     },
     contact: (req, res) => {
-        res.render('users/contact', { title: 'Contacto | NoTanRaros' });
+        res.render('users/contact', { 
+            title: 'Contacto | NoTanRaros',
+            session: req.session
+        });
     },
     error: (req, res) => {
         res.render('users/error', {
-            title: "Error"
+            title: "Error",
+            session: req.session
         })
     }
 }

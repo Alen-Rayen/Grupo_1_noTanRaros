@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const adminController = require('../controllers/adminController');
-const rutaDeUsuario = require('../middlewares/rutaDeUsuario')
+const adminCheck = require('../middlewares/userAdminCheck');
 
-router.get('/',rutaDeUsuario,adminController.index);
-router.get('/createProduct',rutaDeUsuario,adminController.create);
-router.get('/editProduct',rutaDeUsuario,adminController.edit);
-router.get('/productsList',rutaDeUsuario,adminController.list)
-router.get('/usersList',rutaDeUsuario,adminController.usersList);
+
+router.get('/', adminCheck, adminController.index);
+router.get('/createProduct', adminCheck, adminController.create);
+router.get('/editProduct', adminCheck, adminController.edit);
+router.get('/productsList', adminCheck, adminController.list)
+router.get('/usersList', adminCheck, adminController.usersList);
 
 
 module.exports = router;

@@ -144,6 +144,17 @@ header nav ul li a:hover, nav ul li a:focus {
         display: none;
     }
 
+    .session {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #00d900;
+        border-radius: 50px;
+        position: relative;
+        top: -10px;
+        margin-left: -14px;
+    }
+
     header nav {
         position: relative;
         top: -10px;
@@ -156,7 +167,7 @@ header nav ul li a:hover, nav ul li a:focus {
     }
 
     .header-search-button {
-        margin-left: -35px;
+        margin-left: -25px;
         margin-top: -30px;
 
     }
@@ -166,24 +177,29 @@ header nav ul li a:hover, nav ul li a:focus {
         padding: 15px 0;
         text-align: right;
         flex-direction: row;
-        font-size: 11px;
+        font-size: 16px;
         justify-content: flex-end;
     }
 
     .search {
-        padding: 12px;
-        font-size: 12px;
+        padding: 5px;
+        font-size: 14px;
     }
 
     .header-search-button {
-        margin-top: -2px;
+        margin-top: 0px;
+        padding: 4px;
+    }
+
+    header nav ul li .header-search-button i {
+        font-size: 12px;
     }
 
     
 
     header nav ul li {
         display: inline-flex;
-        padding-left: 20px;
+        padding: 5px;
     }
 
     header nav ul li i {
@@ -218,6 +234,11 @@ header nav ul li a:hover, nav ul li a:focus {
         padding-left: 20px;
     }
 
+    .session {
+        width: 8px;
+        height: 8px;
+    }
+
     header nav ul li i {
         color: lightgray;
         font-size: 24px;
@@ -230,11 +251,14 @@ header nav ul li a:hover, nav ul li a:focus {
 
     .search {
         font-size: 16px;
+        padding: 8px;
     }
 
     .header-search-button {
-        padding: 4px;
-        font-size: 12px;
+        padding: 8px;
+        font-size: 14px;
+        margin-left: -30px;
+        margin-bottom: 0px;
     }
 
 }

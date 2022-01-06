@@ -2,27 +2,30 @@ const express = require('express');
 const router = express.Router();
 const upload = require('../middlewares/uploadProductFiles');
 const productsController = require('../controllers/productsController');
-const rutaDeUsuario = require('../middlewares/rutaDeUsuario')
+let productFormValidator = require('../validations/productFormValidator');
+const logInCheck = require('../middlewares/rutasUsers');
+const adminCheck = require('../middlewares/userAdminCheck');
+
 
 /* GET ALL PRODUCTS */
 router.get('/', productsController.index);
 
 /* CREATE ONE PRODUCT */
-router.get('/create/', rutaDeUsuario ,productsController.create);
-router.post('/', upload.single('image'), productsController.store);
+router.get('/create/', adminCheck, productsController.create);
+router.post('/', upload.single('image'), productFormValidator, productsController.store);
 
 /* GET ONE PRODUCT DETAIL */
 router.get('/detail/:id', productsController.detail);
 
 /* GET CART VIEW */
-router.get('/cart', rutaDeUsuario ,productsController.cart);
+router.get('/cart', logInCheck, productsController.cart);
 
 /* EDIT ONE PRODUCT */
-router.get('/:id/edit', productsController.edit);
+router.get('/:id/edit', adminCheck, productsController.edit);
 router.put('/:id', upload.single('image'), productsController.update);
 
 /* Delete */
-router.delete('/:id', rutaDeUsuario ,productsController.destroy)
+router.delete('/:id', productsController.destroy)
 
 /* GET - Gets search view */
 router.get('/search', productsController.search);

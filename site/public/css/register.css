@@ -33,11 +33,9 @@
     height: fit-content;
     width: 100%;
     padding: 1.5rem;
-    color: rgba(255, 255, 255, 0.884);
-    background: #000000;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #4343431c, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    color: rgba(22, 22, 22, 0.884);
+    background: #e2e2e2;  /* fallback for old browsers */
+    
 }
 
 .register-body h2 {    
@@ -87,15 +85,20 @@ span.error-message {
     display: inline-block;
 }
 
+
+
 .input {
     display: flex;
     flex-direction: column;
     margin: .5rem;
     width: 90%;
+    background-color: #4b4b4b;
+    color: rgb(245, 245, 245);
+    border: solid 3px rgb(65, 65, 65);
 }
 
 input.input {
-    border: none;
+    
     border-radius: 1rem;
     height: 2.5rem;
     padding: .5rem;
@@ -111,8 +114,12 @@ input.input::placeholder {
 }
 
 .register-body label {
-    font-size: 15px;
+    font-size: 18px;
     
+}
+
+.form-container .terms a {
+    font-size: 18px;
 }
 
 .check {
@@ -174,11 +181,21 @@ input.input::placeholder {
     span.error-message {
         font-size: 16px;
     }
+
+    .register-body label {
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    span.error-message {
+        font-size: 14px;
+    }
 }
 
  @media screen and (min-width: 1440px ){
     span.error-message {
-        font-size: 18px;
+        font-size: 16px;
     }
 
 } 
