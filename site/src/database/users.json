@@ -5,7 +5,7 @@
     "last_name": "NoTanRaros",
     "email": "admin@email.com",
     "password": "$2a$12$OkBn6klGKa5wpM2zfk6W0u/1R08iuwT7zGSzmF3QsJ1jIs8rqGdW6",
-    "avatar": "1641488094056_img.png",
+    "avatar": "default-image.jpg",
     "rol": "ROL_ADMIN"
   },
   {
@@ -19,11 +19,20 @@
   },
   {
     "id": 3,
-    "first_name": "Prueba",
-    "last_name": "Admin",
-    "email": "emailfalso@email.com",
-    "password": "$2a$12$BArlPvTTrHZrpxhN/ABUeuVEvxsYv6Yw3iCbXyfYMWU5oGpVp..Bq",
-    "avatar": "1641499026988_img.jpg",
+    "first_name": "Juan",
+    "last_name": "Perez",
+    "email": "juanperez@gmail.com",
+    "password": "$2a$12$ZXIJ3Nwo8DZ1DIL.24qR0.iLeu2xix8QrtkcWwlZh4Ypcg7qC5Mhu",
+    "avatar": "default-image.jpg",
+    "rol": "ROL_USER"
+  },
+  {
+    "id": 4,
+    "first_name": "Usuario",
+    "last_name": "Falso",
+    "email": "email@email.com",
+    "password": "$2a$12$XG5rQKzCgdgtbZgzs366IuLvzGLHnhpWh8tJfa7TfL7xC2Mr2J44K",
+    "avatar": "1641596848779_img.png",
     "rol": "ROL_USER"
   }
 ]
