@@ -7,9 +7,22 @@ main.productsListMain {
     padding-top: 86px;
 }
 
+.productsListMain .table-container a {
+    margin: 0 auto;
+}
+
+.productsListMain .table-container a .addProductButton {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 10px auto;
+}
+
 .table-container {
     padding: 0 10%;
     margin: 10px auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .heading {

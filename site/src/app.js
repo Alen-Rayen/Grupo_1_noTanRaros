@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express'); //Requerimos express y lo guardamos en la variable express
 const app = express();
 const path = require('path');
 const PORT = 8080;
