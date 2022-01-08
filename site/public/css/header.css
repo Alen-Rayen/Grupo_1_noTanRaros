@@ -8,6 +8,18 @@ header {
     z-index: 999999;
 }
 
+.session {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #00d900;
+    border-radius: 50px;
+    position: relative;
+    top: -34px;
+    margin-left: -110px;
+    padding: 4px;
+}
+
 header.menu {
     height: 70px;
     background-color: #222222;
