@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `brands`;
 CREATE TABLE `brands` (
   `id` int(12) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
+  `image` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -35,7 +36,7 @@ CREATE TABLE `brands` (
 
 LOCK TABLES `brands` WRITE;
 /*!40000 ALTER TABLE `brands` DISABLE KEYS */;
-INSERT INTO `brands` VALUES (1,'Dragon Ball'),(2,'Attack on Titan'),(3,'Berserk'),(4,'Death Note'),(5,'Demon Slayer'),(6,'Naruto'),(7,'Hunter x Hunter'),(8,'JoJo\'s Bizarre Adventure'),(9,'My Hero Academia'),(10,'One Piece'),(11,'One Punch Man'),(12,'Pokemon'),(13,'Sailor Moon'),(14,'Marvel'),(15,'Full Metal Alchemist'),(16,'Yu Gi Oh!'),(17,'Sword Art Online'),(18,'League of Legends'),(19,'Los Simpsons'),(20,'DC'),(21,'Harry Potter'),(22,'Star Wars'),(23,'Evangelion'),(24,'Bob Esponja'),(25,'South Park'),(26,'Tokyo Ghoul'),(27,'Rick And Morty'),(28,'Hora de Aventura'),(29,'Minecraft');
+INSERT INTO `brands` VALUES (1,'Dragon Ball',NULL),(2,'Attack on Titan',NULL),(3,'Berserk',NULL),(4,'Death Note',NULL),(5,'Demon Slayer',NULL),(6,'Naruto',NULL),(7,'Hunter x Hunter',NULL),(8,'JoJo\'s Bizarre Adventure',NULL),(9,'My Hero Academia',NULL),(10,'One Piece',NULL),(11,'One Punch Man',NULL),(12,'Pokemon',NULL),(13,'Sailor Moon',NULL),(14,'Marvel',NULL),(15,'Full Metal Alchemist',NULL),(16,'Yu Gi Oh!',NULL),(17,'Sword Art Online',NULL),(18,'League of Legends',NULL),(19,'Los Simpsons',NULL),(20,'DC',NULL),(21,'Harry Potter',NULL),(22,'Star Wars',NULL),(23,'Evangelion',NULL),(24,'Bob Esponja',NULL),(25,'South Park',NULL),(26,'Tokyo Ghoul',NULL),(27,'Rick And Morty',NULL),(28,'Hora de Aventura',NULL),(29,'Minecraft',NULL);
 /*!40000 ALTER TABLE `brands` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,4 +300,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-28 21:30:23
+-- Dump completed on 2022-01-28 22:02:41
