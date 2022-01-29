@@ -214,6 +214,11 @@ header nav ul li a:hover, nav ul li a:focus {
         padding: 5px;
     }
 
+    header nav ul li i:hover,
+    header nav ul li a:hover {
+        background-color: rgba(196, 188, 188, 0.5);
+    }
+
     header nav ul li i {
         color: lightgray;
         font-size: 20px;

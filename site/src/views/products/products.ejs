@@ -16,6 +16,7 @@
         <div class="ofertas-home">
 
         <% products.forEach(product => { %>
+        <a href="/products/detail/<%- product.id %>">
             <article class="oferta">
                 <div class="container-foto-oferta">
                     <img src="images/<%- product.image  %>" alt="" class="foto-oferta">
@@ -36,7 +37,8 @@
                         <i class="fas fa-star"></i>
                     </span>
                 </div>
-            </article>    
+            </article>
+        </a>    
         <% }) %>
         </div>
         <hr>

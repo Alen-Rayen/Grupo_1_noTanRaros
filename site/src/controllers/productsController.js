@@ -15,6 +15,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
     /* Show all products */
+    //Muestra la pafina de todos los productos
     index: (req, res) => {
         
         res.render('products/products', {
@@ -25,6 +26,7 @@ const controller = {
         })
     },
     /* Get product detail */
+    //Muestra el detalle de un producto
     detail: (req, res) => {
         let productId = +req.params.id;
         let product = products.find(product => product.id === productId);
@@ -113,8 +115,6 @@ const controller = {
     },
     update: (req, res) => {
         let productId = +req.params.id;
-
-        
 
         const {name, price, discount, description, category, color, talle} = req.body;
     

@@ -34,5 +34,14 @@
     "password": "$2a$12$XG5rQKzCgdgtbZgzs366IuLvzGLHnhpWh8tJfa7TfL7xC2Mr2J44K",
     "avatar": "1641596848779_img.png",
     "rol": "ROL_USER"
+  },
+  {
+    "id": 5,
+    "first_name": "Juan",
+    "last_name": "Perez",
+    "email": "juanperez@mail.com",
+    "password": "$2a$12$3Pb3XDDiqAbrV9J31KWPmeTZYhV2OlCaXFClIwMbK8rViyKeMQL6.",
+    "avatar": "1642180988334_img.jpg",
+    "rol": "ROL_USER"
   }
 ]
