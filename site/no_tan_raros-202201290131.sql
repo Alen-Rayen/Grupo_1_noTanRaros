@@ -185,7 +185,7 @@ CREATE TABLE `products` (
   `color_id` int(12) unsigned NOT NULL,
   `brand_id` int(12) unsigned NOT NULL,
   `subcategory_id` int(12) unsigned NOT NULL,
-  `price` int(12) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
   `discount` int(12) DEFAULT 0,
   `description` varchar(900) DEFAULT NULL,
   `image` text DEFAULT NULL,
@@ -300,4 +300,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-29  1:16:21
+-- Dump completed on 2022-01-29  1:31:07

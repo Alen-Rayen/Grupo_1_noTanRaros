@@ -12,6 +12,9 @@ let categories = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/ca
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+const db = require('../database/models');
+const { Op } = require('sequelize');
+
 let controller = {
     home: (req, res) => {
         res.render('users/home', {
