@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         quantity: {
-            type: DataTypes.INTEGER(12),
+            type: DataTypes.INTEGER(12).UNSIGNED,
             allowNull: false
         }
     }, {

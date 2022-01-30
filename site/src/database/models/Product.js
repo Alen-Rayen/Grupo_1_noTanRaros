@@ -34,9 +34,6 @@ module.exports = (sequelize, DataTypes) => {
         subcategory_id: {
             type: DataTypes.INTEGER(12).UNSIGNED,
             allowNull: false
-        },
-        image: {
-            type: DataTypes.TEXT
         }
     }, {
         tablename: 'products',
@@ -56,13 +53,13 @@ module.exports = (sequelize, DataTypes) => {
             as: 'colors',
             foreignKey: 'color_id'
         })
-        Product.hasMany(models.ProductImage, {
-            as: 'productImages',
-            foreignKey: 'product_id'
+        Product.hasMany(models.Products_image, {
+            as: 'products_images',
+            foreignKey: 'productId'
         })
         Product.hasMany(models.Order_item, {
-            as: "order_items",
-            foreignKey: "product_id"
+            as: 'order_items',
+            foreignKey: 'product_id'
         })
     }
 
