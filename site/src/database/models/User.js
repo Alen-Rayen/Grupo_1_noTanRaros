@@ -34,5 +34,13 @@ module.exports = (sequelize, DataTypes) => {
         tablename: 'users',
         timestamps: false
     })
-    return User
+
+    User.associate = models => {
+        User.hasOne(models.Order, {
+            as: 'order',
+            foreignKey: 'user_id'
+        })
+    }
+
+    return User;
 }

@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         discount: {
             type: DataTypes.INTEGER(12),
-            allowNull: true
+            allowNull: true,
+            defaultValue: 0
         },
         description: {
             type: DataTypes.STRING(850),
@@ -41,5 +42,29 @@ module.exports = (sequelize, DataTypes) => {
         tablename: 'products',
         timestamps: false
     })
+
+    Product.associate = models => {
+        Product.belongsTo(models.Subcategory, {
+            as: 'subcategories',
+            foreignKey: 'subcategory_id'
+        })
+        Product.belongsTo(models.Brand, {
+            as: 'brands',
+            foreignKey: 'brand_id'
+        })
+        Product.belongsTo(models.Color, {
+            as: 'colors',
+            foreignKey: 'color_id'
+        })
+        Product.hasMany(models.ProductImage, {
+            as: 'productImages',
+            foreignKey: 'product_id'
+        })
+        Product.hasMany(models.Order_item, {
+            as: "order_items",
+            foreignKey: "product_id"
+        })
+    }
+
     return Product;
 }

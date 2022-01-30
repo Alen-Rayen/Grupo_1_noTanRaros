@@ -16,7 +16,7 @@ const db = require('../database/models');
 const { Op } = require('sequelize');
 
 let controller = {
-    home: (req, res) => {
+    home: (req, res) => {        
         res.render('users/home', {
              title: 'Home | NoTanRaros',
              products,
