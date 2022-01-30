@@ -100,7 +100,7 @@ CREATE TABLE `order_items` (
   `product_id` int(12) unsigned NOT NULL,
   `size_id` int(12) unsigned NOT NULL,
   `order_id` int(12) unsigned NOT NULL,
-  `quantity` int(12) NOT NULL,
+  `quantity` int(12) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_66` (`product_id`),
   KEY `FK_77` (`order_id`),
@@ -147,32 +147,6 @@ LOCK TABLES `orders` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `productimages`
---
-
-DROP TABLE IF EXISTS `productimages`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `productimages` (
-  `id` int(12) unsigned NOT NULL AUTO_INCREMENT,
-  `image` varchar(200) NOT NULL,
-  `product_id` int(12) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_52` (`product_id`),
-  CONSTRAINT `FK_50` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `productimages`
---
-
-LOCK TABLES `productimages` WRITE;
-/*!40000 ALTER TABLE `productimages` DISABLE KEYS */;
-/*!40000 ALTER TABLE `productimages` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `products`
 --
 
@@ -188,7 +162,6 @@ CREATE TABLE `products` (
   `price` decimal(10,2) NOT NULL,
   `discount` int(12) DEFAULT 0,
   `description` varchar(900) DEFAULT NULL,
-  `image` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_37` (`subcategory_id`),
   KEY `FK_59` (`brand_id`),
@@ -196,7 +169,7 @@ CREATE TABLE `products` (
   CONSTRAINT `FK_35` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`id`),
   CONSTRAINT `FK_57` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
   CONSTRAINT `FK_89` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -205,7 +178,35 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'Remera Evangelion Eva-01 Blanca',9,23,2,2000.00,10,'morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum'),(2,'Remera Freezer Dragon Ball Rosa',10,1,2,2000.00,10,'morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `products_images`
+--
+
+DROP TABLE IF EXISTS `products_images`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `products_images` (
+  `id` int(12) unsigned NOT NULL AUTO_INCREMENT,
+  `image` varchar(200) NOT NULL,
+  `productId` int(12) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_52` (`productId`),
+  CONSTRAINT `FK_50` FOREIGN KEY (`productId`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `products_images`
+--
+
+LOCK TABLES `products_images` WRITE;
+/*!40000 ALTER TABLE `products_images` DISABLE KEYS */;
+INSERT INTO `products_images` VALUES (1,'TS809ANGE_1copy_large.png',1),(2,'TS7XSMDBZ_1copy_large.png',2);
+/*!40000 ALTER TABLE `products_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -300,4 +301,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-29  1:31:07
+-- Dump completed on 2022-01-30 15:25:41
