@@ -91,10 +91,14 @@ let controller = {
         res.redirect('/');
     },
     profile: (req, res) => {
-        res.render('users/profile.ejs', { 
-            title: 'Perfil | NoTanRaros',
-            session: req.session
-        });
+        db.User.findByPk(req.session.user.id)
+        .then((user) => {
+            res.render('users/profile.ejs', { 
+                title: 'Perfil | NoTanRaros',
+                user,
+                session: req.session
+            });
+        })
     }    
 }
 
