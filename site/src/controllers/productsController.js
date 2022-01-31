@@ -2,33 +2,71 @@ let fs = require('fs');
 
 let path = require('path');
 
-const { writeProductsJSON } = require('../database/dataBase')
+/* const { writeProductsJSON } = require('../database/dataBase')
 const productsFilePath = path.join(__dirname, '../database/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const writeJson = dataBase => fs.writeFileSync(productsFilePath, JSON.stringify(dataBase), 'utf-8')
-const imagesPath = path.join(__dirname, '../../public/images/')
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); */
+/* const writeJson = dataBase => fs.writeFileSync(productsFilePath, JSON.stringify(dataBase), 'utf-8')
+const imagesPath = path.join(__dirname, '../../public/images/') */
 let { validationResult } = require('express-validator');
-let categories = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/categories.json'), "utf-8"))
+/* let categories = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/categories.json'), "utf-8")) */
 
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+const db = require('../database/models');
+const { Op } = require('sequelize');
+
 const controller = {
     /* Show all products */
-    //Muestra la pafina de todos los productos
+    //Muestra la pagina de todos los productos
     index: (req, res) => {
-        
-        res.render('products/products', {
-            title: 'Productos | NoTanRaros',
-            products,
-            toThousand,
-            session: req.session
+        db.Product.findAll({
+            include: [{
+                association: 'subcategories',
+                include: [{
+                    association: 'category'
+                }]
+            }, {
+                association: 'products_images'
+            }]
         })
+        .then((products) => {
+            res.render('products/products', {
+                 title: 'Productos | NoTanRaros',
+                 products,
+                 toThousand,
+                 session: req.session
+            });
+        })
+        .catch(error => res.send(error))
     },
     /* Get product detail */
     //Muestra el detalle de un producto
     detail: (req, res) => {
-        let productId = +req.params.id;
+        db.Product.findOne({
+            where: {
+                id: +req.params.id,
+            },
+            include: [{association: 'products_images'}]
+        })
+        .then(((product) => {
+            db.Product.findAll({
+                include: [{association: 'products_images'}],
+                where: {
+                    subcategory_id: product.subcategory_id
+                }
+            })
+            .then((relatedProducts) => {
+                res.render('products/productDetail', {
+                    product,
+                    relatedProducts,
+                    toThousand,
+                    title: `${product.name}`,
+                    session: req.session
+                })
+            })
+        }))
+        /* let productId = +req.params.id;
         let product = products.find(product => product.id === productId);
         
         res.render('products/productDetail', {
@@ -36,7 +74,7 @@ const controller = {
             toThousand,
             title: `${product.name}`,
             session: req.session
-        })
+        }) */
     },
     /* Creates one product form */
     create: (req, res) => {

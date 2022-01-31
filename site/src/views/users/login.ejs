@@ -22,13 +22,16 @@
                     <% } %>
                     <label for="">Contraseña</label>
                     <input class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
-                    <% if (locals.errors && errors.custom) { %>
-                        <span class="error-message"> <%= errors.custom.msg %></span>
+                    <% if (locals.errors && errors.pass) { %>
+                        <span class="error-message"> <%= errors.pass.msg %></span>
                     <% } %>
                     <div class="check">
                         <label for="remember">Recordarme</label>
                         <input type="checkbox" name="remember" id="remember">
                     </div>
+                    <% if (locals.errors && errors.custom) { %>
+                        <span class="error-message"> <%= errors.custom.msg %></span>
+                    <% } %>
                     <div class="button">
                         <button type="submit" class="button button-submit">Iniciar sesión</button>
                     </div>

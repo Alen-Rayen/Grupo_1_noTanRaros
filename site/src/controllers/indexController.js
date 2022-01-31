@@ -13,7 +13,7 @@ const imagesPath = path.join(__dirname, '../../public/images/')
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const db = require('../database/models');
-const { Op, Association } = require('sequelize');
+const { Op } = require('sequelize');
 
 let controller = {
     home: (req, res) => {    
@@ -23,7 +23,6 @@ let controller = {
                 include: [{
                     association: 'category'
                 }]
-
             }, {
                 association: 'products_images'
             }]
@@ -33,7 +32,9 @@ let controller = {
                  title: 'Home | NoTanRaros',
                  products,
                  toThousand,
-                 session: req.session
+                 session: req.session,
+                 sliderTitle: "Ofertas destacadas",
+                sliderProducts: products
             });
         })
         .catch(error => res.send(error))
