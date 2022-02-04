@@ -20,7 +20,7 @@ const controller = {
     /* Show all products */
     //Muestra la pagina de todos los productos
     index: (req, res) => {
-        db.Product.findAll({
+        db.Products.findAll({
             include: [{
                 association: 'subcategories',
                 include: [{
@@ -152,10 +152,53 @@ const controller = {
         })
     },
     update: (req, res) => {
-        let productId = +req.params.id;
+        let errors = validationResult(req)
+        if(errors.isEmpty()){
+            const {name, price, discount, description, category, subcategory} = req.body;
+            db.Porducts.update({
+                name,
+                description,
+                price,
+                discount,
+                subcategoryId: subcategory,                
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then((result) => {
+                db.PorductImages.findAll({
+                    where: {
+                        porductId: req.params.id
+                    }
+                })
+                .then((images) => {
+                    images.forEach((product) => {
+                        fs.existsSync('../../public/images/products', product.image)
+                          ? fs.unlinkSync(`../../public/images/products${product.image}`)
+                          : console.log('No encontré el archivo')
+                    })
+                    db.ProductImages.destroy({
+                        where: {
+                            productId: req.params.id
+                        }
+                    })
+                    .then(() => {
+                        ProductImages.create({
+                            image: req.file ? req.file.filename : 'default-image.png',
+                            productId: req.params.id
+                        })
+                        .then(() => {
+                            res.redirect(`/products/detail/${productId}`)
+                        })
+                    })
+                })
+                .catch(error => res.send(error))
+            })
 
-        const {name, price, discount, description, category, color, talle} = req.body;
-    
+        }
+        
+    /* 
         products.forEach(product => {
             if(product.id === productId) {
                 product.id = +product.id,
@@ -179,12 +222,41 @@ const controller = {
             }
         })
 
-        writeJson(products)
+        writeJson(products) */
 
-        res.redirect(`/products/detail/${productId}`)
+        //res.redirect(`/products/detail/${productId}`)
+        
     },
     destroy: (req, res) => {
-        let productId = +req.params.id;
+        db.PorductImages.findAll({
+            where: {
+                porductId: req.params.id,
+            }
+        })
+        .then((images) => {
+            images.forEach((product) => {
+                fs.existsSync('../../public/images/products', product.image)
+                ? fs.unlinkSync(`../../public/images/products${product.image}`)
+                : console.log('No encontré el archivo')
+            })
+            PorductImages.destroy({
+                where: {
+                    productId: req.params.id
+                }
+            })
+            .then((result) => {
+                db.Porducts.destroy({
+                    where: {
+                        id:id.params.id
+                    }
+                })
+                .then(res.redirect('/products'))
+                .catch(error => res.send(error))
+            })
+            .catch(error => res.send(error))
+        })
+        .catch(error => res.send(error))
+        /* let productId = +req.params.id;
 
         products.forEach(product => {
             if(product.id === productId){
@@ -205,7 +277,7 @@ const controller = {
         })
 
         writeJson(products);
-        res.redirect('/products')
+        res.redirect('/products') */
     },
     search: (req, res) => {
         let keywords = req.query.keywords.trim().toLowerCase();
