@@ -37,7 +37,9 @@ let controller = {
                 sliderProducts: products
             });
         })
-        .catch(error => res.send(error))
+        .catch(error => {
+            console.log(error);
+        })
     },
     contact: (req, res) => {
         res.render('users/contact', { 
