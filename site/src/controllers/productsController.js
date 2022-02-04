@@ -61,20 +61,11 @@ const controller = {
                     product,
                     relatedProducts,
                     toThousand,
-                    title: `${product.name}`,
+                    title: `${product.name} | NoTanRaros`,
                     session: req.session
                 })
             })
-        }))
-        /* let productId = +req.params.id;
-        let product = products.find(product => product.id === productId);
-        
-        res.render('products/productDetail', {
-            product,
-            toThousand,
-            title: `${product.name}`,
-            session: req.session
-        }) */
+        }))        
     },
     /* Creates one product form */
     create: (req, res) => {
