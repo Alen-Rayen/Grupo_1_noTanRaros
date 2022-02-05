@@ -126,8 +126,8 @@ const controller = {
            })
            .catch(error => console.log(error))
         } else {
-            let allCategories = db.Category.findAll();
-            let allSubcategories = db.Subcategory.findAll();
+            let allCategories = db.Categories.findAll();
+            let allSubcategories = db.Subcategories.findAll();
             Promise.all([allCategories, allSubcategories])
             .then(([categories, subcategories]) => {
             res.render('products/productCreate', {
