@@ -69,19 +69,79 @@ const controller = {
     },
     /* Creates one product form */
     create: (req, res) => {
-        
-        res.render('products/productCreate', {
-            title: "Crear | NoTanRaros",
-            categories,
-            session: req.session
+        let categories = db.Category.findAll();
+        let subcategories = db.Subcategory.findAll();
+        Promise.all([categories, subcategories])
+        .then(([categories, subcategories]) => {
+            res.render('products/productCreate', {
+                title: '',
+                categories,
+                subcategories,
+                session: req.session
+            });  
         })
+        .catch((error) => {console.log(error)});
     },
     /* Method to store created product */
     store: (req, res) => {
-        let errors = validationResult(req)
-
+         let errors = validationResult(req)
+        let arrayImage = [];
+        if(req.file){
+            req.file.forEach((image) => {
+                arrayImage.push(image.filename)
+            })
+        }
         if (errors.isEmpty()) {
-            let lastId = 1;
+            const {name, price, subcategory, description, discount, colors, brands} = req.body
+           db.Product.create({
+                name,
+                description,
+                price,
+                discount,
+                colors,
+                brands,
+                subcategoryId: subcategory,
+
+           })
+           .then((product) => {
+               if (arrayImage.length > 0){
+                   let images = arrayImage.map((image) => {
+                       return {
+                           image: image,
+                           porductId:productId
+                       }
+                   });
+                   ProductImages.create(images)
+                   .then(() => res.redirect('/admin/products'))
+                   .catch(error => console.log(error))
+                }else {
+                    ProductImages.create({
+                        image: 'default-image.png',
+                        productId: product.id
+                    })
+                    .then(() => {res.redirect('/admin/products')})
+                    .catch(error => console.log(error))
+                
+               }
+           })
+           .catch(error => console.log(error))
+        } else {
+            let allCategories = db.Category.findAll();
+            let allSubcategories = db.Subcategory.findAll();
+            Promise.all([allCategories, allSubcategories])
+            .then(([categories, subcategories]) => {
+            res.render('products/productCreate', {
+                title: '',
+                categories,
+                subcategories,
+                errors: errors.mapped(),
+                old: req.body,
+                session: req.session
+                })
+            })
+            .catch(error => console.log(error))
+        }
+            /*let lastId = 1;
 
             products.forEach(product => {
                 if(product.id > lastId){
@@ -101,7 +161,7 @@ const controller = {
                 color: color,
                 talle: +talle,
                 image: req.file ? [req.file.filename] : ["default-image.png"]
-            }
+            } */
     
             /* let newProduct = {
                 ...req.body,
@@ -109,7 +169,7 @@ const controller = {
                 image: req.file ? req.file.filename : "default-image.png"
             } */
     
-            products.push(newProduct)
+            /* products.push(newProduct)
     
             writeProductsJSON(products)
     
@@ -122,7 +182,7 @@ const controller = {
                 session: req.session,
                 title: 'Crear | NoTanRaros'
             })
-        }
+        } */
     },
     /* Gets cart view */
     cart: (req, res) => {
@@ -145,12 +205,14 @@ const controller = {
     update: (req, res) => {
         let errors = validationResult(req)
         if(errors.isEmpty()){
-            const {name, price, discount, description, category, subcategory} = req.body;
+            const {name, price, discount, description, category, color_id, brand_id, subcategory} = req.body;
             db.Porducts.update({
                 name,
                 description,
                 price,
                 discount,
+                color_id,
+                brand_id,
                 subcategoryId: subcategory,                
             }, {
                 where: {

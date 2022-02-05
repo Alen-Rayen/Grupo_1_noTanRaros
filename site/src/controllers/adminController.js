@@ -24,7 +24,7 @@ let controller = {
         let allSubcategories = db.Subcategories.findAll();
         Promise.all([allCategories, allSubcategories])
         .then(([categories]) => {
-            res.render('admin/createProduct', { 
+            res.render('admin/productCreate', { 
                 title: 'Crear Producto',
                 categories,
                 subcategorie,
