@@ -12,7 +12,7 @@ router.get('/', productsController.index);
 
 /* CREATE ONE PRODUCT */
 router.get('/create/', adminCheck, productsController.create);
-router.post('/', upload.single('image'), productFormValidator, productsController.store);
+router.post('/', upload.array('image'), productFormValidator, productsController.store);
 
 /* GET ONE PRODUCT DETAIL */
 router.get('/detail/:id', productsController.detail);

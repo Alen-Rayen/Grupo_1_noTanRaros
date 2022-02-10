@@ -1,5 +1,4 @@
 let fs = require('fs');
-
 let path = require('path');
 
 /* const { writeProductsJSON } = require('../database/dataBase')
@@ -20,7 +19,7 @@ const controller = {
     /* Show all products */
     //Muestra la pagina de todos los productos
     index: (req, res) => {
-        db.Products.findAll({
+        db.Product.findAll({
             include: [{
                 association: 'subcategories',
                 include: [{
@@ -68,121 +67,87 @@ const controller = {
         }))        
     },
     /* Creates one product form */
+    //Muestra el formulario de carga de producto
     create: (req, res) => {
         let categories = db.Category.findAll();
         let subcategories = db.Subcategory.findAll();
-        Promise.all([categories, subcategories])
-        .then(([categories, subcategories]) => {
+        let colors = db.Color.findAll();
+        let brands = db.Brand.findAll();
+        Promise.all([categories, subcategories, colors, brands])
+        .then(([categories, subcategories, colors, brands]) => {
             res.render('products/productCreate', {
-                title: '',
+                title: 'Crear Producto | NoTanRaros',
                 categories,
                 subcategories,
+                colors,
+                brands,
                 session: req.session
-            });  
+            })
         })
-        .catch((error) => {console.log(error)});
     },
     /* Method to store created product */
     store: (req, res) => {
-         let errors = validationResult(req)
-        let arrayImage = [];
-        if(req.file){
-            req.file.forEach((image) => {
-                arrayImage.push(image.filename)
-            })
+        let errors = validationResult(req)
+        let arrayImages = [];
+        if(req.files){
+            req.files.forEach((image) => {
+                arrayImages.push(image.filename);
+            });
         }
-        if (errors.isEmpty()) {
-            const {name, price, subcategory, description, discount, colors, brands} = req.body
-           db.Product.create({
-                name,
-                description,
-                price,
-                discount,
-                colors,
-                brands,
-                subcategoryId: subcategory,
+        if(errors.isEmpty()){
+            let { name, price, subcategory, description, discount, color, brand } = req.body;
 
-           })
-           .then((product) => {
-               if (arrayImage.length > 0){
-                   let images = arrayImage.map((image) => {
-                       return {
-                           image: image,
-                           porductId:productId
-                       }
-                   });
-                   ProductImages.create(images)
-                   .then(() => res.redirect('/admin/products'))
-                   .catch(error => console.log(error))
-                }else {
-                    ProductImages.create({
-                        image: 'default-image.png',
+            db.Product.create({
+                name,
+                price,
+                subcategory_id: subcategory,
+                color_id: color,
+                discount,
+                description,
+                brand_id: brand
+            })
+            .then((product) => {
+                if(arrayImages.length > 0){
+                    let images = arrayImages.map((image) => {
+                        return {
+                            image: image,
+                            productId: product.id
+                        };
+                    });
+                    db.Products_image.bulkCreate(images)
+                    .then(() => res.redirect('/products'))
+                    .catch(error => console.log(error))
+                }else{
+                    db.Products_image.create({
+                        image: 'default-image.jpg',
                         productId: product.id
                     })
-                    .then(() => {res.redirect('/admin/products')})
+                    .then(() => {res.redirect('/products')})
                     .catch(error => console.log(error))
-                
-               }
-           })
-           .catch(error => console.log(error))
-        } else {
-            let allCategories = db.Categories.findAll();
-            let allSubcategories = db.Subcategories.findAll();
-            Promise.all([allCategories, allSubcategories])
-            .then(([categories, subcategories]) => {
-            res.render('products/productCreate', {
-                title: '',
-                categories,
-                subcategories,
-                errors: errors.mapped(),
-                old: req.body,
-                session: req.session
+                }
+            })
+            .catch(error => console.log(error))
+        }else{
+            let allCategories = db.Category.findAll();
+            let allSubcategories = db.Subcategory.findAll();
+            let allBrands = db.Brand.findAll();
+            let allColors = db.Color.findAll();
+            Promise.all([allCategories, allSubcategories, allBrands, allColors])
+            .then(([categories, subcategories, brands, colors]) => {
+                res.render('products/productCreate', {
+                    categories,
+                    subcategories,
+                    brands,
+                    colors,
+                    errors: errors.mapped(),
+                    old: req.body,
+                    session: req.session,
+                    title: 'Crear Producto | NoTanRaros'
                 })
             })
             .catch(error => console.log(error))
         }
-            /*let lastId = 1;
-
-            products.forEach(product => {
-                if(product.id > lastId){
-                    lastId = product.id
-                }
-            });
-    
-            const {name, price, category, description, discount, color, talle} = req.body
-    
-            let newProduct = {
-                id: lastId + 1,
-                name: name.trim(),
-                price: +price.trim(),
-                category: +category,
-                description: description.trim(),
-                discount: +discount,
-                color: color,
-                talle: +talle,
-                image: req.file ? [req.file.filename] : ["default-image.png"]
-            } */
-    
-            /* let newProduct = {
-                ...req.body,
-                id: lastId + 1,
-                image: req.file ? req.file.filename : "default-image.png"
-            } */
-    
-            /* products.push(newProduct)
-    
-            writeProductsJSON(products)
-    
-            res.redirect('/products')
-        } else {
-            res.render('products/productCreate.ejs', {
-                categories,
-                errors: errors.mapped(),
-                old: req.body,
-                session: req.session,
-                title: 'Crear | NoTanRaros'
-            })
-        } */
+       
     },
     /* Gets cart view */
     cart: (req, res) => {
@@ -203,55 +168,10 @@ const controller = {
         })
     },
     update: (req, res) => {
-        let errors = validationResult(req)
-        if(errors.isEmpty()){
-            const {name, price, discount, description, category, color_id, brand_id, subcategory} = req.body;
-            db.Porducts.update({
-                name,
-                description,
-                price,
-                discount,
-                color_id,
-                brand_id,
-                subcategoryId: subcategory,                
-            }, {
-                where: {
-                    id: req.params.id
-                }
-            })
-            .then((result) => {
-                db.PorductImages.findAll({
-                    where: {
-                        porductId: req.params.id
-                    }
-                })
-                .then((images) => {
-                    images.forEach((product) => {
-                        fs.existsSync('../../public/images/products', product.image)
-                          ? fs.unlinkSync(`../../public/images/products${product.image}`)
-                          : console.log('No encontré el archivo')
-                    })
-                    db.ProductImages.destroy({
-                        where: {
-                            productId: req.params.id
-                        }
-                    })
-                    .then(() => {
-                        ProductImages.create({
-                            image: req.file ? req.file.filename : 'default-image.png',
-                            productId: req.params.id
-                        })
-                        .then(() => {
-                            res.redirect(`/products/detail/${productId}`)
-                        })
-                    })
-                })
-                .catch(error => res.send(error))
-            })
+        let productId = +req.params.id;
 
-        }
-        
-    /* 
+        const {name, price, discount, description, category, color, talle} = req.body;
+    
         products.forEach(product => {
             if(product.id === productId) {
                 product.id = +product.id,
@@ -275,41 +195,12 @@ const controller = {
             }
         })
 
-        writeJson(products) */
+        writeJson(products)
 
-        //res.redirect(`/products/detail/${productId}`)
-        
+        res.redirect(`/products/detail/${productId}`)
     },
     destroy: (req, res) => {
-        db.PorductImages.findAll({
-            where: {
-                porductId: req.params.id,
-            }
-        })
-        .then((images) => {
-            images.forEach((product) => {
-                fs.existsSync('../../public/images/products', product.image)
-                ? fs.unlinkSync(`../../public/images/products${product.image}`)
-                : console.log('No encontré el archivo')
-            })
-            PorductImages.destroy({
-                where: {
-                    productId: req.params.id
-                }
-            })
-            .then((result) => {
-                db.Porducts.destroy({
-                    where: {
-                        id:id.params.id
-                    }
-                })
-                .then(res.redirect('/products'))
-                .catch(error => res.send(error))
-            })
-            .catch(error => res.send(error))
-        })
-        .catch(error => res.send(error))
-        /* let productId = +req.params.id;
+        let productId = +req.params.id;
 
         products.forEach(product => {
             if(product.id === productId){
@@ -330,20 +221,29 @@ const controller = {
         })
 
         writeJson(products);
-        res.redirect('/products') */
+        res.redirect('/products')
     },
     search: (req, res) => {
         let keywords = req.query.keywords.trim().toLowerCase();
 
-        let result = products.filter(product => product.name.toLowerCase().includes(keywords));
-    
-        res.render('products/searchResult', {
-            title: "Resultados | NoTanRaros",
-            result,
-            search: keywords,
-            toThousand,
-            session: req.session
+        db.Product.findAll({
+            where: {
+                name: {
+                    [Op.substring]: `${keywords}`
+                }
+            },
+            include: [{association: 'products_images'}]
         })
+        .then((result) => {
+            res.render('products/searchResult', {
+                title: "Resultados | NoTanRaros",
+                result,
+                search: keywords,
+                toThousand,
+                session: req.session
+            })
+        })
+    
     }
 
 }

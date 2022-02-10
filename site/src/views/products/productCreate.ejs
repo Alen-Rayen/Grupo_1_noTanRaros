@@ -15,9 +15,10 @@
                             <% if (locals.errors && errors.name) { %>
                                 <span class="error-message"><%= errors.name.msg %> </span>
                             <% } %>
-                            <label for="category">Categorias</label>
+
+                            <label for="category">Categoria</label>
                             <select id="category" class="select input" name="category">
-                                <option selected hidden value="------">Seleccionar Categoria</option>
+                                <option selected hidden value="">Seleccionar Categoria</option>
                                 <% categories.forEach(category => { %>
                                     <option value="<%- category.id %>" <%= locals.old && old.category == category.id ? "selected" : "" %>><%- category.name %></option>
                                 <% }) %>
@@ -25,34 +26,39 @@
                             <% if (locals.errors && errors.category) { %>
                                 <span class="error-message"><%= errors.category.msg %> </span>
                             <% } %>
+
+                            <label for="subcategory">Subcategoria</label>
+                            <select id="subcategory" class="select input" name="subcategory">
+                                <option selected hidden value="">Seleccionar Subcategoria</option>
+                                <% subcategories.forEach(subcategory => { %>
+                                    <option value="<%- subcategory.id %>" <%= locals.old && old.subcategory == subcategory.id ? "selected" : "" %>><%- subcategory.name %></option>
+                                <% }) %>
+                            </select>
+                            <% if (locals.errors && errors.subcategory) { %>
+                                <span class="error-message"><%= errors.subcategory.msg %> </span>
+                            <% } %>
                             <label for="color">Color del producto</label>
                             <select id="color" class="select input" name="color">
-                                <option selected hidden value="------">Seleccionar Color</option>
-                                <option value="Rojo">Rojo</option>
-                                <option value="Azul">Azul</option>
-                                <option value="Negro">Negro</option>
-                                <option value="Verde">Verde</option>
-                                <option value="Violeta">Violeta</option>
-                                <option value="Blanco">Blanco</option>
-                                <option value="Amarillo">Amarillo</option>
+                                <option selected hidden value="">Seleccionar Color</option>
+                                <% colors.forEach(color => { %>
+                                    <option value="<%- color.id %>" <%= locals.old && old.color == color.id ? "selected" : "" %>><%- color.name %></option>
+                                <% }) %>
                             </select>
                             <% if (locals.errors && errors.color) { %>
                                 <span class="error-message"><%= errors.color.msg %> </span>
                             <% } %>
-                            <label for="talle">Talle</label>
-                            <select id="talle" class="select input" name="talle">
-                                <option value="------">Seleccionar Talle</option>
-                                <option value="XS">XS</option>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>                            
+                            <label for="brand">Marca del producto</label>
+                            <select id="brand" class="select input" name="brand">
+                                <option selected hidden value="">Seleccionar Marca</option>
+                                <% brands.forEach(brand => { %>
+                                    <option value="<%- brand.id %>" <%= locals.old && old.brand == brand.id ? "selected" : "" %>><%- brand.name %></option>
+                                <% }) %>
                             </select>
-                            <% if (locals.errors && errors.talle) { %>
-                                <span class="error-message"><%= errors.talle.msg %> </span>
+                            <% if (locals.errors && errors.brand) { %>
+                                <span class="error-message"><%= errors.brand.msg %> </span>
                             <% } %>
-                            <label for="image">Agregar Imagen</label>
-                            <input class="input" type="file" name="image" accept="jpg">
+                            <label for="image">Agregar Imagen (Max 4)</label>
+                            <input class="input" type="file" name="image" multiple>
                             <label for="description">Descripcion</label>
                             <textarea name="description" id="description" cols="30" rows="10"></textarea>
                             <% if (locals.errors && errors.description) { %>

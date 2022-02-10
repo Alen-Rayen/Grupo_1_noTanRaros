@@ -169,7 +169,7 @@ CREATE TABLE `products` (
   CONSTRAINT `FK_35` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`id`),
   CONSTRAINT `FK_57` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
   CONSTRAINT `FK_89` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +178,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Remera Evangelion Eva-01 Blanca',9,23,2,2000.00,10,'morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum'),(2,'Remera Freezer Dragon Ball Rosa',10,1,2,2000.00,10,'morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum');
+INSERT INTO `products` VALUES (1,'Remera Evangelion Eva-01 Blanca',9,23,2,2000.00,10,'morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum'),(2,'Remera Freezer Dragon Ball Rosa',10,1,2,2000.00,10,'morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum'),(14,'Gorro de Lana One Piece Negro',8,10,19,4000.00,20,'Gorro de lana Original One Piece importado - Color Negro'),(24,'Camiseta de Boca Juniors 2007',2,1,2,10000.00,5,'awefhwesafh');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,7 +196,7 @@ CREATE TABLE `products_images` (
   PRIMARY KEY (`id`),
   KEY `FK_52` (`productId`),
   CONSTRAINT `FK_50` FOREIGN KEY (`productId`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -205,7 +205,7 @@ CREATE TABLE `products_images` (
 
 LOCK TABLES `products_images` WRITE;
 /*!40000 ALTER TABLE `products_images` DISABLE KEYS */;
-INSERT INTO `products_images` VALUES (1,'TS809ANGE_1copy_large.png',1),(2,'TS7XSMDBZ_1copy_large.png',2);
+INSERT INTO `products_images` VALUES (1,'TS809ANGE_1copy_large.png',1),(2,'TS7XSMDBZ_1copy_large.png',2),(3,'1644506771371_img_.jpg',14),(15,'1644508683584_img_.jpg',24),(16,'1644508683586_img_.jpg',24),(17,'1644508683587_img_.jpg',24),(18,'1644508683589_img_.jpg',24);
 /*!40000 ALTER TABLE `products_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -276,7 +276,7 @@ CREATE TABLE `users` (
   `rol` varchar(12) NOT NULL,
   `avatar` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -285,7 +285,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin','Admin','admin@email.com','$2a$12$OkBn6klGKa5wpM2zfk6W0u/1R08iuwT7zGSzmF3QsJ1jIs8rqGdW6','ROL_ADMIN','default-image.jpg'),(2,'Juan Carlos','Falso','email@email.com','$2a$12$WKOWhg4PSib/RDjsu13PgOoSrTHhOT6KHlFu4jYIbIjX5.NBRgM7e','ROL_USER','default-image.jpg'),(3,'Franco','Formigo','franco@email.com','$2a$12$//7MTaO0/gUFHCukRIgUiOyA7mBpAaLZsG52X5PGU/NKM5lMjWnCG','ROL_USER','1643636106788_img.png'),(4,'Usuario','Falso','mailfalso@mail.com','$2a$12$PI/JUwwyqlnUh5xWnRzUFe8cDyL1opNZkK7R7MkDaUWoqzXntPRaW','ROL_USER','default-image.jpg');
+INSERT INTO `users` VALUES (1,'Admin','Admin','admin@email.com','$2a$12$OkBn6klGKa5wpM2zfk6W0u/1R08iuwT7zGSzmF3QsJ1jIs8rqGdW6','ROL_ADMIN','default-image.jpg'),(2,'Juan Carlos','Falso','email@email.com','$2a$12$WKOWhg4PSib/RDjsu13PgOoSrTHhOT6KHlFu4jYIbIjX5.NBRgM7e','ROL_USER','default-image.jpg'),(3,'Franco','Formigo','franco@email.com','$2a$12$//7MTaO0/gUFHCukRIgUiOyA7mBpAaLZsG52X5PGU/NKM5lMjWnCG','ROL_USER','1643636106788_img.png'),(4,'Usuario','Falso','mailfalso@mail.com','$2a$12$PI/JUwwyqlnUh5xWnRzUFe8cDyL1opNZkK7R7MkDaUWoqzXntPRaW','ROL_USER','default-image.jpg'),(5,'Juan','Perez','juanperez@mail.com','$2a$12$hOtPG.SDqKWUPb62YSXx6uZrypfSJaNxqrpgvyjCpHim8s9G7wSO6','ROL_USER','1644036940686_img.jpg');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,4 +302,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-04 16:22:29
+-- Dump completed on 2022-02-10 14:29:11

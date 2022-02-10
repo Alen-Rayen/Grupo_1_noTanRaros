@@ -26,8 +26,10 @@ router.post('/register', uploadFile.single('avatar'), registerValidator, usersCo
 /* GET- PROFILE */
 router.get('/profile', logInCheck, usersController.profile);
 
+// GET - PROFILE EDIT VIEW
+//router.get('/profile/edit', logInCheck, usersController.edit)
 
-/* router.get('/editProfile', usersController.edit); */
+
 
 
 

@@ -68,6 +68,7 @@ display: inline-block;
     width: 100%;
     box-shadow: 5px 5px 10px rgb(100, 100, 100);
     border-radius: 10px;
+    object-fit: fill;
 }
 
 .photos {
