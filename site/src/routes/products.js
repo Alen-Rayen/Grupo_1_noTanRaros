@@ -22,7 +22,7 @@ router.get('/cart', logInCheck, productsController.cart);
 
 /* EDIT ONE PRODUCT */
 router.get('/:id/edit', adminCheck, productsController.edit);
-router.put('/:id', upload.single('image'), productsController.update);
+router.put('/:id', upload.array('image'), productFormValidator, productsController.update);
 
 /* Delete */
 router.delete('/:id', productsController.destroy)

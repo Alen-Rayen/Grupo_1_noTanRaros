@@ -3,48 +3,44 @@ let fs = require('fs');
 let path = require('path');
 
 
-const productsFilePath = path.join(__dirname, '../database/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const writeJson = dataBase => fs.writeFileSync(productsFilePath, JSON.stringify(dataBase), 'utf-8')
-const imagesPath = path.join(__dirname, '../../public/images/')
-const users = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/users.json'), 'utf-8'));
-
-let categories = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/categories.json'), "utf-8"))
+let db = require('../database/models')
 
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 let controller = {
-    create: (req, res) => {
-        res.render('admin/createProduct', { 
-            title: 'Crear Producto',
-            session: req.session
-        })
-    },
-    edit: (req, res) => {
-        res.render('admin/editProduct', { 
-            title: 'Editar Producto',
-            session: req.session
-        })
-    },
     index: (req, res) => {
         res.render('admin/index', { 
-            title: 'Main Admin Panel | NoTanRaros',
+            title: 'Main Admin Panel',
             session: req.session
         })
     },
     list: (req, res) => {
-        res.render('admin/productsPanel', {
-            title: 'Administrador de Productos',
-            products,
-            session: req.session
+        db.Product.findAll({
+            include: [
+                {association: 'subcategories',
+                include: [
+                    {association:'category'}
+                ]
+            }
+            ]
+        })
+        .then((products) => {
+            res.render('admin/productsPanel', { 
+                title: 'Lista de Productos',
+                session: req.session,
+                products
+            })
         })
     },
     usersList: (req, res) => {
-        res.render('admin/usersPanel', {
-            title: 'Lista de Usuarios',
-            users,
-            session: req.session
+        db.User.findAll()
+        .then((users) => {
+            res.render('admin/usersPanel', {
+                title: 'Lista de Usuarios',
+                users,
+                session: req.session
+            })
         })
     }
 }

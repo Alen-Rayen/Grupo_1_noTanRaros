@@ -33,8 +33,6 @@ let controller = {
                  products,
                  toThousand,
                  session: req.session,
-                 sliderTitle: "Ofertas destacadas",
-                sliderProducts: products
             });
         })
         .catch(error => {

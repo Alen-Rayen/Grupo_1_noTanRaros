@@ -69,10 +69,9 @@ hr {
 }
 
 
-
 .foto-oferta {
-    width: 260px;
-    height: 260px;
+    max-height: 250px;
+    max-width: 250px;
     margin: 10px auto;
     margin-top: 20px;
     padding: 10px;

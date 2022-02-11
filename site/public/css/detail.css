@@ -81,6 +81,8 @@ display: inline-block;
 
 .photos img {
     width: 22%;
+    max-width: 200px;
+    max-height: 200px;
     box-shadow: 5px 5px 10px rgb(100, 100, 100);
     border-radius: 10px;
 }

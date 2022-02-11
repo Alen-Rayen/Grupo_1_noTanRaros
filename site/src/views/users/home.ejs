@@ -24,7 +24,9 @@
                             <hr>
                         </div>
                         <div class="datos-oferta">
-                            <a href="/products/detail/<%- product.id %>"> <h2 class="titulo-oferta"><%- product.name %></h2></a>
+                            <a href="/products/detail/<%- product.id %>">
+                                <h2 class="titulo-oferta"><%- product.name %></h2>
+                            </a>
                             <h2 class="precio-oferta">$<%- toThousand(product.price - (product.price * product.discount / 100)) %></h2>
                             <% if (product.discount > 0) { %>
                                 <span class="card-product-discount"><%- product.discount %>% OFF </span>

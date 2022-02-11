@@ -16,6 +16,10 @@
     max-width: 600px;
 }
 
+body main h1.productName {
+    font-size: 20px;
+}
+
 .editButtons {
     display: flex;
     align-items: center;

@@ -14,6 +14,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const db = require('../database/models');
 const { Op } = require('sequelize');
+const { categories } = require('../database/dataBase');
 
 const controller = {
     /* Show all products */
@@ -46,7 +47,16 @@ const controller = {
             where: {
                 id: +req.params.id,
             },
-            include: [{association: 'products_images'}]
+            include: [
+                {association: 'products_images'},
+                {association: 'brands'},
+                {
+                    association: 'subcategories',
+                    include: [{
+                        association: 'category'
+                    }]
+                },
+            ]
         })
         .then(((product) => {
             db.Product.findAll({
@@ -158,70 +168,139 @@ const controller = {
     },
     edit: (req, res) => {
         let productId = +req.params.id;
-        let productToEdit = products.find(product => product.id === productId);
-
-        res.render('products/editProduct', {
-            product: productToEdit,
-            title: 'Editar|NoTanRaros',
-            categories,
-            session: req.session
+        const productPromise = db.Product.findByPk(productId);
+        const categoriesPromise = db.Category.findAll();
+        const subcategoriesPromise = db.Subcategory.findAll();
+        const colorsPromise = db.Color.findAll();
+        const brandsPromise = db.Brand.findAll();
+        Promise.all([productPromise, categoriesPromise, subcategoriesPromise, colorsPromise, brandsPromise])
+        .then(([product, categories, subcategories, colors, brands]) => {
+            res.render('products/editProduct', {
+                title: 'Editar | NoTanRaros',
+                product,
+                categories,
+                subcategories,
+                colors,
+                brands,
+                session: req.session
+            })
         })
+        .catch(error => console.log(error));
     },
     update: (req, res) => {
-        let productId = +req.params.id;
+        let errors = validationResult(req);
+        let arrayImages = [];
+        if(req.files){
+            req.files.forEach((image) => {
+                arrayImages.push(image.filename);
+            });
+        }
 
-        const {name, price, discount, description, category, color, talle} = req.body;
-    
-        products.forEach(product => {
-            if(product.id === productId) {
-                product.id = +product.id,
-                product.name = name,
-                product.description = description,
-                product.price = +price,
-                product.discount = +discount,
-                product.category = +category,
-                product.color = color,
-                product.talle = talle
-                if(req.file){
-                    if(fs.existsSync('../../public/images/', product.image)){
-                        fs.unlinkSync(`../../public/images/${product.image}`)
-                    } else {
-                        console.log('No encontré el archivo')
-                    }
-                    product.image = req.file.filename
-                } else {
-                    product.image = product.image
+        if(errors.isEmpty()){
+            const { name, price, subcategory, description, discount, color, brand } = req.body;
+            let descriptionReplaced = description.replace(/\r\n/gi, '-r-n');
+            db.Product.update({
+                name,
+                price,
+                description: descriptionReplaced,
+                discount,
+                subcategory_id: subcategory,
+                color_id: color,
+                brand_id: brand
+            },{
+                where: {
+                    id: req.params.id
                 }
-            }
-        })
-
-        writeJson(products)
-
-        res.redirect(`/products/detail/${productId}`)
+            })
+            .then((result) => {
+                if(arrayImages.length > 0){
+                    db.Products_image.findAll({
+                        where: {
+                            productId: req.params.id
+                        }
+                    })
+                    .then((images) => {
+                        images.forEach((image) => {
+                            fs.existsSync('../public/images/products/', image.image)
+                            ? fs.unlinkSync(`../public/images/products/${image.image}`)
+                            : console.log('No se encontró el archivo')
+                        })
+                        db.Products_image.destroy({
+                            where: {
+                                productId: req.params.id
+                            }
+                        })
+                        .then(() => {
+                            let images = arrayImages.map((image) => {
+                                return {
+                                    image: image,
+                                    productId: req.params.id
+                                };
+                            });
+                            db.Products_image.bulkCreate(images)
+                            .then(() => res.redirect('/products'))
+                            .catch(error => console.log(error))
+                        })
+                        .catch(error => console.log(error))
+                    })
+                    .catch(error => console.log(error))
+                }
+            })
+            .catch(error => console.log(error))
+            res.redirect('/products')
+        }else{
+            let productPromise = db.Product.findByPk(req.params.id);
+            let categoriesPromise = db.Category.findAll();
+            let subcategoriesPromise = db.Subcategory.findAll();
+            let colorsPromise = db.Color.findAll();
+            let brandsPromise = db.Brand.findAll();
+            Promise.all(([productPromise, categoriesPromise, subcategoriesPromise, colorsPromise, brandsPromise]))
+            .then(([product, categories, subcategories, colors, brands]) => {
+                res.render('products/editProduct', {
+                    title: 'Editar | NoTanRaros',
+                    product,
+                    categories,
+                    subcategories,
+                    colors,
+                    brands,
+                    session: req.session,
+                    errors: errors.mapped(),
+                    old: req.body
+                })
+            })
+        }
     },
     destroy: (req, res) => {
-        let productId = +req.params.id;
-
-        products.forEach(product => {
-            if(product.id === productId){
-
-                if(fs.existsSync('./public/images/', product.image)){
-                    fs.unlinkSync(`./public/images/${product.image}`)
-                }else {
-                    console.log('No encontré el archivo')
-                }
-
-                let productToDestroyIndex = products.indexOf(product)
-                if(productToDestroyIndex !== -1){
-                    products.splice(productToDestroyIndex, 1)
-                } else {
-                    console.log('No encontré el producto')
-                }
+        db.Products_image.findAll({
+            where: {
+                productId: req.params.id
             }
         })
-
-        writeJson(products);
-        res.redirect('/products')
+        .then((images) => {
+            images.forEach((image) => {
+                fs.existsSync('../public/images/products', image.image)
+                ? fs.unlinkSync(`../public/images/products/${image.image}`)
+                : console.log('No se encontró el archivo')
+            })
+            db.Products_image.destroy({
+                where: {
+                    productId: req.params.id
+                }
+            })
+            .then((result) => {
+                db.Product.destroy({
+                    where: {
+                        id: req.params.id
+                    }
+                })
+                .then(() => {
+                    res.redirect('/')
+                })
+                .catch(error => console.log(error))
+            })
+            .catch(error => console.log(error))
+        })
+        .catch(error => console.log(error))
     },
     search: (req, res) => {
         let keywords = req.query.keywords.trim().toLowerCase();
@@ -232,7 +311,10 @@ const controller = {
                     [Op.substring]: `${keywords}`
                 }
             },
-            include: [{association: 'products_images'}]
+            include: [
+                {association: 'products_images'},
+                {association: ''}
+            ]
         })
         .then((result) => {
             res.render('products/searchResult', {
