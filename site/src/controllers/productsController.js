@@ -306,15 +306,14 @@ const controller = {
         let keywords = req.query.keywords.trim().toLowerCase();
 
         db.Product.findAll({
+            include: [
+                {association: 'products_images'}
+            ],
             where: {
                 name: {
                     [Op.substring]: `${keywords}`
                 }
-            },
-            include: [
-                {association: 'products_images'},
-                {association: ''}
-            ]
+            }
         })
         .then((result) => {
             res.render('products/searchResult', {

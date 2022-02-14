@@ -12,7 +12,7 @@
                     <div class="form-container">
                         <div class="containers">
                             <label for="name">Nombre del producto</label>
-                            <input class="input" type="text" name="name" id="name" value="<%= locals.old ? old.name : null %>">
+                            <input class="input" type="text" name="name" id="name" value="<%= locals.old ? old.name : product.name %>">
                             <% if (locals.errors && errors.name) { %>
                                 <span class="error-message"><%= errors.name.msg %> </span>
                             <% } %>
@@ -66,12 +66,12 @@
                                 <span class="error-message"><%= errors.description.msg %> </span>
                             <% } %>
                             <label for="price">Precio</label>
-                            <input type="number" id="price" name="price" placeholder="Precio" class="input" value="<%= locals.old ? old.price : null %>">
+                            <input type="number" id="price" name="price" placeholder="Precio" class="input" value="<%= locals.old ? old.price : product.price %>">
                             <% if (locals.errors && errors.price) { %>
                                 <span class="error-message"><%= errors.price.msg %> </span>
                             <% } %>
                             <label for="discount">Descuento</label>
-                            <input type="number" id="discount" class="input" name="discount" placeholder="Ej: 15" value="<%= locals.old ? old.discount : null %>">
+                            <input type="number" id="discount" class="input" name="discount" placeholder="Ej: 15" value="<%= locals.old ? old.discount : product.discount %>">
                             <% if (locals.errors && errors.discount) { %>
                                 <span class="error-message"><%= errors.discount.msg %> </span>
                             <% } %>  
