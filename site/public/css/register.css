@@ -63,6 +63,22 @@
     background-color: rgb(248, 142, 142);
 }
 
+.register-body .register-main .register-container .form form .form-container .inputContainer {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    text-align: -webkit-center;
+}
+
+.register-body .register-main .register-container .form form .form-container .fa-times-circle {
+    color: red;
+    font-size: 20px;
+    position: absolute;
+    top: 19px;
+    right: 9%;
+    display: none;
+}
+
 .register-body .register-main .register-container .form form .form-container .is-valid {
     border: solid 2px green;
     background-color: rgb(110, 158, 110);
@@ -81,10 +97,22 @@
     max-height: 100%;
 }
 
+.register-body .register-main .register-container .form form .form-container .fa-check-circle {
+    color: darkgreen;
+    font-size: 20px;
+    position: absolute;
+    top: 19px;
+    right: 9%;
+    display: none;
+}
+
 .register-body .register-main .register-container .form form .form-container .preview-container {
     border: dashed 4px gray ;
     border-radius: 10px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 20vh;
     max-width: 370px;
@@ -115,9 +143,10 @@
 
 span.error-message {
     font-size: 14px;
-    margin: 5px auto;
     color: rgba(255, 0, 0, 0.781);
     display: inline-block;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 
