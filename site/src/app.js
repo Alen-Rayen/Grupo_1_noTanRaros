@@ -38,6 +38,7 @@ const productsRouter = require('./routes/products');
 const adminRouter = require('./routes/admin');
 const seriesRouter = require('./routes/series');
 
+
 /* Middlewares de rutas */
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

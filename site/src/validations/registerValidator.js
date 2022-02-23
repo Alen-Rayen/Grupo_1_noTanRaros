@@ -4,11 +4,15 @@ const db = require('../database/models');
 module.exports = [
     check('nombre')
     .notEmpty()
-    .withMessage('Debes ingresar un nombre'),
+    .withMessage('El campo es obligatorio')
+    .isLength({min:2})
+    .withMessage('El nombre debe contener al menos 2 caracteres'),
     
     check('apellido')
     .notEmpty()
-    .withMessage('Debes ingresar un apellido'),
+    .withMessage('El campo es obligatorio')
+    .isLength({min:2})
+    .withMessage('El apellido debe contener al menos 2 caracteres'),
 
     check('email')
     .notEmpty()
@@ -41,14 +45,17 @@ module.exports = [
          }
      }).withMessage('Email ya registrado'), */
 
-     check('pass')
+    check('pass')
     .notEmpty()
     .withMessage('Debes ingresar una contraseña').bail()
     .isLength({
-        min: 6,
-        max: 24
+        min: 8,
+        max: 16
     })
-    .withMessage('La contraseña debe tener entre 6 y 24 caracteres'),
+    .withMessage('La contraseña debe tener entre 8 y 16 caracteres')
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(.{8,16})$/)
+    .withMessage('La contraseña debe contener al menos un número, una mayúscula, una minúscula y tener entre 8 y 16 caracteres'),
+
 
     check('pass2')
     .notEmpty()

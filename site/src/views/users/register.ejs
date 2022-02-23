@@ -14,7 +14,7 @@
         <div class="form">
             <h2>Registrarme</h2>
 
-            <form method="POST" action="/users/register" enctype="multipart/form-data">
+            <form method="POST" action="/users/register" enctype="multipart/form-data" id="form">
                 <div class="form-container">
                     <div class="containers">
                         <label for="">Nombre</label>
@@ -22,28 +22,37 @@
                         <% if (locals.errors && errors.nombre) { %>
                             <span class="error-message"><%= errors.nombre.msg %></span>
                         <% } %>
+                        <span class="error-message" id="nameErrors"></span>
                         <label for="">Apellido</label>
                         <input class="input" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" value="<%= locals.old ? old.apellido : null %>">
                         <% if (locals.errors && errors.apellido) { %>
                             <span class="error-message"><%= errors.apellido.msg %></span>
                         <% } %>
+                        <span class="error-message" id="lastNameErrors"></span>
                         <label for="">Correo electrónico</label>
                         <input class="input" type="email" name="email" id="email" placeholder="Ingrese su correo electrónico" value="<%= locals.old ? old.email : null %>">
                         <% if (locals.errors && errors.email) { %>
                             <span class="error-message"><%= errors.email.msg %></span>
                         <% } %>
+                        <span class="error-message" id="emailErrors"></span>
                         <label for="">Contraseña</label>
                         <input class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
                         <% if (locals.errors && errors.pass) { %>
                             <span class="error-message"><%= errors.pass.msg %></span>
                         <% } %>
+                        <span class="error-message" id="passErrors"></span>
                         <label for="">Ingrese la contraseña nuevamente</label>
                         <input class="input" type="password" name="pass2" id="pass2" placeholder="Ingrese la contraseña nuevamente">
                         <% if (locals.errors && errors.pass2) { %>
                             <span class="error-message"><%= errors.pass2.msg %></span>
                         <% } %>
+                        <span class="error-message" id="pass2Errors"></span>
                         <label for="avatar">Agregar Avatar</label>
-                        <input class="input" type="file" name="avatar" accept="jpg">
+                        <input class="input" type="file" name="avatar" accept="jpg" id="avatar">
+                        <div class="preview-container" id="img-preview">
+
+                        </div>
+                        <span class="error-message" id="fileErrors"></span>
                     </div>
                     <div class="check">
                         <label for="terms" class="terms">Acepto los <a href="">Términos y Condiciones</a></label>
@@ -52,10 +61,12 @@
                     <% if (locals.errors && errors.terms) { %>
                         <span class="error-message"><%= errors.terms.msg %></span>
                     <% } %>
+                    <span class="error-message" id="termsErrors"></span>
                     <div class="check">
-                        <label for="terns">Desea recibir notificaciones al correo?</label>
+                        <label for="emailNotifications">Desea recibir notificaciones al correo?</label>
                         <input type="checkbox" name="emailNotifications" id="emailNotifications">
                     </div>
+                    <span id="submitErrors"></span>
                     <div class="button">
                         <button type="submit" class="button button-submit">Crear mi cuenta</button>
                     </div>
@@ -69,6 +80,7 @@
     </main>
 
     <%- include('../partials/footer.ejs')  %> 
+    <script src="/javascript/registerValidator.js"></script>
 
 </body>
 
