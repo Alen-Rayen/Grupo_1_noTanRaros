@@ -17,57 +17,103 @@
             <form method="POST" action="/users/register" enctype="multipart/form-data" id="form">
                 <div class="form-container">
                     <div class="containers">
-                        <label for="">Nombre</label>
-                        <div class="inputContainer">
-                            <i class="far fa-check-circle fa-check-name"></i>
-                            <i class="far fa-times-circle fa-cross-name"></i>
-                            <input class="input" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" value="<%= locals.old ? old.nombre : null %>">
-                        </div>
+
+                        <label for="nombre">Nombre</label>
                         <% if (locals.errors && errors.nombre) { %>
-                            <span class="error-message"><%= errors.nombre.msg %></span>
+                            <div class="inputContainer">
+                                <i class="far fa-check-circle fa-check-name"></i>
+                                <i class="far fa-times-circle fa-cross-name" style="display: block;"></i>
+                                <input class="input is-invalid" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" value="<%= locals.old ? old.nombre : null %>">
+                            </div>
+                            <span class="error-message" id="nameErrors"><%= errors.nombre.msg %></span>
+                        <% } else { %>
+                            <div class="inputContainer">
+                                <i class="far fa-check-circle fa-check-name"></i>
+                                <i class="far fa-times-circle fa-cross-name"></i>
+                                <input class="input" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" value="<%= locals.old ? old.nombre : null %>">
+                            </div>
+                            <span class="error-message" id="nameErrors"></span>
                         <% } %>
-                        <span class="error-message" id="nameErrors"></span>
-                        <label for="">Apellido</label>
-                        <div class="inputContainer">
-                            <i class="far fa-check-circle fa-check-lastName"></i>
-                            <i class="far fa-times-circle fa-cross-lastName"></i>
-                            <input class="input" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" value="<%= locals.old ? old.apellido : null %>">
-                        </div>
+                        
+                        
+                        <label for="apellido">Apellido</label>
                         <% if (locals.errors && errors.apellido) { %>
-                            <span class="error-message"><%= errors.apellido.msg %></span>
+                            <div class="inputContainer">
+                                <i class="far fa-check-circle fa-check-lastName"></i>
+                                <i class="far fa-times-circle fa-cross-lastName" style="display: block;"></i>
+                                <input class="input is-invalid" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" value="<%= locals.old ? old.apellido : null %>">
+                            </div>
+                            <span class="error-message" id="lastNameErrors"><%= errors.apellido.msg %></span>
+                        <% } else { %>
+                            <div class="inputContainer">
+                                <i class="far fa-check-circle fa-check-lastName"></i>
+                                <i class="far fa-times-circle fa-cross-lastName"></i>
+                                <input class="input" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" value="<%= locals.old ? old.apellido : null %>">
+                            </div>
+                            <span class="error-message" id="lastNameErrors"></span>
                         <% } %>
-                        <span class="error-message" id="lastNameErrors"></span>
-                        <label for="">Correo electrónico</label>
-                        <div class="inputContainer">
+                        
+
+                        <label for="email">Correo electrónico</label>
+                        <!-- <div class="inputContainer">
                             <i class="far fa-check-circle fa-check-email"></i>
                             <i class="far fa-times-circle fa-cross-email"></i>
                             <input class="input" type="email" name="email" id="email" placeholder="Ingrese su correo electrónico" value="<%= locals.old ? old.email : null %>">
-                        </div>
+                        </div> -->
                         <% if (locals.errors && errors.email) { %>
-                            <span class="error-message"><%= errors.email.msg %></span>
+                            <div class="inputContainer">
+                                <i class="far fa-check-circle fa-check-email"></i>
+                                <i class="far fa-times-circle fa-cross-email" style="display: block;"></i>
+                                <input class="input is-invalid" type="email" name="email" id="email" placeholder="Ingrese su correo electrónico" value="<%= locals.old ? old.email : null %>">
+                            </div>
+                            <span class="error-message" id="emailErrors"><%= errors.email.msg %></span>
+                        <% } else { %>
+                            <div class="inputContainer">
+                                <i class="far fa-check-circle fa-check-email"></i>
+                                <i class="far fa-times-circle fa-cross-email"></i>
+                                <input class="input" type="email" name="email" id="email" placeholder="Ingrese su correo electrónico" value="<%= locals.old ? old.email : null %>">
+                            </div>
+                            <span class="error-message" id="emailErrors"></span>
                         <% } %>
-                        <span class="error-message" id="emailErrors"></span>
-                        <label for="">Contraseña</label>
-                        <div class="inputContainer">
-                            <i class="far fa-check-circle fa-check-pass"></i>
-                            <i class="far fa-times-circle fa-cross-pass"></i>
-                            <input class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
-                        </div>
+
+
+                        <label for="pass">Contraseña</label>
                         <% if (locals.errors && errors.pass) { %>
-                            <span class="error-message"><%= errors.pass.msg %></span>
+                            <div class="inputContainer">
+                                <i class="far fa-check-circle fa-check-pass"></i>
+                                <i class="far fa-times-circle fa-cross-pass" style="display: block;"></i>
+                                <input class="input is-invalid" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
+                            </div>
+                            <span class="error-message" id="passErrors"><%= errors.pass.msg %></span>
+                        <% } else { %>
+                            <div class="inputContainer">
+                                <i class="far fa-check-circle fa-check-pass"></i>
+                                <i class="far fa-times-circle fa-cross-pass"></i>
+                                <input class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
+                            </div>
+                            <span class="error-message" id="passErrors"></span>
                         <% } %>
-                        <span class="error-message" id="passErrors"></span>
-                        <label for="">Ingrese la contraseña nuevamente</label>
-                        <div class="inputContainer">
-                            <i class="far fa-check-circle fa-check-pass2"></i>
-                            <i class="far fa-times-circle fa-cross-pass2"></i>
-                            <input class="input" type="password" name="pass2" id="pass2" placeholder="Ingrese la contraseña nuevamente">
-                        </div>
+
+
+                        <label for="pass2">Ingrese la contraseña nuevamente</label>
                         <% if (locals.errors && errors.pass2) { %>
-                            <span class="error-message"><%= errors.pass2.msg %></span>
+                            <div class="inputContainer">
+                                <i class="far fa-check-circle fa-check-pass2"></i>
+                                <i class="far fa-times-circle fa-cross-pass2" style="display: block;"></i>
+                                <input class="input is-invalid" type="password" name="pass2" id="pass2" placeholder="Re-ingresa la contraseña">
+                            </div>
+                            <span class="error-message" id="pass2Errors"><%= errors.pass2.msg %></span>
+                        <% } else { %>
+                            <div class="inputContainer">
+                                <i class="far fa-check-circle fa-check-pass2"></i>
+                                <i class="far fa-times-circle fa-cross-pass2"></i>
+                                <input class="input" type="password" name="pass2" id="pass2" placeholder="Re-ingresa la contraseña">
+                            </div>
+                            <span class="error-message" id="pass2Errors"></span>
                         <% } %>
-                        <span class="error-message" id="pass2Errors"></span>
-                        <label for="avatar">Agregar Avatar</label>
+                        
+                        
+                        <label for="avatar" id="avatarLabel">Agregar Avatar <i class="fas fa-cloud-upload"></i></label>
                         <input class="input" type="file" name="avatar" id="avatar">
                         <div class="preview-container" id="img-preview">
 

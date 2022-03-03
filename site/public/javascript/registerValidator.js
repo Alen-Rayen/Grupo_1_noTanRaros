@@ -263,6 +263,22 @@ window.onload = () => {
                 $inputPass.classList.add('is-invalid');
                 validationErrors = true;
                 break;
+            case $inputPass2.value.length > 1 && $inputPass.value !== $inputPass2.value:
+                $faCheckPass2.style.display = "none";
+                $faCrossPass2.style.display = 'block';
+                $pass2Errors.innerHTML = 'Las contraseñas no coinciden';
+                $inputPass2.classList.remove('is-valid');
+                $inputPass2.classList.add('is-invalid');
+                validationErrors = true;
+                break;
+            case $inputPass2.value.length > 1 && $inputPass.value == $inputPass2.value:
+                $faCheckPass2.style.display = "block";
+                $faCrossPass2.style.display = 'none';
+                $pass2Errors.innerHTML = '';
+                $inputPass2.classList.add('is-valid');
+                $inputPass2.classList.remove('is-invalid');
+                validationErrors = false;
+                break;
             default:
                 $faCrossPass.style.display = 'none';
                 $faCheckPass.style.display = "block";
@@ -292,6 +308,22 @@ window.onload = () => {
                 $inputPass.classList.add('is-invalid');
                 validationErrors = true;
                 break;
+            case $inputPass2.value.length > 1 && $inputPass.value !== $inputPass2.value:
+                $faCheckPass2.style.display = "none";
+                $faCrossPass2.style.display = 'block';
+                $pass2Errors.innerHTML = 'Las contraseñas no coinciden';
+                $inputPass2.classList.remove('is-valid');
+                $inputPass2.classList.add('is-invalid');
+                validationErrors = true;
+                break;
+            case $inputPass2.value.length > 1 && $inputPass.value == $inputPass2.value:
+                $faCheckPass2.style.display = "block";
+                $faCrossPass2.style.display = 'none';
+                $pass2Errors.innerHTML = '';
+                $inputPass2.classList.add('is-valid');
+                $inputPass2.classList.remove('is-invalid');
+                validationErrors = false;
+                break;
             default:
                 $faCrossPass.style.display = 'none';
                 $faCheckPass.style.display = "block";
@@ -309,6 +341,14 @@ window.onload = () => {
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
                 $pass2Errors.innerHTML = 'El campo es obligatorio';
+                $inputPass2.classList.remove('is-valid');
+                $inputPass2.classList.add('is-invalid');
+                validationErrors = true;
+                break;
+            case !regExPass.test($inputPass2.value) && $inputPass2.value == $inputPass.value:
+                $faCheckPass2.style.display = "none";
+                $faCrossPass2.style.display = 'block';
+                $pass2Errors.innerHTML = 'La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un número';
                 $inputPass2.classList.remove('is-valid');
                 $inputPass2.classList.add('is-invalid');
                 validationErrors = true;
@@ -342,6 +382,14 @@ window.onload = () => {
                 $inputPass2.classList.add('is-invalid');
                 validationErrors = true;
                 break;
+            case !regExPass.test($inputPass2.value) && $inputPass2.value == $inputPass.value:
+                $faCheckPass2.style.display = "none";
+                $faCrossPass2.style.display = 'block';
+                $pass2Errors.innerHTML = 'La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un número';
+                $inputPass2.classList.remove('is-valid');
+                $inputPass2.classList.add('is-invalid');
+                validationErrors = true;
+                break;
             case $inputPass2.value !== $inputPass.value:
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
@@ -359,26 +407,93 @@ window.onload = () => {
                 validationErrors = false;
                 break;
         }
-    })  
+    })
+
+    $inputFile.addEventListener('change', () => {
+        let filePath = $inputFile.value;
+        let allowedExtensions = /(.jpg|.jpeg|.png|.gif|.webp)$/i
+        if(filePath && !allowedExtensions.test(filePath)){
+            $fileErrors.innerHTML = 'Solo archivos .jpg - .jpeg - .png - .gif - .webp)'
+            $inputFile.value = "";
+            $imgPreview.innerHTML = "";
+            return false;
+        }else{
+            if($inputFile.files && $inputFile.files[0]){
+                $fileErrors.innerHTML = ''
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    $imgPreview.innerHTML += `<img src="${e.target.result}" alt="">`
+                }
+                reader.readAsDataURL($inputFile.files[0]);
+                $fileErrors.innerHTML = "";
+                $inputFile.classList.remove('is-invalid')
+            }
+        }
+    })
 
     $form.addEventListener('submit', (e) => {
         e.preventDefault();
 
         let error = false;
-        let elementsForm = $form.elements;
+        /* let elementsForm = $form.elements; */
 
-        console.log(elementsForm);
+        $fileErrors.innerHTML = ''
 
-        for(let i = 0; i < elementsForm.length -1; i++){
+        if(!$inputName.value.trim()){
+            $faCheckName.style.display = "none";
+            $faCrossName.style.display = "block";
+            $nameErrors.innerHTML = 'El campo es obligatorio'
+            $inputName.classList.remove('is-valid');
+            $inputName.classList.add('is-invalid');
+            error = true
+        }
+
+        if(!$inputLastName.value.trim()){
+            $faCheckLastName.style.display = "none";
+            $faCrossLastName.style.display = 'block';
+            $lastNameErrors.innerHTML = 'El campo es obligatorio';
+            $inputLastName.classList.remove('is-valid');
+            $inputLastName.classList.add('is-invalid');
+            error = true;
+        }
+
+        if(!$inputEmail.value.trim()){
+            $faCheckEmail.style.display = "none";
+            $faCrossEmail.style.display = 'block';
+            $emailErrors.innerHTML = 'El campo es obligatorio';
+            $inputEmail.classList.remove('is-valid');
+            $inputEmail.classList.add('is-invalid');
+            error = true;
+        }
+
+        if(!$inputPass.value.trim()){
+            $faCheckPass.style.display = "none";
+            $faCrossPass.style.display = 'block';
+            $passErrors.innerHTML = 'El campo es obligatorio';
+            $inputPass.classList.remove('is-valid');
+            $inputPass.classList.add('is-invalid');
+            error = true
+        }
+
+        if(!$inputPass2.value.trim()){
+            $faCheckPass2.style.display = "none";
+            $faCrossPass2.style.display = 'block';
+            $pass2Errors.innerHTML = 'El campo es obligatorio';
+            $inputPass2.classList.remove('is-valid');
+            $inputPass2.classList.add('is-invalid');
+            error = true;
+        }
+        /* for(let i = 0; i < elementsForm.length -1; i++){
             if(elementsForm[i].value == ""
             && elementsForm[i].type !== 'file'
             ){
+                elementsForm[i].classList.remove('is-valid');
                 elementsForm[i].classList.add('is-invalid');
                 $submitErrors.innerHTML = 'Los campos señalados son obligatorios';
                 $submitErrors.style.display = 'block'
                 error = true;
             }
-        }
+        } */
 
         if(!$terms.checked){
             $terms.classList.add('is-invalid');
@@ -391,25 +506,6 @@ window.onload = () => {
         }
     })
 
-    $inputFile.addEventListener('change', () => {
-        let filePath = $inputFile.value;
-        let allowedExtensions = /(.jpg|.jpeg|.png|.gif|.web)$/i;
-        if(!allowedExtensions.exec(filePath)){
-            $fileErrors.innerHTML = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)'
-            $inputFile.value = "";
-            $imgPreview.innerHTML = "";
-            return false;
-        }else{
-            if($inputFile.files && $inputFile.files[0]){
-                let reader = new FileReader();
-                reader.onload = (e) => {
-                    $imgPreview.innerHTML = `<img src="${e.target.result}" alt="">`
-                }
-                reader.readAsDataURL($inputFile.files[0]);
-                $fileErrors.innerHTML = "";
-                $inputFile.classList.remove('is-invalid')
-            }
-        }
-    })
+    
     
 }

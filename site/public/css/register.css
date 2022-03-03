@@ -75,7 +75,7 @@
     font-size: 20px;
     position: absolute;
     top: 19px;
-    right: 9%;
+    right: 7%;
     display: none;
 }
 
@@ -90,6 +90,7 @@
     padding: 12px;
     border-radius: 10px;
     display: none;
+    text-align: center;
 }
 
 .register-body .register-main .register-container .form form .form-container img {
@@ -102,7 +103,7 @@
     font-size: 20px;
     position: absolute;
     top: 19px;
-    right: 9%;
+    right: 7%;
     display: none;
 }
 
@@ -139,6 +140,9 @@
     flex-direction: column;
     margin: 1rem;
     width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 span.error-message {
@@ -180,6 +184,24 @@ input.input::placeholder {
 .register-body label {
     font-size: 18px;
     
+}
+
+.register-body #avatar {
+    display: none;
+}
+
+.register-body #avatarLabel {
+    display: block;
+    margin: 10px;
+    border: solid 1px black;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: green;
+    width: 90%;
+}
+
+.register-body #avatarLabel:active {
+    transform: translateY(2px);
 }
 
 .form-container .terms a {
@@ -233,14 +255,8 @@ input.input::placeholder {
     .form {
        width: 90%;
     }
-    label {
-        margin-left: 0;
-    }
-    input.input {
-        margin-left: 0;
-    }
+    
 }
-
 @media screen and (min-width: 768px) {
     span.error-message {
         font-size: 16px;
@@ -257,9 +273,8 @@ input.input::placeholder {
     }
 }
 
- @media screen and (min-width: 1440px ){
+@media screen and (min-width: 1440px ){
     span.error-message {
         font-size: 16px;
     }
-
 } 
