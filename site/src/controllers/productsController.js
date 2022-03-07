@@ -168,7 +168,19 @@ const controller = {
     },
     edit: (req, res) => {
         let productId = +req.params.id;
-        const productPromise = db.Product.findByPk(productId);
+        const productPromise = db.Product.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [{
+                association: 'colors',
+                association: 'brands',
+                association: 'subcategories',
+                include: [{
+                    association: 'category'
+                }],
+            }]
+        }) 
         const categoriesPromise = db.Category.findAll();
         const subcategoriesPromise = db.Subcategory.findAll();
         const colorsPromise = db.Color.findAll();

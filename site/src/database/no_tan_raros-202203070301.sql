@@ -169,7 +169,7 @@ CREATE TABLE `products` (
   CONSTRAINT `FK_35` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`id`),
   CONSTRAINT `FK_57` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
   CONSTRAINT `FK_89` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +178,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Remera Evangelion Eva-01 Blanca',9,23,2,2000.00,10,'morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum'),(2,'Remera Freezer Dragon Ball Rosa',10,1,2,2000.00,10,'morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum'),(14,'Gorro de Lana One Piece Negro Original',8,10,19,6000.00,5,'Gorro one piece excelente calidad.'),(25,'Figura Goku Kaio Ken DragonBall',1,1,26,10000.00,20,'Figura original importada linea Dragon Ball - Goku Kaio-Ken'),(26,'Zapatillas Custom Akatsuki Jutsu It',8,6,7,20000.00,15,'Zapatillas Nike Jordan custom Akatsuki Importadas Originales.'),(35,'Zapatillas Custom DragonBall Goku',9,1,7,18000.00,20,'Zapatillas Nike Jordan Originales - Diseño custom Dragon Ball Goku');
+INSERT INTO `products` VALUES (1,'Remera Evangelion Eva-01 Blanca',9,23,2,4000.00,15,'Remera Evangelion color blanco 100% algodon original'),(2,'Remera Freezer Dragon Ball Rosa',10,1,2,2000.00,10,'morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum'),(14,'Gorro de Lana One Piece Negro Original',8,10,19,6000.00,5,'Gorro one piece excelente calidad.'),(25,'Figura Goku Kaio Ken DragonBall',1,1,26,10000.00,20,'Figura original importada linea Dragon Ball - Goku Kaio-Ken'),(26,'Zapatillas Custom Akatsuki Jutsu It',8,6,7,20000.00,15,'Zapatillas Nike Jordan custom Akatsuki Importadas Originales.'),(35,'Zapatillas Custom DragonBall Goku',9,1,7,18000.00,20,'Zapatillas Nike Jordan Originales - Diseño custom Dragon Ball Goku'),(37,'Capa Legión de Reconocimiento AOT',5,2,16,6000.00,5,'Capa original color verde Legión de Reconocimiento Attack On Titan.'),(38,'Medias \"Can I Borrow a Feeling\" Simpsons',14,19,6,800.00,5,'Medias de los simpsons/kirk van houten - \"Can I Borrow  a Feeling\" 100% algodón.'),(41,'Yu-Gi-Oh! Egyptian Gods DeckSet Original',2,16,40,7000.00,15,'Deck Set Original Importado Yu-Gi-Oh Dioses Egipcios Slifer & Obelisk');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,7 +196,7 @@ CREATE TABLE `products_images` (
   PRIMARY KEY (`id`),
   KEY `FK_52` (`productId`),
   CONSTRAINT `FK_50` FOREIGN KEY (`productId`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -205,7 +205,7 @@ CREATE TABLE `products_images` (
 
 LOCK TABLES `products_images` WRITE;
 /*!40000 ALTER TABLE `products_images` DISABLE KEYS */;
-INSERT INTO `products_images` VALUES (1,'TS809ANGE_1copy_large.png',1),(2,'TS7XSMDBZ_1copy_large.png',2),(3,'1644506771371_img_.jpg',14),(19,'1644584728394_img_.jpg',25),(20,'1644584728396_img_.jpg',25),(21,'1644584728396_img_.jpg',25),(22,'1644584728398_img_.jpg',25),(24,'1644597975424_img_.jpg',26),(25,'1644597975426_img_.jpg',26),(26,'1644597975427_img_.jpg',26),(27,'1644597975429_img_.jpg',26),(36,'1644601591002_img_.jpeg',35),(37,'1644601591006_img_.jpeg',35),(38,'1644601591032_img_.jpeg',35);
+INSERT INTO `products_images` VALUES (1,'TS809ANGE_1copy_large.png',1),(2,'TS7XSMDBZ_1copy_large.png',2),(3,'1644506771371_img_.jpg',14),(19,'1644584728394_img_.jpg',25),(20,'1644584728396_img_.jpg',25),(21,'1644584728396_img_.jpg',25),(22,'1644584728398_img_.jpg',25),(24,'1644597975424_img_.jpg',26),(25,'1644597975426_img_.jpg',26),(26,'1644597975427_img_.jpg',26),(27,'1644597975429_img_.jpg',26),(36,'1644601591002_img_.jpeg',35),(37,'1644601591006_img_.jpeg',35),(38,'1644601591032_img_.jpeg',35),(41,'1644604990391_img_.jpg',37),(42,'1644604990392_img_.jpg',37),(43,'1644604990394_img_.jpg',37),(44,'1644604990396_img_.jpg',37),(45,'1644605426560_img_.jpg',38),(48,'1646583192379_img_.jpg',41),(49,'1646583192380_img_.jpg',41),(50,'1646583192381_img_.jpg',41),(51,'1646583192381_img_.jpg',41);
 /*!40000 ALTER TABLE `products_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -276,7 +276,7 @@ CREATE TABLE `users` (
   `rol` varchar(12) NOT NULL,
   `avatar` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -285,7 +285,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin','Admin','admin@email.com','$2a$12$OkBn6klGKa5wpM2zfk6W0u/1R08iuwT7zGSzmF3QsJ1jIs8rqGdW6','ROL_ADMIN','default-image.jpg'),(3,'Franco','Formigo','franco@email.com','$2a$12$//7MTaO0/gUFHCukRIgUiOyA7mBpAaLZsG52X5PGU/NKM5lMjWnCG','ROL_USER','1643636106788_img.png'),(4,'Usuario','Falso','mailfalso@mail.com','$2a$12$PI/JUwwyqlnUh5xWnRzUFe8cDyL1opNZkK7R7MkDaUWoqzXntPRaW','ROL_USER','default-image.jpg'),(5,'Juan','Perez','juanperez@mail.com','$2a$12$hOtPG.SDqKWUPb62YSXx6uZrypfSJaNxqrpgvyjCpHim8s9G7wSO6','ROL_USER','1644036940686_img.jpg');
+INSERT INTO `users` VALUES (1,'Admin','Admin','admin@email.com','$2a$12$OkBn6klGKa5wpM2zfk6W0u/1R08iuwT7zGSzmF3QsJ1jIs8rqGdW6','ROL_ADMIN','default-image.jpg'),(3,'Franco','Formigo','franco@email.com','$2a$12$//7MTaO0/gUFHCukRIgUiOyA7mBpAaLZsG52X5PGU/NKM5lMjWnCG','ROL_USER','1643636106788_img.png'),(4,'Usuario','Falso','mailfalso@mail.com','$2a$12$PI/JUwwyqlnUh5xWnRzUFe8cDyL1opNZkK7R7MkDaUWoqzXntPRaW','ROL_USER','default-image.jpg'),(5,'Juan','Perez','juanperez@mail.com','$2a$12$hOtPG.SDqKWUPb62YSXx6uZrypfSJaNxqrpgvyjCpHim8s9G7wSO6','ROL_USER','1644036940686_img.jpg'),(9,'Guillermina ','Formigo','formigoguillermina@gmail.com','$2a$12$8ImiUDWE1E7.CNN9u66bKO1/WnpWAG.w5CzswCeLcWdBFOMp9Ut.y','ROL_USER','1645639591936_img.jpeg'),(10,'Probando','Register','prueba@registro.com','$2a$12$QM39dzeWgtrny6RJBLOFP.//4joJ16TOwSs4kX.f3iI3Db7JyKahq','ROL_USER','default-image.jpg'),(11,'dsfgj','sdgfj','email@email.com','$2a$12$7GZOj45Sbcirb8r5tAFR6.pS4H6.UWKJSM8kRCSEdE7hUAGA6RC6a','ROL_USER','1645640155566_img.jpg'),(12,'Fief','Djeuo','jajaja@mail.com','$2a$12$6paKag6Jt6hstHx4hCFG2.yq7eTTmoNDvQNkkMGFmete3EZkOB4P6','ROL_USER','1645640252441_img.jpg'),(13,'Roberta','Martinez','robertitamartinez@gmail.com','$2a$12$mqUBimv0pA7/d.SIBzuMoeaRQEwQT3S4pX8iSWsFPjJIY3SGb0E1a','ROL_USER','1645640550531_img.jpeg'),(14,'Juan','Perez','prueba1@email.com','$2a$12$HFNHQh2V.u6pvGlm82.NPecUsO4L4/9FzKkVIOprzTO71Wi.J3peS','ROL_USER','default-image.jpg'),(15,'Franco','Formigo','francobf15@gmail.com','$2a$12$LQY8AUXJsUPC9/7aMLYzieOZOmNwYh46vPr/dTCTSEz7qYbGYt11m','ROL_USER','1646144346565_img.jpg'),(16,'Pablo','Marmol','pablomarmol@gmail.com','$2a$12$ddCTdoS.FK8XKLpSyPYdleYU6Y0D5DLtLP0Ywtph.CsuquEJ/scnu','ROL_USER','1646433742547_img.png');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,4 +302,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-11 14:52:03
+-- Dump completed on 2022-03-07  3:01:05

@@ -1,9 +1,13 @@
+/* Funcion QuerySelector */
+
 let qs = (element) => {
     return document.querySelector(element);
 }
 
 
 window.onload = () => {
+
+    /* Captura de elementos */
 
     let $form = qs('#form');
     let $inputName = qs('#nombre');
@@ -39,12 +43,16 @@ window.onload = () => {
 
     let validationErrors = false;
 
+
+
+    /* Validaciones */
+
     $inputName.addEventListener('blur', () => {
         switch(true){
             case !$inputName.value.trim():
                 $faCheckName.style.display = "none";
                 $faCrossName.style.display = "block";
-                $nameErrors.innerHTML = 'El campo es obligatorio'
+                $nameErrors.innerHTML = 'Por favor ingresa tu nombre'
                 $inputName.classList.remove('is-valid');
                 $inputName.classList.add('is-invalid');
                 validationErrors = true;
@@ -52,7 +60,7 @@ window.onload = () => {
             case !regExAlpha.test($inputName.value):
                 $faCheckName.style.display = "none";
                 $faCrossName.style.display = "block";
-                $nameErrors.innerHTML = 'Ingrese un nombre válido'
+                $nameErrors.innerHTML = 'Por favor ingresa un nombre válido'
                 $inputName.classList.remove('is-valid');
                 $inputName.classList.add('is-invalid');
                 validationErrors = true;
@@ -81,7 +89,7 @@ window.onload = () => {
             case !$inputName.value.trim():
                 $faCheckName.style.display = "none";
                 $faCrossName.style.display = "block";
-                $nameErrors.innerHTML = 'El campo es obligatorio'
+                $nameErrors.innerHTML = 'Por favor ingresa tu nombre'
                 $inputName.classList.remove('is-valid');
                 $inputName.classList.add('is-invalid');
                 validationErrors = true;
@@ -89,7 +97,7 @@ window.onload = () => {
             case !regExAlpha.test($inputName.value):
                 $faCheckName.style.display = "none";
                 $faCrossName.style.display = "block";
-                $nameErrors.innerHTML = 'Ingrese un nombre válido'
+                $nameErrors.innerHTML = 'Por favor ingresa un nombre válido'
                 $inputName.classList.remove('is-valid');
                 $inputName.classList.add('is-invalid');
                 validationErrors = true;
@@ -118,7 +126,7 @@ window.onload = () => {
             case !$inputLastName.value.trim():
                 $faCheckLastName.style.display = "none";
                 $faCrossLastName.style.display = 'block';
-                $lastNameErrors.innerHTML = 'El campo es obligatorio';
+                $lastNameErrors.innerHTML = 'Por favor ingresa tu apellido';
                 $inputLastName.classList.remove('is-valid');
                 $inputLastName.classList.add('is-invalid');
                 validationErrors = true;
@@ -126,7 +134,7 @@ window.onload = () => {
             case !regExAlpha.test($inputLastName.value):
                 $faCheckLastName.style.display = "none";
                 $faCrossLastName.style.display = 'block';
-                $lastNameErrors.innerHTML = 'Ingresa un apellido válido';
+                $lastNameErrors.innerHTML = 'Por favor ingresa un apellido válido';
                 $inputLastName.classList.remove('is-valid');
                 $inputLastName.classList.add('is-invalid');
                 validationErrors = true;
@@ -155,7 +163,7 @@ window.onload = () => {
             case !$inputLastName.value.trim():
                 $faCheckLastName.style.display = "none";
                 $faCrossLastName.style.display = 'block';
-                $lastNameErrors.innerHTML = 'El campo es obligatorio';
+                $lastNameErrors.innerHTML = 'Por favor ingresa tu apellido';
                 $inputLastName.classList.remove('is-valid');
                 $inputLastName.classList.add('is-invalid');
                 validationErrors = true;
@@ -163,7 +171,7 @@ window.onload = () => {
             case !regExAlpha.test($inputLastName.value):
                 $faCheckLastName.style.display = "none";
                 $faCrossLastName.style.display = 'block';
-                $lastNameErrors.innerHTML = 'Ingresa un apellido válido';
+                $lastNameErrors.innerHTML = 'Por favor ingresa un apellido válido';
                 $inputLastName.classList.remove('is-valid');
                 $inputLastName.classList.add('is-invalid');
                 validationErrors = true;
@@ -192,7 +200,7 @@ window.onload = () => {
             case !$inputEmail.value.trim():
                 $faCheckEmail.style.display = "none";
                 $faCrossEmail.style.display = 'block';
-                $emailErrors.innerHTML = 'El campo es obligatorio';
+                $emailErrors.innerHTML = 'Por favor ingresa tu email';
                 $inputEmail.classList.remove('is-valid');
                 $inputEmail.classList.add('is-invalid');
                 validationErrors = true;
@@ -200,7 +208,7 @@ window.onload = () => {
             case !regExEmail.test($inputEmail.value):
                 $faCheckEmail.style.display = "none";
                 $faCrossEmail.style.display = 'block';
-                $emailErrors.innerHTML = 'Ingresa un email válido';
+                $emailErrors.innerHTML = 'Por favor ingresa un email válido';
                 $inputEmail.classList.remove('is-valid');
                 $inputEmail.classList.add('is-invalid');
                 validationErrors = true;
@@ -221,7 +229,7 @@ window.onload = () => {
             case !$inputEmail.value.trim():
                 $faCheckEmail.style.display = "none";
                 $faCrossEmail.style.display = 'block';
-                $emailErrors.innerHTML = 'El campo es obligatorio';
+                $emailErrors.innerHTML = 'Por favor ingresa tu email';
                 $inputEmail.classList.remove('is-valid');
                 $inputEmail.classList.add('is-invalid');
                 validationErrors = true;
@@ -229,7 +237,7 @@ window.onload = () => {
             case !regExEmail.test($inputEmail.value):
                 $faCheckEmail.style.display = "none";
                 $faCrossEmail.style.display = 'block';
-                $emailErrors.innerHTML = 'Ingresa un email válido';
+                $emailErrors.innerHTML = 'Por favor ingresa un email válido';
                 $inputEmail.classList.remove('is-valid');
                 $inputEmail.classList.add('is-invalid');
                 validationErrors = true;
@@ -250,12 +258,20 @@ window.onload = () => {
             case !$inputPass.value.trim():
                 $faCheckPass.style.display = "none";
                 $faCrossPass.style.display = 'block';
-                $passErrors.innerHTML = 'El campo es obligatorio';
+                $passErrors.innerHTML = 'Por favor ingresa una contraseña';
                 $inputPass.classList.remove('is-valid');
                 $inputPass.classList.add('is-invalid');
                 validationErrors = true;
                 break;
             case !regExPass.test($inputPass.value):
+                if($inputPass2.value.length > 1 & $inputPass2.value !== $inputPass.value){
+                    $faCheckPass2.style.display = "none";
+                    $faCrossPass2.style.display = 'block';
+                    $pass2Errors.innerHTML = 'Las contraseñas no coinciden';
+                    $inputPass2.classList.remove('is-valid');
+                    $inputPass2.classList.add('is-invalid');
+                    validationErrors = true;
+                }
                 $faCheckPass.style.display = "none";
                 $faCrossPass.style.display = 'block';
                 $passErrors.innerHTML = 'La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un número';
@@ -263,7 +279,7 @@ window.onload = () => {
                 $inputPass.classList.add('is-invalid');
                 validationErrors = true;
                 break;
-            case $inputPass2.value.length > 1 && $inputPass.value !== $inputPass2.value:
+            case $inputPass.value !== $inputPass2.value && $inputPass2.value.length > 1 :
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
                 $pass2Errors.innerHTML = 'Las contraseñas no coinciden';
@@ -274,9 +290,14 @@ window.onload = () => {
             case $inputPass2.value.length > 1 && $inputPass.value == $inputPass2.value:
                 $faCheckPass2.style.display = "block";
                 $faCrossPass2.style.display = 'none';
+                $faCheckPass.style.display = "block";
+                $faCrossPass.style.display = 'none';
                 $pass2Errors.innerHTML = '';
+                $passErrors.innerHTML = '';
                 $inputPass2.classList.add('is-valid');
                 $inputPass2.classList.remove('is-invalid');
+                $inputPass.classList.add('is-valid');
+                $inputPass.classList.remove('is-invalid');
                 validationErrors = false;
                 break;
             default:
@@ -295,12 +316,20 @@ window.onload = () => {
             case !$inputPass.value.trim():
                 $faCheckPass.style.display = "none";
                 $faCrossPass.style.display = 'block';
-                $passErrors.innerHTML = 'El campo es obligatorio';
+                $passErrors.innerHTML = 'Por favor ingresa una contraseña';
                 $inputPass.classList.remove('is-valid');
                 $inputPass.classList.add('is-invalid');
                 validationErrors = true;
                 break;
             case !regExPass.test($inputPass.value):
+                if($inputPass2.value.length > 1 & $inputPass2.value !== $inputPass.value){
+                    $faCheckPass2.style.display = "none";
+                    $faCrossPass2.style.display = 'block';
+                    $pass2Errors.innerHTML = 'Las contraseñas no coinciden';
+                    $inputPass2.classList.remove('is-valid');
+                    $inputPass2.classList.add('is-invalid');
+                    validationErrors = true;
+                }
                 $faCheckPass.style.display = "none";
                 $faCrossPass.style.display = 'block';
                 $passErrors.innerHTML = 'La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un número';
@@ -308,7 +337,7 @@ window.onload = () => {
                 $inputPass.classList.add('is-invalid');
                 validationErrors = true;
                 break;
-            case $inputPass2.value.length > 1 && $inputPass.value !== $inputPass2.value:
+            case $inputPass.value !== $inputPass2.value && $inputPass2.value.length > 1 :
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
                 $pass2Errors.innerHTML = 'Las contraseñas no coinciden';
@@ -319,9 +348,14 @@ window.onload = () => {
             case $inputPass2.value.length > 1 && $inputPass.value == $inputPass2.value:
                 $faCheckPass2.style.display = "block";
                 $faCrossPass2.style.display = 'none';
+                $faCheckPass.style.display = "block";
+                $faCrossPass.style.display = 'none';
                 $pass2Errors.innerHTML = '';
+                $passErrors.innerHTML = '';
                 $inputPass2.classList.add('is-valid');
                 $inputPass2.classList.remove('is-invalid');
+                $inputPass.classList.add('is-valid');
+                $inputPass.classList.remove('is-invalid');
                 validationErrors = false;
                 break;
             default:
@@ -340,7 +374,7 @@ window.onload = () => {
             case !$inputPass2.value.trim():
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
-                $pass2Errors.innerHTML = 'El campo es obligatorio';
+                $pass2Errors.innerHTML = 'Por favor reingresa la contraseña';
                 $inputPass2.classList.remove('is-valid');
                 $inputPass2.classList.add('is-invalid');
                 validationErrors = true;
@@ -377,7 +411,7 @@ window.onload = () => {
             case !$inputPass2.value.trim():
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
-                $pass2Errors.innerHTML = 'El campo es obligatorio';
+                $pass2Errors.innerHTML = 'Por favor reingresa la contraseña';
                 $inputPass2.classList.remove('is-valid');
                 $inputPass2.classList.add('is-invalid');
                 validationErrors = true;
@@ -410,10 +444,11 @@ window.onload = () => {
     })
 
     $inputFile.addEventListener('change', () => {
+        console.log($inputFile.files);
         let filePath = $inputFile.value;
         let allowedExtensions = /(.jpg|.jpeg|.png|.gif|.webp)$/i
         if(filePath && !allowedExtensions.test(filePath)){
-            $fileErrors.innerHTML = 'Solo archivos .jpg - .jpeg - .png - .gif - .webp)'
+            $fileErrors.innerHTML = 'Solo archivos .jpg - .jpeg - .png - .gif - .webp'
             $inputFile.value = "";
             $imgPreview.innerHTML = "";
             return false;
@@ -431,6 +466,14 @@ window.onload = () => {
         }
     })
 
+    $terms.addEventListener('change', () => {
+        if($terms.checked == true){
+            $termsErrors.style.display = 'none';
+        }else{
+            $termsErrors.style.display = 'block';
+        }        
+    })
+
     $form.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -442,7 +485,7 @@ window.onload = () => {
         if(!$inputName.value.trim()){
             $faCheckName.style.display = "none";
             $faCrossName.style.display = "block";
-            $nameErrors.innerHTML = 'El campo es obligatorio'
+            $nameErrors.innerHTML = 'Por favor ingresa tu nombre'
             $inputName.classList.remove('is-valid');
             $inputName.classList.add('is-invalid');
             error = true
@@ -451,7 +494,7 @@ window.onload = () => {
         if(!$inputLastName.value.trim()){
             $faCheckLastName.style.display = "none";
             $faCrossLastName.style.display = 'block';
-            $lastNameErrors.innerHTML = 'El campo es obligatorio';
+            $lastNameErrors.innerHTML = 'Por favor ingresa tu apellido';
             $inputLastName.classList.remove('is-valid');
             $inputLastName.classList.add('is-invalid');
             error = true;
@@ -460,7 +503,7 @@ window.onload = () => {
         if(!$inputEmail.value.trim()){
             $faCheckEmail.style.display = "none";
             $faCrossEmail.style.display = 'block';
-            $emailErrors.innerHTML = 'El campo es obligatorio';
+            $emailErrors.innerHTML = 'Por favor ingresa tu email';
             $inputEmail.classList.remove('is-valid');
             $inputEmail.classList.add('is-invalid');
             error = true;
@@ -469,7 +512,7 @@ window.onload = () => {
         if(!$inputPass.value.trim()){
             $faCheckPass.style.display = "none";
             $faCrossPass.style.display = 'block';
-            $passErrors.innerHTML = 'El campo es obligatorio';
+            $passErrors.innerHTML = 'Por favor ingresa una contraseña';
             $inputPass.classList.remove('is-valid');
             $inputPass.classList.add('is-invalid');
             error = true
@@ -478,7 +521,7 @@ window.onload = () => {
         if(!$inputPass2.value.trim()){
             $faCheckPass2.style.display = "none";
             $faCrossPass2.style.display = 'block';
-            $pass2Errors.innerHTML = 'El campo es obligatorio';
+            $pass2Errors.innerHTML = 'Por favor reingresa la contraseña';
             $inputPass2.classList.remove('is-valid');
             $inputPass2.classList.add('is-invalid');
             error = true;
@@ -498,7 +541,11 @@ window.onload = () => {
         if(!$terms.checked){
             $terms.classList.add('is-invalid');
             $termsErrors.innerHTML = 'Debes aceptar los terminos y condiciones';
+            $termsErrors.style.display = 'block'
             error = true;
+        }else{
+            $termsErrors.innerHTML = '';
+            $termsErrors.style.display = 'none'
         }
 
         if(!error && !validationErrors ){

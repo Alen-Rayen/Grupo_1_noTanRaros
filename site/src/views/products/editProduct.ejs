@@ -3,84 +3,156 @@
     <%- include('../partials/head') %> 
 <body>
     <%- include('../partials/header') %> 
+
     <main class="edit-main">
-        <div class="form-container">
+
+        <div class="edit-container">
+
             <div class="form">
+
                 <h1 class="createProductTitle">Editar Producto</h1>
-                <h1 class="productName"><%- product.name %></h2>
-                <form action="/products/<%- product.id %>?_method=put" method="POST" enctype="multipart/form-data">
-                    <div class="form-container">
-                        <div class="containers">
-                            <label for="name">Nombre del producto</label>
-                            <input class="input" type="text" name="name" id="name" value="<%= locals.old ? old.name : product.name %>">
-                            <% if (locals.errors && errors.name) { %>
-                                <span class="error-message"><%= errors.name.msg %> </span>
-                            <% } %>
-
-                            <label for="category">Categoria</label>
-                            <select id="category" class="select input" name="category">
-                                <option selected hidden value="">Seleccionar Categoria</option>
-                                <% categories.forEach(category => { %>
-                                    <option value="<%- category.id %>" <%= locals.old && old.category == category.id ? "selected" : "" %>><%- category.name %></option>
-                                <% }) %>
-                            </select>
-                            <% if (locals.errors && errors.category) { %>
-                                <span class="error-message"><%= errors.category.msg %> </span>
-                            <% } %>
-
-                            <label for="subcategory">Subcategoria</label>
-                            <select id="subcategory" class="select input" name="subcategory">
-                                <option selected hidden value="">Seleccionar Subcategoria</option>
-                                <% subcategories.forEach(subcategory => { %>
-                                    <option value="<%- subcategory.id %>" <%= locals.old && old.subcategory == subcategory.id ? "selected" : "" %>><%- subcategory.name %></option>
-                                <% }) %>
-                            </select>
-                            <% if (locals.errors && errors.subcategory) { %>
-                                <span class="error-message"><%= errors.subcategory.msg %> </span>
-                            <% } %>
-                            <label for="color">Color del producto</label>
-                            <select id="color" class="select input" name="color">
-                                <option selected hidden value="">Seleccionar Color</option>
-                                <% colors.forEach(color => { %>
-                                    <option value="<%- color.id %>" <%= locals.old && old.color == color.id ? "selected" : "" %>><%- color.name %></option>
-                                <% }) %>
-                            </select>
-                            <% if (locals.errors && errors.color) { %>
-                                <span class="error-message"><%= errors.color.msg %> </span>
-                            <% } %>
-                            <label for="brand">Marca del producto</label>
-                            <select id="brand" class="select input" name="brand">
-                                <option selected hidden value="">Seleccionar Marca</option>
-                                <% brands.forEach(brand => { %>
-                                    <option value="<%- brand.id %>" <%= locals.old && old.brand == brand.id ? "selected" : "" %>><%- brand.name %></option>
-                                <% }) %>
-                            </select>
-                            <% if (locals.errors && errors.brand) { %>
-                                <span class="error-message"><%= errors.brand.msg %> </span>
-                            <% } %>
-                            <label for="image">Agregar Imagen (Max 4)</label>
-                            <input class="input" type="file" name="image" multiple>
-                            <label for="description">Descripcion</label>
-                            <textarea name="description" id="description" cols="30" rows="10"></textarea>
-                            <% if (locals.errors && errors.description) { %>
-                                <span class="error-message"><%= errors.description.msg %> </span>
-                            <% } %>
-                            <label for="price">Precio</label>
-                            <input type="number" id="price" name="price" placeholder="Precio" class="input" value="<%= locals.old ? old.price : product.price %>">
-                            <% if (locals.errors && errors.price) { %>
-                                <span class="error-message"><%= errors.price.msg %> </span>
-                            <% } %>
-                            <label for="discount">Descuento</label>
-                            <input type="number" id="discount" class="input" name="discount" placeholder="Ej: 15" value="<%= locals.old ? old.discount : product.discount %>">
-                            <% if (locals.errors && errors.discount) { %>
-                                <span class="error-message"><%= errors.discount.msg %> </span>
-                            <% } %>  
-                        </div>
+                
+                <h1 class="productName" style="text-align: center;"><%- product.name %></h1>
+                
+                    <form action="/products/<%- product.id %>?_method=put" method="POST" enctype="multipart/form-data">
+                    
+                        <div class="form-container">
                         
+                            <div class="containers">
+                                
+                                <label for="name">Nombre del producto</label>
+                                <% if (locals.errors && errors.name) { %>
+                                    <div class="inputContainer">
+                                        <i class="far fa-check-circle fa-check-name"></i>
+                                        <i class="far fa-times-circle fa-cross-name" style="display: block;"></i>
+                                        <input class="input is-invalid" type="text" name="name" id="name" value="<%= locals.old ? old.name : product.name %>">
+                                    </div>
+                                    <span class="error-message" id="nameErrors"><%= errors.name.msg %></span>
+                                <% } else {%>
+                                    <div class="inputContainer">
+                                        <i class="far fa-check-circle fa-check-name"></i>
+                                        <i class="far fa-times-circle fa-cross-name"></i>
+                                        <input class="input" type="text" name="name" id="name" value="<%= locals.old ? old.name : product.name %>">
+                                    </div>
+                                    <span class="error-message" id="nameErrors"></span>
+                                <% } %>
+
+
+                                
+
+                                <label for="category">Categoría</label>
+                                <select id="category" class="select input" name="category">
+                                    <option selected hidden value="">Categorías</option>
+                                    <% categories.forEach(category => { %>
+                                        <option value="<%- category.id %>" <%= locals.old && old.category == category.id ? "selected" : category.id == product.subcategories.category.id ? "selected" : "" %>><%- category.name %></option>
+                                    <% }) %>
+                                </select>
+                                <% if (locals.errors && errors.category) { %>
+                                    <span class="error-message" id="categoryErrors"><%= errors.category.msg %></span>
+                                <% } %>
+                                <span class="error-message" id="categoryErrors"></span>
+
+
+
+                                <label for="subcategory">Subcategoría</label>
+                                <select id="subcategory" class="select input" name="subcategory">
+                                    <option selected hidden value="">Subcategorías</option>
+                                    <% subcategories.forEach(subcategory => { %>
+                                        <option value="<%- subcategory.id %>" <%= locals.old && old.subcategory == subcategory.id ? "selected" : subcategory.id == product.subcategory_id ? "selected" : "" %>><%- subcategory.name %></option>
+                                    <% }) %>
+                                </select>
+                                <% if (locals.errors && errors.subcategory) { %>
+                                    <span class="error-message" id="subcategoryErrors"><%= errors.subcategory.msg %></span>
+                                <% } %>
+                                <span class="error-message" id="subcategoryErrors"></span>
+
+
+                                <label for="color">Color del producto</label>
+                                <select id="color" class="select input" name="color">
+                                    <option selected hidden value="">Colores</option>
+                                    <% colors.forEach(color => { %>
+                                        <option value="<%- color.id %>" <%= locals.old && old.color == color.id ? "selected" : color.id == product.color_id ? "selected" : "" %>><%- color.name %></option>
+                                    <% }) %>
+                                </select>
+                                <% if (locals.errors && errors.color) { %>
+                                    <span class="error-message" id="colorErrors"><%= errors.color.msg %></span>
+                                <% } %>
+                                <span class="error-message" id="colorErrors"></span>
+
+
+                                <label for="brand">Marca del producto</label>
+                                <select id="brand" class="select input" name="brand">
+                                    <option selected hidden value="">Marcas</option>
+                                    <% brands.forEach(brand => { %>
+                                        <option value="<%- brand.id %>" <%= locals.old && old.brand == brand.id ? "selected" : brand.id == product.brand_id ? "selected" : "" %>><%- brand.name %></option>
+                                    <% }) %>
+                                </select>
+                                <% if (locals.errors && errors.brand) { %>
+                                    <span class="error-message" id="brandErrors"><%= errors.brand.msg %></span>
+                                <% } %>
+                                <span class="error-message" id="brandErrors"></span>
+
+                                
+                                <label for="description">Descripcion</label>
+                                <textarea name="description" id="description" cols="30" rows="10"><%= locals.old ? old.description : product.description %></textarea>
+                                <% if (locals.errors && errors.description) { %>
+                                    <span class="error-message" id="descriptonErrors"><%= errors.description.msg %></span>
+                                <% } %>
+                                <span class="error-message" id="descriptonErrors"></span>
+
+
+                                <label for="price">Precio</label>
+                                <% if (locals.errors && errors.price) { %>
+                                    <div class="inputContainer">
+                                        <i class="far fa-check-circle fa-check-price"></i>
+                                        <i class="far fa-times-circle fa-cross-price" style="display: block;"></i>
+                                        <input type="number" id="price" name="price" placeholder="Precio" class="input is-invalid" value="<%= locals.old ? old.price : product.price %>">
+                                    </div>
+                                    <span class="error-message" id="priceErrors"><%= errors.price.msg %></span>
+                                <% } else {%>
+                                    <div class="inputContainer">
+                                        <i class="far fa-check-circle fa-check-price"></i>
+                                        <i class="far fa-times-circle fa-cross-price""></i>
+                                        <input type="number" id="price" name="price" placeholder="Precio" class="input" value="<%= locals.old ? old.price : product.price %>">
+                                    </div>
+                                    <span class="error-message" id="priceErrors"></span>
+                                <% } %>
+
+                                
+                                <label for="discount">Descuento</label>
+                                <% if (locals.errors && errors.discount) { %>
+                                    <div class="inputContainer">
+                                        <i class="far fa-check-circle fa-check-discount"></i>
+                                        <i class="far fa-times-circle fa-cross-discount" style="display: block;"></i>
+                                        <input type="number" id="discount" class="input is-invalid" name="discount" placeholder="Ej: 15" value="<%= locals.old ? old.discount : product.discount %>">
+                                    </div>
+                                    <span class="error-message" id="discountErrors"><%= errors.discount.msg %></span>
+                                <% } else {%>  
+                                    <div class="inputContainer">
+                                        <i class="far fa-check-circle fa-check-discount"></i>
+                                        <i class="far fa-times-circle fa-cross-discount"></i>
+                                        <input type="number" id="discount" class="input" name="discount" placeholder="Ej: 15" value="<%= locals.old ? old.discount : product.discount %>">
+                                    </div>
+                                    <span class="error-message" id="discountErrors"></span>
+                                <% } %>  
+                                
+
+
+                                <label for="image" id="imageLabel">Agregar Imagen/es (Max 4)<i class="fas fa-cloud-upload"></i></label>
+                                <input class="input" id="image" type="file" name="image" multiple>
+                                <div class="preview-container" id="img-preview">
+                                    
+                                </div>
+                                <span class="error-message" id="imageErrors"></span>
+
+                                
+                            </div>
+                        
+                            <span id="submitErrors"></span>
                             <button type="submit" class="button button-submit">Agregar producto</button>
                         
-                    </div>
-                </form>
+                        </div>
+                    </form>
                 
             </div>
         </div>
@@ -88,6 +160,6 @@
     </main>
     
     <%- include('../partials/footer.ejs')  %> 
-
+    <script src="/js/editProductValidator.js"></script>
 </body>
 </html>

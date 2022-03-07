@@ -54,20 +54,22 @@
             </div>
             <hr>
             <div class="input-container">
-                <label for="talle" class="talle">Seleccione un talle:</label>
-                <select name="talle" class="input-select" id="talle">
-                    <option value hidden selected>Talle</option>
-                    <option value="35">35</option>
-                    <option value="36">36</option>
-                    <option value="37">37</option>
-                    <option value="38">38</option>
-                    <option value="39">39</option>
-                    <option value="40">40</option>
-                    <option value="41">41</option>
-                    <option value="42">42</option>
-                    <option value="43">43</option>
-                    <option value="44">44</option>
-                </select>
+                <% if (product.subcategories.category.id != 5 && product.subcategories.category.id != 6) { %>
+                    <label for="talle" class="talle">Seleccione un talle:</label>
+                    <select name="talle" class="input-select" id="talle">
+                        <option value hidden selected>Talle</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                    </select>
+                <% } %>
                 <label for="cantidad" class="cantidad">Seleccione cantidad:</label>
                 <select name="cantidad" class="input-select" id="cantidad">
                     <option value hidden selected>Cantidad</option>

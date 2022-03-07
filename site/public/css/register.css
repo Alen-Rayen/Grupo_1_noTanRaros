@@ -84,6 +84,14 @@
     background-color: rgb(110, 158, 110);
 }
 
+.register-body .register-main .register-container .form form #termsErrors {
+    color: red;
+    background-color: rgb(250, 165, 165);
+    padding: 10px;
+    border-radius: 7px;
+    display: none;
+}
+
 .register-body .register-main .register-container .form form .form-container #submitErrors {
     color: red;
     background-color: rgb(250, 165, 165);

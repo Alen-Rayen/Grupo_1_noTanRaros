@@ -3,21 +3,158 @@
 }
 
 .edit-main {
-    padding-top: 125px;
-    padding-bottom: 71px;
+    padding-top: 150px;
+    padding-bottom: 110px;
+    display: block;
+    margin: 0;
+}
+
+.edit-main .createProductTitle {
+    text-align: center;
+    margin: 0;
+    font-size: 24px;
+    margin-bottom: 1rem;
+}
+.edit-main .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.edit-main .inputContainer {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    text-align: -webkit-center;
+}
+
+.edit-main .edit-container .fa-check-circle {
+    color: darkgreen;
+    font-size: 20px;
+    position: absolute;
+    top: 19px;
+    right: 7%;
+    display: none;
+}
+
+.edit-main .form label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.edit-main .is-invalid {
+    border: solid 2px red;
+    background-color: rgb(248, 142, 142);
+}
+
+.edit-main .is-valid {
+    border: solid 2px green;
+    background-color: rgb(110, 158, 110);
+}
+
+.edit-main .edit-container .preview-container {
+    width: 90%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8rem;
+    border-radius: 10px;
+    background-color: grey;
+}
+
+.edit-main .edit-container #imageErrors {
+    margin: 10px;
+}
+
+.edit-main .edit-container .preview-container img {
+    width: 18%;
+    max-height: 90%;
+}
+
+.edit-main .edit-container .fa-times-circle {
+    color: red;
+    font-size: 20px;
+    position: absolute;
+    top: 19px;
+    right: 7%;
+    display: none;
+}
+
+.edit-main textarea {
+    width: 90%;
+    border-radius: 14px;
+    background-color: lightslategrey;
+    border: 3px solid rgb(65, 65, 65);
+    color: white;
+    padding: 4px;
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.edit-main select {
+    border-radius: 1rem;
+    padding: 0.5rem;
+    height: 2.5rem;
+    font-size: 16px;
+}
+
+.edit-main .edit-container {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    /* width: 100%; */
+    
+    
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-main #imageLabel {
+    display: block;
+    margin: 10px;
+    border: solid 1px black;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: green;
+    width: 90%;
+}
+
+.edit-main #image {
+    display: none;
+}
+
+.edit-main #imageLabel:active {
+    transform: translateY(2px);
 }
 
 .edit-main .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
+    border-radius: 10px;
+    margin: 0 auto;
+    height: fit-content;
+    
+    padding: 1.5rem;
+    color: rgba(22, 22, 22, 0.884);
+    background: #e2e2e2;
     max-width: 600px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 body main h1.productName {
     font-size: 20px;
+}
+
+.edit-main #submitErrors {
+    color: red;
+    background-color: rgb(250, 165, 165);
+    padding: 12px;
+    border-radius: 10px;
+    display: none;
+    text-align: center;
 }
 
 .editButtons {
@@ -28,4 +165,10 @@ body main h1.productName {
 
 #admin-description {
     width: 95%;
+}
+
+@media screen and (min-width: 768px){
+    .edit-main .form label {
+        font-size: 22px;
+    }
 }

@@ -12,10 +12,13 @@
     <div class="register-container">
 
         <div class="form">
+
             <h2>Registrarme</h2>
 
             <form method="POST" action="/users/register" enctype="multipart/form-data" id="form">
+                
                 <div class="form-container">
+
                     <div class="containers">
 
                         <label for="nombre">Nombre</label>
@@ -55,11 +58,6 @@
                         
 
                         <label for="email">Correo electrónico</label>
-                        <!-- <div class="inputContainer">
-                            <i class="far fa-check-circle fa-check-email"></i>
-                            <i class="far fa-times-circle fa-cross-email"></i>
-                            <input class="input" type="email" name="email" id="email" placeholder="Ingrese su correo electrónico" value="<%= locals.old ? old.email : null %>">
-                        </div> -->
                         <% if (locals.errors && errors.email) { %>
                             <div class="inputContainer">
                                 <i class="far fa-check-circle fa-check-email"></i>
@@ -112,7 +110,7 @@
                             <span class="error-message" id="pass2Errors"></span>
                         <% } %>
                         
-                        
+
                         <label for="avatar" id="avatarLabel">Agregar Avatar <i class="fas fa-cloud-upload"></i></label>
                         <input class="input" type="file" name="avatar" id="avatar">
                         <div class="preview-container" id="img-preview">
@@ -125,7 +123,7 @@
                         <input type="checkbox" name="terms" id="terms">
                     </div>
                     <% if (locals.errors && errors.terms) { %>
-                        <span class="error-message"><%= errors.terms.msg %></span>
+                        <span class="error-message" id="termsErrors"><%= errors.terms.msg %></span>
                     <% } %>
                     <span class="error-message" id="termsErrors"></span>
                     <div class="check">

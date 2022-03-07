@@ -58,14 +58,7 @@
     display: none;
 }
 
-.login-body .login-main .form form .form-container .containers .fa-times-circle {
-    color: red;
-    font-size: 20px;
-    position: absolute;
-    top: 19px;
-    right: 7%;
-    display: none;
-}
+
 
 .login-body .login-main .form form .form-container .containers .fa-check-circle {
     color: darkgreen;
@@ -149,6 +142,20 @@ input.input::placeholder {
 .login-main label {
     font-size: 18px;
     
+}
+
+.login-main .form form .form-container .containers .inputContainer .is-invalid {
+    border: solid 2px red;
+    background-color: rgb(248, 142, 142);
+}
+
+.login-main .form form .form-container .containers .inputContainer .fa-times-circle {
+    color: red;
+    font-size: 20px;
+    position: absolute;
+    top: 19px;
+    right: 7%;
+    display: none;
 }
 
 .check {
