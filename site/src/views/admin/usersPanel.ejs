@@ -23,7 +23,7 @@
                             <td data-label="ID"><%- user.id %></td>
                             <td data-label="Nombre"><%- user.first_name.toUpperCase() %></td>
                             <td data-label="Apellido"><%- user.last_name.toUpperCase() %></td>
-                            <td data-label="Email"><%- user.email %></td>
+                            <td data-label="Email" id="userEmail"><%- user.email %></td>
                             <td data-label="Rol"><%- user.rol %></td>
                             <td data-label="#"><a href="#" class="table-btn">Editar</a>
                                 <form action="#" method="">
@@ -37,5 +37,6 @@
         </div>
     </main>
     <%- include('../partials/footer')  %> 
+    <script src="/javascript/emailTrim.js"></script>
 </body>
 </html>

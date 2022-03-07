@@ -23,7 +23,7 @@
                             <li><a href="/products/create"><i class="fas fa-hand-holding-usd"></i><p>Vender</p></a></li>
                             <li><a href="/admin/"><i class="fas fa-users-crown"></i><p>ADMIN</p></a></li>
                 <% } %>
-                <li><form action="/products/search" method="GET" class="header-search-form">
+                <li><form action="/products/search" method="GET" class="header-search-form" id="searchForm">
                     <input type="search" class="search" id="search" name="keywords" placeholder="Buscar...">
                     <button type="submit" class="header-search-button"><i class="far fa-search"></i></button>
                 </form></li>
@@ -34,3 +34,4 @@
         </label>
     </div>
 </header>
+<script src="/javascript/preventDefaultSearch.js"></script>

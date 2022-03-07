@@ -1,4 +1,5 @@
-const { users } = require('../database/dataBase');
+const db = require('../database/models');
+const { Op } = require('sequelize');
 const bcrypt = require('bcryptjs');
 const path = require('path');
 const fs = require('fs');

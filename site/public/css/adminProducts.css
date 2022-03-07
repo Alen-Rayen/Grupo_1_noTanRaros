@@ -19,7 +19,7 @@ main.productsListMain {
 }
 
 .table-container {
-    padding: 0 10%;
+    width: 70%;
     margin: 10px auto;
     display: flex;
     flex-direction: column;
@@ -104,6 +104,11 @@ main.productsListMain {
 }
 
 @media (max-width: 768px) {
+
+    .table-container {
+        width: 90%;
+    }
+
     .table thead {
         display: none;
     }

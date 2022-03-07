@@ -14,7 +14,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const db = require('../database/models');
 const { Op } = require('sequelize');
-const { categories } = require('../database/dataBase');
+
 
 const controller = {
     /* Show all products */
@@ -173,12 +173,12 @@ const controller = {
                 id: req.params.id
             },
             include: [{
-                association: 'colors',
-                association: 'brands',
                 association: 'subcategories',
                 include: [{
                     association: 'category'
-                }],
+                }]
+            }, {
+                association: 'products_images'
             }]
         }) 
         const categoriesPromise = db.Category.findAll();
