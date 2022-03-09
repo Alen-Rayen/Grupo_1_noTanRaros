@@ -68,6 +68,17 @@ hr {
     justify-content: space-between;
 }
 
+.main-carousel {
+    width: 95%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 420px;
+    margin: 20px;
+    
+    
+}
+
+
 
 .foto-oferta {
     max-height: 250px;
@@ -110,7 +121,7 @@ hr {
     color: #F7B53B;
 }
 
-.series-destacadas a {
+.destacada a {
     text-decoration: none;
     color: black;
 }
@@ -130,7 +141,7 @@ hr {
 }
 
 .destacada {
-    margin: 20px auto;
+    margin: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
