@@ -2,6 +2,10 @@
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
+const nodemailer = require('nodemailer');
+const ejs = require('ejs');
+let fs = require('fs');
+let path = require('path');
 
 let controller = {
     /* Vistas */
@@ -72,6 +76,39 @@ let controller = {
                 rol: 'ROL_USER'
             })
             .then(() => {
+                let transporter = nodemailer.createTransport({
+                    service: 'Gmail',
+                    auth: {
+                        user: 'notanraros@gmail.com',
+                        pass: 'Supersecretpassword'
+                    }
+                });
+
+                let mailName = req.body.nombre
+
+                ejs.renderFile(path.join(__dirname, '../views/users/email.ejs'), { name: mailName }, function(err, data){
+                    if(err){
+                        console.log(err);
+                    }else{
+                        let mailOptions = {
+                            from: 'notanraros@gmail.com',
+                            to: req.body.email,
+                            subject: 'Registro Completo',
+                            html: data
+                        };
+
+
+                        transporter.sendMail(mailOptions, function(err, info){
+                            if(error){
+                                console.log(error);
+                            }else{
+                                console.log('Email sent');
+                            }
+                        })
+                    }
+                })
+
+
                 res.redirect('/users/login')
             })
         }else{
