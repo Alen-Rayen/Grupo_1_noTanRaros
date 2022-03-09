@@ -1534,7 +1534,7 @@ window.onload = () => {
     $inputFile.addEventListener('change', (e) => {
         console.log($inputFile.files);
         console.log($inputFile.value)
-        let allowedExtensions = /(.jpg|.jpeg|.png|.gif|.webp)$/i
+        let allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i
         if($inputFile.files.length > 4){
             $fileErrors.style.display = 'block';
             $fileErrors.innerHTML = 'Máximo 4 Imágenes';
@@ -1547,7 +1547,7 @@ window.onload = () => {
             let fileName = file.name;
             if(!allowedExtensions.test(fileName)){
                 $fileErrors.style.display = 'block';
-                $fileErrors.innerHTML = 'Solo archivos .jpg - .jpeg - .png - .gif - .webp';
+                $fileErrors.innerHTML = 'Solo archivos .jpg - .jpeg - .png - .gif';
                 $inputFile.value = "";
             }else{
                 

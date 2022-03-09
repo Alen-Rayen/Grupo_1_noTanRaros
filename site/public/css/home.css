@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+
+
 .main-home {
     margin: 0 auto;
     display: flex;
@@ -40,7 +42,7 @@ hr {
 }
 
 .oferta {
-    margin: 20px auto;
+    margin: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,11 +74,21 @@ hr {
     width: 95%;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    height: 420px;
-    margin: 20px;
     
+    margin: 20px;
+    background: #bdc3c7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
 }
+
+.main-carousel .carousel-cell .datos-oferta a {
+    text-decoration: none;
+}
+
+
+
+
 
 
 
@@ -106,6 +118,8 @@ hr {
     font-size: 22px;
     text-align: center;
     margin: 10px auto;
+    color: black;
+    text-decoration: none;
 }
 
 .precio-oferta {

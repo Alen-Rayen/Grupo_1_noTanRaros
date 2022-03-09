@@ -1,10 +1,14 @@
 window.onload = () => {
-    let elem = document.querySelector('.main-carousel');
+    let elem = document.querySelectorAll('.main-carousel');
 
-    let flkty = new Flickity(elem, {
-        cellAlign: 'center',
-        wrapAround: true,
-        rightToLeft: true,
-        fade: true
-    })
+
+    for(let i=0; i < elem.length; i++){
+        let galleryElem = elem[i]
+        let flkty = new Flickity(galleryElem, {
+            contain: true,
+            cellAlign: 'center',
+            wrapAround: true,
+            freeScroll: true,
+        })
+    }
 }
