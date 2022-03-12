@@ -159,7 +159,7 @@ let controller = {
                     }
                 )
                 .then((user) => {
-                    res.redirect('/')
+                    res.redirect('/users/profile')
                 })
                 .catch(error => {
                     console.log(error);
