@@ -70,6 +70,8 @@ hr {
     justify-content: space-between;
 }
 
+
+
 .main-carousel {
     width: 95%;
     border-radius: 20px;
@@ -99,6 +101,8 @@ hr {
     margin-top: 20px;
     padding: 10px;
 }
+
+
 
 .datos-oferta {
     display: flex;

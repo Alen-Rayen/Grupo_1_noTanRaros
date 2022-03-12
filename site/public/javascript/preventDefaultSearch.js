@@ -1,5 +1,4 @@
 window.onload = () => {
-    console.log('Hola')
 
     let searchForm = document.querySelector('#searchForm');
 
@@ -7,7 +6,7 @@ window.onload = () => {
 
 
     searchForm.addEventListener('submit', (e) => {
-        if(inputSearch.value.length <= 0){
+        if(inputSearch.value.length < 1){
             e.preventDefault()
         }
     })

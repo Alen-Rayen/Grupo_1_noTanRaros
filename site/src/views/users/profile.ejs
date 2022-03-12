@@ -9,9 +9,17 @@
     <main class="main-profile">
         <div class="profileBox">
             <div class="userPhoto">
+                <form action="/users/updateAvatar?_method=put" class="avatarForm" enctype="multipart/form-data" method="POST">
+                    <label for="avatar" class="avatarLabel"> . </label>
+                    <input type="file" name="avatar" id="avatar" class="avatarInput" onchange="this.form.submit()">
+                </form>
+                <div class="changeAvatar">
+                    <span class="changeAvatarSpan">Cambiar Imagen</span>
+                    <i class="fas fa-camera" class="cameraIcon"></i>
+                </div>
                 <img src="\images\avatars\<%- session.user.avatar %>" alt="" class="profilePhoto">
-                <h2 class="profileName"><%= session.user.first_name %> <%= session.user.last_name %></h2>
             </div>
+                <h2 class="profileName"><%= session.user.first_name %> <%= session.user.last_name %></h2>
             <div class="profileInfoBox">
                 <h2 class="userDataTitle">Datos del Usuario:</h2>
                 <hr>
@@ -24,6 +32,7 @@
     </main>
 
     <%- include('../partials/footer.ejs')  %> 
+    <script src="/javascript/avatarScripts.js"></script>
 
 </body>
 </html>

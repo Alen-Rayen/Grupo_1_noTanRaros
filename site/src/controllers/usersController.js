@@ -136,6 +136,40 @@ let controller = {
                 session: req.session
             });
         })
+    },
+    updateAvatar: (req, res) => {
+        if(req.file){
+            db.User.findByPk(req.session.user.id)
+            .then((user) => {
+
+                fs.existsSync(path.join(__dirname, '../../public/images/avatars'), user.avatar)
+                ? fs.unlinkSync(path.join(__dirname, `../../public/images/avatars/${user.avatar}`))
+                : console.log('No se encontró el archivo');
+
+                req.session.user.avatar = req.file.filename;
+
+                db.User.update(
+                    {
+                        avatar: req.file ? req.file.filename : 'default-image.jpg'
+                    },
+                    {
+                        where: {
+                            id: req.session.user.id
+                        }
+                    }
+                )
+                .then((user) => {
+                    res.redirect('/')
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+        }
     }    
 }
 

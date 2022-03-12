@@ -41,10 +41,73 @@
 
 .userPhoto {
     display: flex;
+    width: 200px;
+    height: 200px;
+    border: solid 4px black;
+    border-radius: 50%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
+.changeAvatar{ 
+    background-color: rgba(0, 0, 0, 0.35);
+    width: 196px;
+    height: 196px;
+    
+    position: absolute;
+    border-radius: 50%;
+    display: none;
+}
+
+.changeAvatarSpan {
+    text-align: center;
+    position: relative;
+    top: 35%;
+    font-weight: 500;
+    font-size: 22px;
+    color: white;
+    display: block;
+}
+
+.userPhoto:hover .changeAvatar {
+    display: block;
+    cursor: pointer;
+}
+
+.avatarForm {
+    width: 200px;
+    height: 200px;
+    background-color: gray;
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+}
+
+
+
+i.fas.fa-camera {
+    font-size: 22px;
+    color: white;
+    margin-top: 40%;
+}
+
+.avatarLabel {
+    position: absolute;
+    z-index: 2;
+    top: 3px;
+    left: 2px;
+    
+    background-color: black;
+    width: 196px;
+    height: 196px;
+    border-radius: 50%;
+}
+
+.avatarLabel:hover {
+    cursor: pointer;
+}
+
 
 .ProfileEditButton {
     margin: 20px;
@@ -58,12 +121,11 @@
 }
 
 img.profilePhoto {
+   
+    width: 196px;
+    height: 196px;
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    margin: 10px;
-    max-width: 320px;
-    border: solid black 8px;
+    
 }
 
 h2.profileName {

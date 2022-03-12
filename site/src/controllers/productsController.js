@@ -210,11 +210,11 @@ const controller = {
 
         if(errors.isEmpty()){
             const { name, price, subcategory, description, discount, color, brand } = req.body;
-            let descriptionReplaced = description.replace(/\r\n/gi, '-r-n');
+            
             db.Product.update({
                 name,
                 price,
-                description: descriptionReplaced,
+                description: description,
                 discount,
                 subcategory_id: subcategory,
                 color_id: color,
