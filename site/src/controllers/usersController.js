@@ -142,7 +142,7 @@ let controller = {
             db.User.findByPk(req.session.user.id)
             .then((user) => {
 
-                fs.existsSync(path.join(__dirname, '../../public/images/avatars'), user.avatar)
+                fs.existsSync(path.join(__dirname, '../../public/images/avatars'), user.avatar) && user.avatar != 'default-image.jpg'
                 ? fs.unlinkSync(path.join(__dirname, `../../public/images/avatars/${user.avatar}`))
                 : console.log('No se encontró el archivo');
 
