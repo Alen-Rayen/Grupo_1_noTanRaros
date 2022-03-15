@@ -70,6 +70,11 @@ display: inline-block;
     box-shadow: 0px 0px 15px rgb(0, 0, 0);
     border-radius: 10px;
     object-fit: fill;
+    -webkit-transition:all .9s ease; 
+    -moz-transition:all .9s ease; 
+    -o-transition:all .9s ease; 
+    -ms-transition:all .9s ease;
+    cursor: pointer;
 }
 
 .photos {
@@ -329,14 +334,7 @@ button:active {
         padding: 20px;
     }
 
-    img.photo-1 {
-        -webkit-transition:all .9s ease; 
-        -moz-transition:all .9s ease; 
-        -o-transition:all .9s ease; 
-        -ms-transition:all .9s ease;
-        cursor: pointer;
-        
-    }
+    
 
     
 
