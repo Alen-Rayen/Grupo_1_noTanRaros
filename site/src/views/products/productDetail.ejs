@@ -24,9 +24,9 @@
             </div>
             <hr>
             <div class="photos">
-                <% product.products_images.forEach(image => { %>
+                <% product.products_images.forEach((image, i) => { %>
                     <img src="/images/products/<%- image.image %>"
-                        alt="Foto 1" class="div-photo-1">
+                        alt="Foto 1" class=<%- `photo${i}` %> id=<%- 'photo' + (i + 1) %>>
                 <% }) %>
             </div>
             <hr>
@@ -110,6 +110,7 @@
     </main>
 
     <%- include('../partials/footer.ejs')  %> 
+    <script src="/javascript/productDetail.js"></script>
 </body>
 
 </html>
