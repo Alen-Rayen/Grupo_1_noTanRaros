@@ -37,6 +37,7 @@ const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const adminRouter = require('./routes/admin');
 const seriesRouter = require('./routes/series');
+const apiRouter = require('./routes/api/apiRoutes.js');
 
 
 /* Middlewares de rutas */
@@ -45,6 +46,7 @@ app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/admin', adminRouter);
 app.use('/series', seriesRouter);
+app.use('/api/v1', apiRouter);
 
 /* ERROR 404 */
 app.use((req, res, next) => {

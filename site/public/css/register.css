@@ -84,6 +84,26 @@
     background-color: rgb(110, 158, 110);
 }
 
+.register-body .register-main .register-container .form form .form-container .fa-eye {
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    top: 19px;
+    right: 8%;
+    display: block;
+    transition: linear .3s;
+}
+
+.register-body .register-main .register-container .form form .form-container .fa-eye-slash {
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    top: 19px;
+    right: 8%;
+    display: block;
+    transition: linear .3s;
+}
+
 .register-body .register-main .register-container .form form #termsErrors {
     color: red;
     background-color: rgb(250, 165, 165);

@@ -78,6 +78,7 @@
                         <label for="pass">Contraseña</label>
                         <% if (locals.errors && errors.pass) { %>
                             <div class="inputContainer">
+                                <i class="fas fa-eye" id="btn-pass-1"></i>
                                 <i class="far fa-check-circle fa-check-pass"></i>
                                 <i class="far fa-times-circle fa-cross-pass" style="display: block;"></i>
                                 <input class="input is-invalid" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
@@ -85,6 +86,7 @@
                             <span class="error-message" id="passErrors"><%= errors.pass.msg %></span>
                         <% } else { %>
                             <div class="inputContainer">
+                                <i class="fas fa-eye" id="btn-pass-1"></i>
                                 <i class="far fa-check-circle fa-check-pass"></i>
                                 <i class="far fa-times-circle fa-cross-pass"></i>
                                 <input class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
@@ -96,6 +98,7 @@
                         <label for="pass2">Ingrese la contraseña nuevamente</label>
                         <% if (locals.errors && errors.pass2) { %>
                             <div class="inputContainer">
+                                <i class="fas fa-eye" id="btn-pass-2"></i>
                                 <i class="far fa-check-circle fa-check-pass2"></i>
                                 <i class="far fa-times-circle fa-cross-pass2" style="display: block;"></i>
                                 <input class="input is-invalid" type="password" name="pass2" id="pass2" placeholder="Re-ingresa la contraseña">
@@ -103,6 +106,7 @@
                             <span class="error-message" id="pass2Errors"><%= errors.pass2.msg %></span>
                         <% } else { %>
                             <div class="inputContainer">
+                                <i class="fas fa-eye" id="btn-pass-2"></i>
                                 <i class="far fa-check-circle fa-check-pass2"></i>
                                 <i class="far fa-times-circle fa-cross-pass2"></i>
                                 <input class="input" type="password" name="pass2" id="pass2" placeholder="Re-ingresa la contraseña">

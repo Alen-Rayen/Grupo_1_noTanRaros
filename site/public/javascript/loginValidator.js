@@ -13,10 +13,27 @@ window.onload = () => {
     let $faCrossPass = qs('.fa-cross-pass');
     let $faCheckPass = qs('.fa-check-pass');
     let $submitErrors = qs('#submitErrors');
+    let showPassBtn = qs('.fa-eye');
 
     let regExEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
 
     let validationErrors = false;
+
+    let showPass = (pass, btn) => {
+        if(pass.type == 'password'){
+            pass.type = 'text';
+            btn.classList.remove('fa-eye');
+            btn.classList.add('fa-eye-slash');
+        }else{
+            pass.type = 'password';
+            btn.classList.remove('fa-eye-slash');
+            btn.classList.add('fa-eye');
+        }
+    }
+
+    showPassBtn.onclick = () => {
+        showPass($inputPass, showPassBtn)
+    }
 
     $inputEmail.addEventListener('blur', () => {
         switch(true){
@@ -80,6 +97,7 @@ window.onload = () => {
         switch(true){
             case !$inputPass.value.length > 0:
                 $faCheckPass.style.display = 'none';
+                showPassBtn.style.marginRight = '20px';
                 $faCrossPass.style.display = 'block';
                 $passErrors.innerHTML = 'Por favor ingresa tu contraseña';
                 $inputPass.classList.add('is-invalid');
@@ -89,12 +107,13 @@ window.onload = () => {
                 $inputPass.classList.remove('is-invalid');
                 $faCheckPass.style.display = 'none';
                 $faCrossPass.style.display = 'none';
+                showPassBtn.style.marginRight = 0;
                 $passErrors.innerHTML = '';
                 validationErrors = false
                 break;
             default:
                 $faCrossPass.style.display = 'none';
-                
+                showPassBtn.style.marginRight = 0;
                 $inputPass.classList.remove('is-invalid');
                 
                 $passErrors.innerHTML = "";
@@ -107,6 +126,7 @@ window.onload = () => {
         switch(true){
             case !$inputPass.value.length > 0:
                 $faCheckPass.style.display = 'none';
+                showPassBtn.style.marginRight = '20px';
                 $faCrossPass.style.display = 'block';
                 $passErrors.innerHTML = 'Por favor ingresa tu contraseña';
                 $inputPass.classList.add('is-invalid');
@@ -115,6 +135,7 @@ window.onload = () => {
             case $inputPass.value.length > 0:
                 $faCheckPass.style.display = 'none';
                 $faCrossPass.style.display = 'none';
+                showPassBtn.style.marginRight = 0;
                 $passErrors.innerHTML = '';
                 $inputPass.classList.remove('is-invalid');
                 validationErrors = false
@@ -123,7 +144,7 @@ window.onload = () => {
                 $faCrossPass.style.display = 'none';
                 
                 $inputPass.classList.remove('is-invalid');
-                
+                showPassBtn.style.marginRight = 0;
                 $passErrors.innerHTML = "";
                 validationErrors = false;
                 break;
@@ -149,10 +170,11 @@ window.onload = () => {
             
             if(!$inputPass.value.length > 0){
                 $faCheckPass.style.display = 'none';
-                    $faCrossPass.style.display = 'block';
-                    $passErrors.innerHTML = 'Por favor ingresa tu contraseña';
-                    $inputPass.classList.add('is-invalid');
-                    validationErrors = true;
+                $faCrossPass.style.display = 'block';
+                showPassBtn.style.marginRight = '20px';
+                $passErrors.innerHTML = 'Por favor ingresa tu contraseña';
+                $inputPass.classList.add('is-invalid');
+                validationErrors = true;
             }
                 
         /* for(let i = 0; i < elementsForm.length -1; i++){

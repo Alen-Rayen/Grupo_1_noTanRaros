@@ -36,6 +36,8 @@ window.onload = () => {
     let $faCheckEmail = qs('.fa-check-email');
     let $faCheckPass = qs('.fa-check-pass');
     let $faCheckPass2 = qs('.fa-check-pass2');
+    let btnPass1 = qs('#btn-pass-1');
+    let btnPass2 = qs('#btn-pass-2');
 
     let regExEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
     let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(.{8,16})$/
@@ -46,6 +48,26 @@ window.onload = () => {
 
 
     /* Validaciones */
+
+    let showPass = (pass, btn) => {
+        if(pass.type == 'password'){
+            pass.type = 'text';
+            btn.classList.remove('fa-eye');
+            btn.classList.add('fa-eye-slash');
+        }else{
+            pass.type = 'password';
+            btn.classList.remove('fa-eye-slash');
+            btn.classList.add('fa-eye');
+        }
+    }
+
+    btnPass1.onclick = () => {
+        showPass($inputPass, btnPass1)
+    }
+
+    btnPass2.onclick = () => {
+        showPass($inputPass2, btnPass2)
+    }
 
     $inputName.addEventListener('blur', () => {
         switch(true){
@@ -258,6 +280,7 @@ window.onload = () => {
             case !$inputPass.value.trim():
                 $faCheckPass.style.display = "none";
                 $faCrossPass.style.display = 'block';
+                btnPass1.style.marginRight = '20px';
                 $passErrors.innerHTML = 'Por favor ingresa una contraseña';
                 $inputPass.classList.remove('is-valid');
                 $inputPass.classList.add('is-invalid');
@@ -267,6 +290,7 @@ window.onload = () => {
                 if($inputPass2.value.length > 1 & $inputPass2.value !== $inputPass.value){
                     $faCheckPass2.style.display = "none";
                     $faCrossPass2.style.display = 'block';
+                    btnPass1.style.marginRight = '20px';
                     $pass2Errors.innerHTML = 'Las contraseñas no coinciden';
                     $inputPass2.classList.remove('is-valid');
                     $inputPass2.classList.add('is-invalid');
@@ -274,6 +298,7 @@ window.onload = () => {
                 }
                 $faCheckPass.style.display = "none";
                 $faCrossPass.style.display = 'block';
+                btnPass1.style.marginRight = '20px';
                 $passErrors.innerHTML = 'La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un número';
                 $inputPass.classList.remove('is-valid');
                 $inputPass.classList.add('is-invalid');
@@ -282,6 +307,7 @@ window.onload = () => {
             case $inputPass.value !== $inputPass2.value && $inputPass2.value.length > 1 :
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
+                btnPass1.style.marginRight = '20px';
                 $pass2Errors.innerHTML = 'Las contraseñas no coinciden';
                 $inputPass2.classList.remove('is-valid');
                 $inputPass2.classList.add('is-invalid');
@@ -292,6 +318,7 @@ window.onload = () => {
                 $faCrossPass2.style.display = 'none';
                 $faCheckPass.style.display = "block";
                 $faCrossPass.style.display = 'none';
+                btnPass1.style.marginRight = '20px';
                 $pass2Errors.innerHTML = '';
                 $passErrors.innerHTML = '';
                 $inputPass2.classList.add('is-valid');
@@ -303,6 +330,7 @@ window.onload = () => {
             default:
                 $faCrossPass.style.display = 'none';
                 $faCheckPass.style.display = "block";
+                btnPass1.style.marginRight = '20px';
                 $inputPass.classList.remove('is-invalid');
                 $inputPass.classList.add('is-valid');
                 $passErrors.innerHTML = "";
@@ -316,6 +344,7 @@ window.onload = () => {
             case !$inputPass.value.trim():
                 $faCheckPass.style.display = "none";
                 $faCrossPass.style.display = 'block';
+                btnPass1.style.marginRight = '20px';
                 $passErrors.innerHTML = 'Por favor ingresa una contraseña';
                 $inputPass.classList.remove('is-valid');
                 $inputPass.classList.add('is-invalid');
@@ -325,6 +354,7 @@ window.onload = () => {
                 if($inputPass2.value.length > 1 & $inputPass2.value !== $inputPass.value){
                     $faCheckPass2.style.display = "none";
                     $faCrossPass2.style.display = 'block';
+                    btnPass1.style.marginRight = '20px';
                     $pass2Errors.innerHTML = 'Las contraseñas no coinciden';
                     $inputPass2.classList.remove('is-valid');
                     $inputPass2.classList.add('is-invalid');
@@ -332,6 +362,7 @@ window.onload = () => {
                 }
                 $faCheckPass.style.display = "none";
                 $faCrossPass.style.display = 'block';
+                btnPass1.style.marginRight = '20px';
                 $passErrors.innerHTML = 'La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un número';
                 $inputPass.classList.remove('is-valid');
                 $inputPass.classList.add('is-invalid');
@@ -340,6 +371,7 @@ window.onload = () => {
             case $inputPass.value !== $inputPass2.value && $inputPass2.value.length > 1 :
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
+                btnPass1.style.marginRight = '20px';
                 $pass2Errors.innerHTML = 'Las contraseñas no coinciden';
                 $inputPass2.classList.remove('is-valid');
                 $inputPass2.classList.add('is-invalid');
@@ -350,6 +382,7 @@ window.onload = () => {
                 $faCrossPass2.style.display = 'none';
                 $faCheckPass.style.display = "block";
                 $faCrossPass.style.display = 'none';
+                btnPass1.style.marginRight = '20px';
                 $pass2Errors.innerHTML = '';
                 $passErrors.innerHTML = '';
                 $inputPass2.classList.add('is-valid');
@@ -361,6 +394,7 @@ window.onload = () => {
             default:
                 $faCrossPass.style.display = 'none';
                 $faCheckPass.style.display = "block";
+                btnPass1.style.marginRight = '20px';
                 $inputPass.classList.remove('is-invalid');
                 $inputPass.classList.add('is-valid');
                 $passErrors.innerHTML = "";
@@ -374,6 +408,7 @@ window.onload = () => {
             case !$inputPass2.value.trim():
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
+                btnPass2.style.marginRight = '20px';
                 $pass2Errors.innerHTML = 'Por favor reingresa la contraseña';
                 $inputPass2.classList.remove('is-valid');
                 $inputPass2.classList.add('is-invalid');
@@ -382,6 +417,7 @@ window.onload = () => {
             case !regExPass.test($inputPass2.value) && $inputPass2.value == $inputPass.value:
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
+                btnPass2.style.marginRight = '20px';
                 $pass2Errors.innerHTML = 'La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un número';
                 $inputPass2.classList.remove('is-valid');
                 $inputPass2.classList.add('is-invalid');
@@ -390,6 +426,7 @@ window.onload = () => {
             case $inputPass2.value !== $inputPass.value:
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
+                btnPass2.style.marginRight = '20px';
                 $pass2Errors.innerHTML = 'Las contraseñas no coinciden';
                 $inputPass2.classList.remove('is-valid');
                 $inputPass2.classList.add('is-invalid');
@@ -398,6 +435,7 @@ window.onload = () => {
             default:
                 $faCrossPass2.style.display = 'none';
                 $faCheckPass2.style.display = "block";
+                btnPass2.style.marginRight = '20px';
                 $inputPass2.classList.remove('is-invalid');
                 $inputPass2.classList.add('is-valid');
                 $pass2Errors.innerHTML = "";
@@ -411,6 +449,7 @@ window.onload = () => {
             case !$inputPass2.value.trim():
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
+                btnPass2.style.marginRight = '20px';
                 $pass2Errors.innerHTML = 'Por favor reingresa la contraseña';
                 $inputPass2.classList.remove('is-valid');
                 $inputPass2.classList.add('is-invalid');
@@ -419,6 +458,7 @@ window.onload = () => {
             case !regExPass.test($inputPass2.value) && $inputPass2.value == $inputPass.value:
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
+                btnPass2.style.marginRight = '20px';
                 $pass2Errors.innerHTML = 'La contraseña debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un número';
                 $inputPass2.classList.remove('is-valid');
                 $inputPass2.classList.add('is-invalid');
@@ -427,6 +467,7 @@ window.onload = () => {
             case $inputPass2.value !== $inputPass.value:
                 $faCheckPass2.style.display = "none";
                 $faCrossPass2.style.display = 'block';
+                btnPass2.style.marginRight = '20px';
                 $pass2Errors.innerHTML = 'Las contraseñas no coinciden';
                 $inputPass2.classList.remove('is-valid');
                 $inputPass2.classList.add('is-invalid');
@@ -435,6 +476,7 @@ window.onload = () => {
             default:
                 $faCrossPass2.style.display = 'none';
                 $faCheckPass2.style.display = "block";
+                btnPass2.style.marginRight = '20px';
                 $inputPass2.classList.remove('is-invalid');
                 $inputPass2.classList.add('is-valid');
                 $pass2Errors.innerHTML = "";
@@ -512,6 +554,7 @@ window.onload = () => {
         if(!$inputPass.value.trim()){
             $faCheckPass.style.display = "none";
             $faCrossPass.style.display = 'block';
+            btnPass1.style.marginRight = '20px';
             $passErrors.innerHTML = 'Por favor ingresa una contraseña';
             $inputPass.classList.remove('is-valid');
             $inputPass.classList.add('is-invalid');
@@ -521,6 +564,7 @@ window.onload = () => {
         if(!$inputPass2.value.trim()){
             $faCheckPass2.style.display = "none";
             $faCrossPass2.style.display = 'block';
+            btnPass2.style.marginRight = '20px';
             $pass2Errors.innerHTML = 'Por favor reingresa la contraseña';
             $inputPass2.classList.remove('is-valid');
             $inputPass2.classList.add('is-invalid');
