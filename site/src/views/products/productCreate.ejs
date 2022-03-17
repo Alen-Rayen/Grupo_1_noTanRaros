@@ -23,14 +23,14 @@
                                 <div class="inputContainer">
                                     <i class="far fa-check-circle fa-check-name"></i>
                                     <i class="far fa-times-circle fa-cross-name" style="display: block;"></i>
-                                    <input class="input is-invalid" type="text" placeholder="Ingrese un Nombre" name="name" id="name" value="<%= locals.old ? old.name : null %>">
+                                    <input autocomplete="off" class="input is-invalid" type="text" placeholder="Ingrese un Nombre" name="name" id="name" value="<%= locals.old ? old.name : null %>">
                                 </div>
                                 <span class="error-message" id="nameErrors"><%= errors.name.msg %> </span>
                             <% } else { %>
                                 <div class="inputContainer">
                                     <i class="far fa-check-circle fa-check-name"></i>
                                     <i class="far fa-times-circle fa-cross-name"></i>
-                                    <input class="input" type="text" placeholder="Ingrese un Nombre" name="name" id="name" value="<%= locals.old ? old.name : null %>">
+                                    <input autocomplete="off" class="input" type="text" placeholder="Ingrese un Nombre" name="name" id="name" value="<%= locals.old ? old.name : null %>">
                                 </div>
                                 <span class="error-message" id="nameErrors"></span>
                             <% } %>
@@ -102,14 +102,14 @@
                                 <div class="inputContainer">
                                     <i class="far fa-check-circle fa-check-price"></i>
                                     <i class="far fa-times-circle fa-cross-price" style="display: block;"></i>
-                                    <input type="number" id="price" name="price" placeholder="Precio" class="input is-invalid" value="<%= locals.old ? old.price : null %>">
+                                    <input autocomplete="off" type="number" id="price" name="price" placeholder="Precio" class="input is-invalid" value="<%= locals.old ? old.price : null %>">
                                 </div>
                                 <span class="error-message" id="priceErrors"><%= errors.price.msg %> </span>
                                 <% } else { %>
                                     <div class="inputContainer">
                                         <i class="far fa-check-circle fa-check-price"></i>
                                         <i class="far fa-times-circle fa-cross-price"></i>
-                                        <input type="number" id="price" name="price" placeholder="Precio" class="input" value="<%= locals.old ? old.price : null %>">
+                                        <input autocomplete="off" type="number" id="price" name="price" placeholder="Precio" class="input" value="<%= locals.old ? old.price : null %>">
                                     </div>
                                     <span class="error-message" id="priceErrors"></span>
                                     <% } %>
@@ -120,14 +120,14 @@
                                 <div class="inputContainer">
                                     <i class="far fa-check-circle fa-check-discount"></i>
                                     <i class="far fa-times-circle fa-cross-discount" style="display: block;"></i>
-                                    <input type="number" id="discount" class="input is-invalid" name="discount" placeholder="Ej: 15" value="<%= locals.old ? old.discount : null %>">
+                                    <input autocomplete="off" type="number" id="discount" class="input is-invalid" name="discount" placeholder="Ej: 15" value="<%= locals.old ? old.discount : null %>">
                                 </div>
                                 <span class="error-message" id="discountErrors"><%= errors.discount.msg %> </span>
                                 <% } else { %>
                                     <div class="inputContainer">
                                         <i class="far fa-check-circle fa-check-discount"></i>
                                         <i class="far fa-times-circle fa-cross-discount"></i>
-                                        <input type="number" id="discount" class="input" name="discount" placeholder="Ej: 15" value="<%= locals.old ? old.discount : null %>">
+                                        <input autocomplete="off" type="number" id="discount" class="input" name="discount" placeholder="Ej: 15" value="<%= locals.old ? old.discount : null %>">
                                 </div>
                                 <span class="error-message" id="discountErrors"></span> 
                                 <% } %>

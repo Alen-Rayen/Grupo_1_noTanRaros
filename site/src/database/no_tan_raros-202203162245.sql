@@ -98,17 +98,17 @@ DROP TABLE IF EXISTS `order_items`;
 CREATE TABLE `order_items` (
   `id` int(12) unsigned NOT NULL AUTO_INCREMENT,
   `product_id` int(12) unsigned NOT NULL,
-  `size_id` int(12) unsigned NOT NULL,
   `order_id` int(12) unsigned NOT NULL,
   `quantity` int(12) unsigned NOT NULL,
+  `user_id` int(12) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_66` (`product_id`),
   KEY `FK_77` (`order_id`),
-  KEY `FK_94` (`size_id`),
-  CONSTRAINT `FK_64` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-  CONSTRAINT `FK_75` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
-  CONSTRAINT `FK_92` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  KEY `order_items_FK` (`user_id`),
+  CONSTRAINT `FK_64` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_75` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `order_items_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,7 +134,7 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`),
   KEY `FK_73` (`user_id`),
   CONSTRAINT `FK_71` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,7 +169,7 @@ CREATE TABLE `products` (
   CONSTRAINT `FK_35` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`id`),
   CONSTRAINT `FK_57` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
   CONSTRAINT `FK_89` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +178,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Remera Evangelion Eva-01 Blanca',9,23,2,4000.00,5,'Remera Evangelion color blanco 100% algodon original'),(2,'Remera Freezer Dragon Ball Rosa',10,1,2,2000.00,5,'morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum'),(14,'Gorro de Lana One Piece Negro Original',8,10,19,6000.00,5,'Gorro one piece excelente calidad.'),(25,'Figura Goku Kaio Ken DragonBall',1,1,26,10000.00,20,'Figura original importada linea Dragon Ball - Goku Kaio-Ken'),(26,'Zapatillas Custom Akatsuki Jutsu It',8,6,7,20000.00,15,'Zapatillas Nike Jordan custom Akatsuki Importadas Originales.'),(35,'Zapatillas Custom DragonBall Goku',9,1,7,18000.00,20,'Zapatillas Nike Jordan Originales - Diseño custom Dragon Ball Goku'),(37,'Capa Legión de Reconocimiento AOT',5,2,16,6000.00,10,'Capa original color verde Legión de Reconocimiento Attack On Titan.'),(38,'Medias \'Can I Borrow a Feeling\' Simpsons',14,19,6,850.00,10,'Medias de los Simpsons - Kirk Van Houten - \"Can I Borrow  a Feeling\" 100% algodón.'),(41,'Yu-Gi-Oh! Egyptian Gods DeckSet Original',2,16,40,7000.00,15,'Deck Set Original Importado Yu-Gi-Oh Dioses Egipcios Slifer & Obelisk'),(42,'Gorro Original Teemo - League of Legends',14,18,19,5000.00,10,'Gorro Original 100% Algodón - Teemo League of Legends'),(43,'Gorra Plana - Capsule Corp© - DragonBall',2,1,19,3000.00,30,'Gorra Plana color azul - Capsule Corp ©'),(45,'Remera Azul - Drunk Rock-Lee - Naruto',2,6,2,2000.00,5,'Remera color azul original Drunk \'Rock Lee\' Naruto'),(46,'Remera - \'Okay\'  - One Punch Man',9,11,2,2000.00,5,'Remera color blanco original - Saitama One Punch Man \'Okay\'. Excelente calidad'),(48,'Zapatillas Custom - Tanjiro Water & Sun',5,5,7,20000.00,10,'Zapatillas Custom Importadas Demon Slayer - Tanjiro Water & Sun. Excelente calidad'),(49,'Remera Negra - Capsule Corp© - Dragon Ball',8,1,2,2000.00,5,'Remera Capsule Corp© - Dragon Ball Original - Excelente Calidad'),(50,'Remera Negra One Piece - Monkey D. Luffy',8,10,2,2000.00,5,'Remera Negra One Piece Moneky D. Luffy Excelente Calidad.'),(51,'Remera Negra Obito & Kakashi - Naruto',8,6,2,2000.00,5,'Remera Obito & Kakashi - Naruto Shippuden - Excelente Calidad'),(52,'Zapatillas Custom - Nezuko - Demon Slayer',10,5,7,20000.00,5,'Zapatillas Custom - Nezuko - Demon Slayer - Importadas - Excelente Calidad'),(53,'Medias - Simpsons Homero en Arbusto',5,19,6,700.00,20,'Medias Verdes - Homero en los arbustos - 100% ALGODON'),(54,'Figura Brolly SSJ - Dragon Ball Z',2,1,26,10000.00,20,'Figura Brolly SSJ - Dragon Ball Z - Original Importado'),(55,'Figura - Levi Sentado - Shingeki No Kyojin',14,2,26,10000.00,10,'Figura - Levi Sentado - Shingeki No Kyojin - Original Importado'),(57,'Figura - Kame Sennin - Dragon Ball',7,1,26,12000.00,5,'Figura - Kame Sennin - Dragon Ball - Original Importado'),(58,'Figura - Baby Yoda - The Mandalorian',5,22,26,8000.00,5,'Figura - Baby Yoda(Grogu) - The Mandalorian - Original Importado'),(60,'FIGURA - ITACHU UCHIHA - NARUTO SHIPPUDEN',8,6,26,20000.00,5,'FIGURA - ITACHU UCHIHA - NARUTO SHIPPUDEN -ORIGINAL IMPORTADO DE JAPON');
+INSERT INTO `products` VALUES (1,'Remera Evangelion Eva-01 Blanca',9,23,2,4000.00,5,'Remera Evangelion color blanco 100% algodon original'),(2,'Remera Freezer Dragon Ball Rosa',10,1,2,2000.00,5,'morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum'),(14,'Gorro de Lana One Piece Negro Original',8,10,19,6000.00,5,'Gorro one piece excelente calidad.'),(25,'Figura Goku Kaio Ken DragonBall',1,1,26,10000.00,20,'Figura original importada linea Dragon Ball - Goku Kaio-Ken'),(26,'Zapatillas Custom Akatsuki Jutsu It',8,6,7,20000.00,15,'Zapatillas Nike Jordan custom Akatsuki Importadas Originales.'),(35,'Zapatillas Custom DragonBall Goku',9,1,7,18000.00,20,'Zapatillas Nike Jordan Originales - Diseño custom Dragon Ball Goku'),(37,'Capa Legión de Reconocimiento AOT',5,2,16,6000.00,10,'Capa original color verde Legión de Reconocimiento Attack On Titan.'),(38,'Medias \'Can I Borrow a Feeling\' Simpsons',14,19,6,1000.00,20,'Medias de los Simpsons - Kirk Van Houten - \"Can I Borrow  a Feeling\" 100% algodón. Originales.'),(41,'Yu-Gi-Oh! Egyptian Gods DeckSet Original',2,16,40,7000.00,15,'Deck Set Original Importado Yu-Gi-Oh Dioses Egipcios Slifer & Obelisk'),(42,'Gorro Original Teemo - League of Legends',14,18,19,5000.00,10,'Gorro Original 100% Algodón - Teemo League of Legends'),(43,'Gorra Plana - Capsule Corp© - DragonBall',2,1,19,3000.00,30,'Gorra Plana color azul - Capsule Corp ©'),(45,'Remera Azul - Drunk Rock-Lee - Naruto',2,6,2,2000.00,5,'Remera color azul original Drunk \'Rock Lee\' Naruto'),(46,'Remera - \'Okay\'  - One Punch Man',9,11,2,2000.00,5,'Remera color blanco original - Saitama One Punch Man \'Okay\'. Excelente calidad'),(48,'Zapatillas Custom - Tanjiro Water & Sun',5,5,7,20000.00,10,'Zapatillas Custom Importadas Demon Slayer - Tanjiro Water & Sun. Excelente calidad'),(49,'Remera Negra - Capsule Corp© - Dragon Ball',8,1,2,2000.00,5,'Remera Capsule Corp© - Dragon Ball Original - Excelente Calidad'),(50,'Remera Negra One Piece - Monkey D. Luffy',8,10,2,2000.00,5,'Remera Negra One Piece Moneky D. Luffy Excelente Calidad.'),(51,'Remera Negra Obito & Kakashi - Naruto',8,6,2,2000.00,5,'Remera Obito & Kakashi - Naruto Shippuden - Excelente Calidad'),(52,'Zapatillas Custom - Nezuko - Demon Slayer',10,5,7,20000.00,5,'Zapatillas Custom - Nezuko - Demon Slayer - Importadas - Excelente Calidad'),(54,'Figura Brolly SSJ - Dragon Ball Z',2,1,26,10000.00,20,'Figura Brolly SSJ - Dragon Ball Z - Original Importado'),(55,'Figura - Levi Sentado - Shingeki No Kyojin',14,2,26,10000.00,10,'Figura - Levi Sentado - Shingeki No Kyojin - Original Importado'),(57,'Figura - Kame Sennin - Dragon Ball',7,1,26,12000.00,5,'Figura - Kame Sennin - Dragon Ball - Original Importado'),(58,'Figura - Baby Yoda - The Mandalorian',5,22,26,8000.00,5,'Figura - Baby Yoda(Grogu) - The Mandalorian - Original Importado'),(60,'FIGURA - ITACHI UCHIHA - NARUTO SHIPPUDEN',8,6,26,20000.00,5,'FIGURA - ITACHU UCHIHA - NARUTO SHIPPUDEN -ORIGINAL IMPORTADO DE JAPON');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,7 +196,7 @@ CREATE TABLE `products_images` (
   PRIMARY KEY (`id`),
   KEY `FK_52` (`productId`),
   CONSTRAINT `FK_50` FOREIGN KEY (`productId`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -205,7 +205,7 @@ CREATE TABLE `products_images` (
 
 LOCK TABLES `products_images` WRITE;
 /*!40000 ALTER TABLE `products_images` DISABLE KEYS */;
-INSERT INTO `products_images` VALUES (1,'TS809ANGE_1copy_large.png',1),(2,'TS7XSMDBZ_1copy_large.png',2),(3,'1644506771371_img_.jpg',14),(19,'1644584728394_img_.jpg',25),(20,'1644584728396_img_.jpg',25),(21,'1644584728396_img_.jpg',25),(22,'1644584728398_img_.jpg',25),(24,'1644597975424_img_.jpg',26),(25,'1644597975426_img_.jpg',26),(26,'1644597975427_img_.jpg',26),(27,'1644597975429_img_.jpg',26),(36,'1644601591002_img_.jpeg',35),(37,'1644601591006_img_.jpeg',35),(38,'1644601591032_img_.jpeg',35),(41,'1644604990391_img_.jpg',37),(42,'1644604990392_img_.jpg',37),(43,'1644604990394_img_.jpg',37),(44,'1644604990396_img_.jpg',37),(48,'1646583192379_img_.jpg',41),(49,'1646583192380_img_.jpg',41),(50,'1646583192381_img_.jpg',41),(51,'1646583192381_img_.jpg',41),(54,'1646693162408_img_.jpg',38),(55,'1646839477555_img_.png',42),(56,'1646843923610_img_.png',43),(58,'1646844770436_img_.png',45),(59,'1646844930497_img_.png',46),(61,'1646846035432_img_.png',48),(62,'1646846035424_img_.png',48),(63,'1646846035420_img_.png',48),(64,'1646846035406_img_.png',48),(66,'1646846389501_img_.png',49),(67,'1646846484473_img_.png',50),(68,'1646846586677_img_.jpg',51),(69,'1646846787742_img_.png',52),(70,'1646846787729_img_.png',52),(71,'1646846787732_img_.png',52),(72,'1646846787703_img_.png',52),(74,'1646847153184_img_.png',53),(75,'1646847386357_img_.jpg',54),(76,'1646847386355_img_.jpg',54),(77,'1646847386359_img_.jpg',54),(78,'1646847386360_img_.jpg',54),(81,'1646847553875_img_.jpg',55),(82,'1646847553877_img_.jpg',55),(83,'1646847553878_img_.jpg',55),(84,'1646847553879_img_.jpg',55),(93,'1646847779579_img_.jpg',57),(94,'1646847779578_img_.jpg',57),(95,'1646847779577_img_.jpg',57),(96,'1646847779580_img_.jpg',57),(98,'1646847980535_img_.jpg',58),(99,'1646847980532_img_.jpg',58),(100,'1646847980530_img_.jpg',58),(101,'1646847980536_img_.jpg',58),(147,'1646848488450_img_.jpg',60),(148,'1646848488451_img_.jpg',60),(149,'1646848488452_img_.jpg',60),(150,'1646848488453_img_.jpg',60);
+INSERT INTO `products_images` VALUES (1,'TS809ANGE_1copy_large.png',1),(2,'TS7XSMDBZ_1copy_large.png',2),(3,'1644506771371_img_.jpg',14),(19,'1644584728394_img_.jpg',25),(20,'1644584728396_img_.jpg',25),(21,'1644584728396_img_.jpg',25),(22,'1644584728398_img_.jpg',25),(24,'1644597975424_img_.jpg',26),(25,'1644597975426_img_.jpg',26),(26,'1644597975427_img_.jpg',26),(27,'1644597975429_img_.jpg',26),(36,'1644601591002_img_.jpeg',35),(37,'1644601591006_img_.jpeg',35),(38,'1644601591032_img_.jpeg',35),(41,'1644604990391_img_.jpg',37),(42,'1644604990392_img_.jpg',37),(43,'1644604990394_img_.jpg',37),(44,'1644604990396_img_.jpg',37),(48,'1646583192379_img_.jpg',41),(49,'1646583192380_img_.jpg',41),(50,'1646583192381_img_.jpg',41),(51,'1646583192381_img_.jpg',41),(54,'1646693162408_img_.jpg',38),(55,'1646839477555_img_.png',42),(56,'1646843923610_img_.png',43),(58,'1646844770436_img_.png',45),(59,'1646844930497_img_.png',46),(61,'1646846035432_img_.png',48),(62,'1646846035424_img_.png',48),(63,'1646846035420_img_.png',48),(64,'1646846035406_img_.png',48),(66,'1646846389501_img_.png',49),(67,'1646846484473_img_.png',50),(68,'1646846586677_img_.jpg',51),(69,'1646846787742_img_.png',52),(70,'1646846787729_img_.png',52),(71,'1646846787732_img_.png',52),(72,'1646846787703_img_.png',52),(75,'1646847386357_img_.jpg',54),(76,'1646847386355_img_.jpg',54),(77,'1646847386359_img_.jpg',54),(78,'1646847386360_img_.jpg',54),(81,'1646847553875_img_.jpg',55),(82,'1646847553877_img_.jpg',55),(83,'1646847553878_img_.jpg',55),(84,'1646847553879_img_.jpg',55),(93,'1646847779579_img_.jpg',57),(94,'1646847779578_img_.jpg',57),(95,'1646847779577_img_.jpg',57),(96,'1646847779580_img_.jpg',57),(98,'1646847980535_img_.jpg',58),(99,'1646847980532_img_.jpg',58),(100,'1646847980530_img_.jpg',58),(101,'1646847980536_img_.jpg',58),(147,'1646848488450_img_.jpg',60),(148,'1646848488451_img_.jpg',60),(149,'1646848488452_img_.jpg',60),(150,'1646848488453_img_.jpg',60);
 /*!40000 ALTER TABLE `products_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -276,7 +276,7 @@ CREATE TABLE `users` (
   `rol` varchar(12) NOT NULL,
   `avatar` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -285,7 +285,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin','Admin','admin@email.com','$2a$12$OkBn6klGKa5wpM2zfk6W0u/1R08iuwT7zGSzmF3QsJ1jIs8rqGdW6','ROL_ADMIN','1647093792273_img.jpg'),(29,'Usuario','De Prueba','email@emaildfg.com','$2a$12$EbDPs35HemhbPkxo6EYDbOt/UcJ7SnpdFVCf8CkhslaRdUg7eluwW','ROL_USER','1647093930424_img.jpg');
+INSERT INTO `users` VALUES (1,'Admin','Admin','admin@email.com','$2a$12$OkBn6klGKa5wpM2zfk6W0u/1R08iuwT7zGSzmF3QsJ1jIs8rqGdW6','ROL_ADMIN','1647456226819_img.png'),(32,'Prueba','ComisionDoce','pruebacomision12@gmail.com','$2a$12$./41dEmty0xDzXgWrI2s8OU.M/5OCq6cza5jGAdEwpImonbak0Cpm','ROL_USER','1647458710714_img.jpg');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,4 +302,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-12 11:08:58
+-- Dump completed on 2022-03-16 22:45:42

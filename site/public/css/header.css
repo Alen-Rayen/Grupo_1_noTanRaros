@@ -6,6 +6,7 @@ main {
 
 header {
     z-index: 999999;
+    display: block;
 }
 
 .session {

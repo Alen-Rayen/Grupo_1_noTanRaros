@@ -5,77 +5,39 @@
 
 <body>
 
-    
     <%- include('../partials/header.ejs')  %>
 
     <main class="cart-main">
 
+        <h1 class="cart-title">Tu Carrito</h1>
 
-        <section>
-            <nav class="SubTitle">
-                <a href="#">Carrito</a>
-                <a href="#">Favoritos</a>
-                <hr class="linea-sup">
-            </nav>
-            
-           <!--  <button class="borde"></button> -->
-           
-            <article class="product-container">
-                <img src="/images/remeraLOL.jpg" alt="Foto remeraLOL">
-                <h2>Remera League Of Legends</h2>
-                <h3>$2.100</h3>
-                <p>por unidad $1.050</p>
-            </article>
-                <div class="contador">
-                <input type="number" id="number" value="1" min="1" max="100">
-                </div>
-                <div class="3-puntos">
+        <div class="cart-container">
+
+            <div class="cart-items-container" id="carrito">
+
                 
-                </div>
-                <hr class="linea">
 
-            <article class="product-container">
-                <img src="/images/mousePad.jpeg" alt="Foto pantalonG" style="width: 110px; height: 110px;">
-                <h2>Mouse Pad Genshin Impact</h2>
-                <h3>$2.900</h3>
-                <p>por unidad $1.450</p>
-            </article>
-                <div class="contador">
-                <input type="number" id="number" value="1" min="1" max="100">
-                </div>
-                <hr class="linea">
-
-            <article class="product-container">
-                <img src="/images/collarGOT.jpeg" alt="Foto remeraGOT">
-                <h2>Collar Game Of Thones</h2>
-                <h3>$2.800</h3>
-                <p>por unidad $1.400</p>
-            </article>
-                <div class="contador">
-                <input type="number" id="number" value="1" min="1" max="100">
-                </div>
-                <hr class="linea">
-
-            <article class="product-container">
-                <img src="/images/cuadroCOD.jpeg" alt="Foto mediasLOL" >
-                <h2>Cuadro decorativo COD</h2>
-                <h3>$3.000</h3>
-                <p>por unidad $1.500</p>
-            </article>
-                <div class="contador">
-                <input type="number" id="number" value="1" min="1" max="100">
-                </div>
-            <hr class="linea">
-            <article class="total-container">
-            <div class="total">
-            <h4>Total</h4>
-            <h5>$10.800</h5>
             </div>
-            <button class="boton-compra">Comprar</button>
-            </article>
-        </main>
+
+            <h2 class="total-amount">TOTAL:</h2>
+
+            <div class="cart-options">
+                <div class="promo-code">
+                    <input type="text" placeholder="Ingresa tu codigo" class="promo-code-input">
+                    <button type="submit" class="enviar-codigo-boton">ENVIAR</button>
+                </div>
+                <div class="purchase-options">
+                    <button class="purchase-button">COMPRAR</button>
+                    <button class="delete-all-button" onclick="emptyCart()">BORRAR TODO</button>
+                </div>
+            </div>
+
+        </div>
+        
+    </main>
     
-        <%- include('../partials/footer.ejs')  %> 
+    <%- include('../partials/footer.ejs')  %> 
+    <script src="/javascript/carrito.js"></script>
     
 
 </body>

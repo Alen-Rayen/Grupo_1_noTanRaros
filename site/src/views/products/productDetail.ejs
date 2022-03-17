@@ -87,7 +87,9 @@
 
                 <div class="opciones-compra">
                     <button class="comprar-ahora">Comprar Ahora</button>
-                    <button class="agregar-al-carro">Agregar al Carrito</button>
+                    <% if (session.user) { %>
+                        <button class="agregar-al-carro" onclick="addItem('<%=product.id%>')">Agregar al Carrito</button>
+                    <% } %>
                 </div>
                 <% if (session.user && session.user.rol === "ROL_ADMIN") { %>
                     <div class="product-manage">
@@ -110,6 +112,7 @@
     </main>
 
     <%- include('../partials/footer.ejs')  %> 
+    <script src="/javascript/carrito.js"></script>
     <script src="/javascript/productDetail.js"></script>
 </body>
 

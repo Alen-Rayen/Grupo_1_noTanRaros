@@ -26,14 +26,14 @@
                             <div class="inputContainer">
                                 <i class="far fa-check-circle fa-check-name"></i>
                                 <i class="far fa-times-circle fa-cross-name" style="display: block;"></i>
-                                <input class="input is-invalid" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" value="<%= locals.old ? old.nombre : null %>">
+                                <input autocomplete="off" class="input is-invalid" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" value="<%= locals.old ? old.nombre : null %>">
                             </div>
                             <span class="error-message" id="nameErrors"><%= errors.nombre.msg %></span>
                         <% } else { %>
                             <div class="inputContainer">
                                 <i class="far fa-check-circle fa-check-name"></i>
                                 <i class="far fa-times-circle fa-cross-name"></i>
-                                <input class="input" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" value="<%= locals.old ? old.nombre : null %>">
+                                <input autocomplete="off" class="input" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" value="<%= locals.old ? old.nombre : null %>">
                             </div>
                             <span class="error-message" id="nameErrors"></span>
                         <% } %>
@@ -44,14 +44,14 @@
                             <div class="inputContainer">
                                 <i class="far fa-check-circle fa-check-lastName"></i>
                                 <i class="far fa-times-circle fa-cross-lastName" style="display: block;"></i>
-                                <input class="input is-invalid" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" value="<%= locals.old ? old.apellido : null %>">
+                                <input autocomplete="off" class="input is-invalid" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" value="<%= locals.old ? old.apellido : null %>">
                             </div>
                             <span class="error-message" id="lastNameErrors"><%= errors.apellido.msg %></span>
                         <% } else { %>
                             <div class="inputContainer">
                                 <i class="far fa-check-circle fa-check-lastName"></i>
                                 <i class="far fa-times-circle fa-cross-lastName"></i>
-                                <input class="input" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" value="<%= locals.old ? old.apellido : null %>">
+                                <input autocomplete="off" class="input" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" value="<%= locals.old ? old.apellido : null %>">
                             </div>
                             <span class="error-message" id="lastNameErrors"></span>
                         <% } %>
@@ -62,14 +62,14 @@
                             <div class="inputContainer">
                                 <i class="far fa-check-circle fa-check-email"></i>
                                 <i class="far fa-times-circle fa-cross-email" style="display: block;"></i>
-                                <input class="input is-invalid" type="email" name="email" id="email" placeholder="Ingrese su correo electrónico" value="<%= locals.old ? old.email : null %>">
+                                <input autocomplete="off" class="input is-invalid" type="email" name="email" id="email" placeholder="Ingrese su correo electrónico" value="<%= locals.old ? old.email : null %>">
                             </div>
                             <span class="error-message" id="emailErrors"><%= errors.email.msg %></span>
                         <% } else { %>
                             <div class="inputContainer">
                                 <i class="far fa-check-circle fa-check-email"></i>
                                 <i class="far fa-times-circle fa-cross-email"></i>
-                                <input class="input" type="email" name="email" id="email" placeholder="Ingrese su correo electrónico" value="<%= locals.old ? old.email : null %>">
+                                <input autocomplete="off" class="input" type="email" name="email" id="email" placeholder="Ingrese su correo electrónico" value="<%= locals.old ? old.email : null %>">
                             </div>
                             <span class="error-message" id="emailErrors"></span>
                         <% } %>
@@ -81,7 +81,7 @@
                                 <i class="fas fa-eye" id="btn-pass-1"></i>
                                 <i class="far fa-check-circle fa-check-pass"></i>
                                 <i class="far fa-times-circle fa-cross-pass" style="display: block;"></i>
-                                <input class="input is-invalid" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
+                                <input autocomplete="off" class="input is-invalid" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
                             </div>
                             <span class="error-message" id="passErrors"><%= errors.pass.msg %></span>
                         <% } else { %>
@@ -89,7 +89,7 @@
                                 <i class="fas fa-eye" id="btn-pass-1"></i>
                                 <i class="far fa-check-circle fa-check-pass"></i>
                                 <i class="far fa-times-circle fa-cross-pass"></i>
-                                <input class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
+                                <input autocomplete="off" class="input" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
                             </div>
                             <span class="error-message" id="passErrors"></span>
                         <% } %>
@@ -101,7 +101,7 @@
                                 <i class="fas fa-eye" id="btn-pass-2"></i>
                                 <i class="far fa-check-circle fa-check-pass2"></i>
                                 <i class="far fa-times-circle fa-cross-pass2" style="display: block;"></i>
-                                <input class="input is-invalid" type="password" name="pass2" id="pass2" placeholder="Re-ingresa la contraseña">
+                                <input autocomplete="off" class="input is-invalid" type="password" name="pass2" id="pass2" placeholder="Re-ingresa la contraseña">
                             </div>
                             <span class="error-message" id="pass2Errors"><%= errors.pass2.msg %></span>
                         <% } else { %>
@@ -109,7 +109,7 @@
                                 <i class="fas fa-eye" id="btn-pass-2"></i>
                                 <i class="far fa-check-circle fa-check-pass2"></i>
                                 <i class="far fa-times-circle fa-cross-pass2"></i>
-                                <input class="input" type="password" name="pass2" id="pass2" placeholder="Re-ingresa la contraseña">
+                                <input autocomplete="off" class="input" type="password" name="pass2" id="pass2" placeholder="Re-ingresa la contraseña">
                             </div>
                             <span class="error-message" id="pass2Errors"></span>
                         <% } %>

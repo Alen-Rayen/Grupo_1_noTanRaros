@@ -17,7 +17,7 @@ let controller = {
     },
     processLogin: (req, res) => {
         let errors = validationResult(req);
-
+        
         if(errors.isEmpty()){
             db.User.findOne({
                 where: {
@@ -33,7 +33,10 @@ let controller = {
                     avatar: user.avatar,
                     rol: user.rol
                 }
-
+                
+                
+                req.session.cart = [];
+                
                 if(req.body.remember){
                     const TIME_IN_MILISECONDS = 60000;
                     res.cookie("userNoTanRaros", req.session.user, {
@@ -45,8 +48,46 @@ let controller = {
                 
                 res.locals.user = req.session.user;
 
-                res.redirect('/')
-            })
+                db.Order.findOne({
+                    where: {
+                        user_id: req.session.user.id,
+                        state: 'pending'
+                    },
+                    include: [
+                        {
+                            association: 'order_items',
+                            include: [
+                                {
+                                    association: 'products',
+                                    include: ['products_images']
+
+                                }
+                            ]
+                        }
+                    ]
+                }).then(order => {
+
+                    if(order){
+                        order.order_items.forEach(item => {
+                            let product = {
+                                id: item.product_id,
+                                name: item.products.name,
+                                price: item.products.price,
+                                discount: item.products.discount,
+                                image: item.products.products_images[0].image,
+                                amount: +item.quantity,
+                                total: +item.products.price * item.quantity,
+                                order_id: item.id
+                            }
+                            req.session.cart.push(product)
+                        });
+                    }
+                    res.redirect('/')
+
+                })
+
+
+            }).catch(error => console.log(error))
         }else{
             res.render('users/login', {
                 title: 'Login | NoTanRaros',
