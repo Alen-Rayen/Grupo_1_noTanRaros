@@ -186,7 +186,7 @@ span.error-message {
 .input {
     display: flex;
     flex-direction: column;
-    margin: .5rem;
+    margin: .5rem auto;
     width: 90%;
     background-color: #4b4b4b;
     color: rgb(245, 245, 245);

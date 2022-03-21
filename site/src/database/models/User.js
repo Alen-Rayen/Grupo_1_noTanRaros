@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(200)
         }
     }, {
-        tablename: 'users',
+        tableName: 'users',
         timestamps: false
     })
 
